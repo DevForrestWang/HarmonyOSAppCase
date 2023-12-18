@@ -7,7 +7,7 @@ export  default class CConstants {
   static readonly UIKIT_TAB_INDEX = 0
 
   // Case tab index
-  static readonly CASE_TAB_INDEX = 0
+  static readonly CASE_TAB_INDEX = 1
 
   // Common Spacing of Components
   static readonly COMMON_SPACE = 10;
