@@ -1,12 +1,20 @@
-import CConstants from '../common/constants/CConstants'
+import CC from '../common/constants/CConstants'
+import TextCommonWidget from './TextCommonWidget'
 
 @Component
 export default struct UIKitView {
 
   build() {
-    Column()
-      .width(CConstants.FULL_PARENT)
-      .height(CConstants.FULL_PARENT)
-      .backgroundColor(Color.Orange)
+    Column(){
+      TextCommonWidget({
+        textImage:$r('app.media.about'),
+        title: 'Item',
+        onItemClick: () => {
+        }
+      })
+    }
+      .width(CC.FULL_PARENT)
+      .height(CC.FULL_PARENT)
+      .backgroundColor('#F5F5F5')
   }
 }

@@ -25,4 +25,10 @@ export  default class CConstants {
     return `${value}fp`
   }
 
+  // 添加图片资源
+  public static img(name: string): Resource {
+    let imgName = `app.media.${name}`
+    return $r('app.media.right_grey')
+  }
+
 }
