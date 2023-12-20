@@ -1,4 +1,6 @@
-import CConstants from '../common/constants/CConstants';
+import CConstants from '../common/constants/CConstants'
+import UIKitView from  '../view/UIKitView'
+import CaseView from '../view/CaseView'
 
 @Entry
 @Component
@@ -40,13 +42,13 @@ struct MainPage {
       controller: this.tabsController
     }) {
       TabContent() {
-        Column().width(CConstants.FULL_PARENT).height(CConstants.FULL_PARENT).backgroundColor(Color.Green)
+        UIKitView()
       }
       .backgroundColor('#F1F3F5')
       .tabBar(this.TabBuilder('UIKit', CConstants.UIKIT_TAB_INDEX, $r('app.media.home_selected'), $r('app.media.home_normal')))
 
       TabContent() {
-        Column().width(CConstants.FULL_PARENT).height(CConstants.FULL_PARENT).backgroundColor(Color.Red)
+        CaseView()
       }
       .backgroundColor('#F1F3F5')
       .tabBar(this.TabBuilder('Case', CConstants.CASE_TAB_INDEX, $r('app.media.mine_selected'), $r('app.media.mine_normal')))
