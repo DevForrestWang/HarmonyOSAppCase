@@ -17,15 +17,15 @@ struct MainPage {
   @Builder TabBuilder(title: string, index: number, selectImg: Resource, normalImg: Resource) {
     Column() {
       Image(this.currentIndex === index ? selectImg : normalImg)
-        .width('25vp')
-        .height('25vp')
+        .width(CConstants.vp(25))
+        .height(CConstants.vp(25))
       Text(title)
-        .margin({top: '4vp'})
-        .fontSize('10fp')
+        .margin({top: CConstants.vp(4)})
+        .fontSize(CConstants.vp(10))
         .fontColor(this.currentIndex === index ? "#1698CE" : "#6B6B6B")
     }
     .justifyContent(FlexAlign.Center)
-    .height('56vp')
+    .height(CConstants.vp(56))
     .width(CConstants.FULL_PARENT)
     .onClick(() => {
       this.currentIndex = index;
@@ -40,22 +40,20 @@ struct MainPage {
       controller: this.tabsController
     }) {
       TabContent() {
-        Column().width('100%').height('100%').backgroundColor(Color.Green)
+        Column().width(CConstants.FULL_PARENT).height(CConstants.FULL_PARENT).backgroundColor(Color.Green)
       }
-      .padding({ left: '0vp', right: '0vp'})
       .backgroundColor('#F1F3F5')
       .tabBar(this.TabBuilder('UIKit', CConstants.UIKIT_TAB_INDEX, $r('app.media.home_selected'), $r('app.media.home_normal')))
 
       TabContent() {
-        Column().width('100%').height('100%').backgroundColor(Color.Red)
+        Column().width(CConstants.FULL_PARENT).height(CConstants.FULL_PARENT).backgroundColor(Color.Red)
       }
-      .padding({ left: '0vp', right: '0vp'})
       .backgroundColor('#F1F3F5')
       .tabBar(this.TabBuilder('Case', CConstants.CASE_TAB_INDEX, $r('app.media.mine_selected'), $r('app.media.mine_normal')))
     }
     .width(CConstants.FULL_PARENT)
     .backgroundColor(Color.White)
-    .barHeight('56vp')
+    .barHeight(CConstants.vp(56))
     .barMode(BarMode.Fixed)
     .onChange((index: number) => {
       this.currentIndex = index;

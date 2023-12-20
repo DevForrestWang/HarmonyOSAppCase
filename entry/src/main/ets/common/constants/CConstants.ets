@@ -10,8 +10,19 @@ export  default class CConstants {
   static readonly CASE_TAB_INDEX = 1
 
   // Common Spacing of Components
-  static readonly COMMON_SPACE = 10;
+  static readonly COMMON_SPACE = 10
 
   // The width or height of the component is spread across the parent component.
   static readonly  FULL_PARENT = '100%'
+
+  // 添加单位:vp
+  public static vp(value: number): string {
+    return `${value}vp`
+  }
+
+  // 添加单位:vp
+  public static fp(value: number): string {
+    return `${value}fp`
+  }
+
 }
