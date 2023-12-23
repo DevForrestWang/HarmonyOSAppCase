@@ -10,7 +10,10 @@ export  default class CConstants {
   static readonly CASE_TAB_INDEX = 1
 
   // Common Spacing of Components
-  static readonly COMMON_SPACE = 10
+  static readonly SPACE = '12vp'
+
+  // Common Spacing of Components
+  static readonly BAR_HEIGHT = '56vp'
 
   // The width or height of the component is spread across the parent component.
   static readonly  FULL_PARENT = '100%'
@@ -23,12 +26,6 @@ export  default class CConstants {
   // 添加单位:vp
   public static fp(value: number): string {
     return `${value}fp`
-  }
-
-  // 添加图片资源
-  public static img(name: string): Resource {
-    let imgName = `app.media.${name}`
-    return $r('app.media.right_grey')
   }
 
 }

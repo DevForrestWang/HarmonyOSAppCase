@@ -1,20 +1,51 @@
 import CC from '../common/constants/CConstants'
 import TextCommonWidget from './TextCommonWidget'
+import mainViewModel from '../viewmodel/MainViewModel'
+import ItemModel from '../viewmodel/ItemDataModel'
 
 @Component
 export default struct UIKitView {
 
   build() {
-    Column(){
-      TextCommonWidget({
-        textImage:$r('app.media.about'),
-        title: 'Item',
-        onItemClick: () => {
+    Scroll() {
+
+      Column({space: CC.SPACE}){
+
+        Column(){
+          Text("UIKit")
+            .fontWeight(FontWeight.Medium)
+            .fontSize(CC.vp(24))
+            .padding({ top: CC.SPACE, bottom: CC.SPACE })
         }
-      })
-    }
-      .width(CC.FULL_PARENT)
+        .width(CC.FULL_PARENT)
+        .alignItems(HorizontalAlign.Center)
+
+        List() {
+
+          ForEach(mainViewModel.getUIKitData(), (item: ItemModel) => {
+
+            ListItem(){
+              TextCommonWidget({
+                textImage:item.img,
+                title: item.title,
+                onItemClick: () => {
+                  console.log(`click item ${item.title}`)
+                }
+              })
+            }
+
+          }, (item: ItemModel) => JSON.stringify(item))
+
+        }
+        .backgroundColor('#F5F5F5')
+        .width(CC.FULL_PARENT)
+        .padding({top: CC.vp(5), bottom: CC.vp(5)})
+        .margin({ bottom: CC.BAR_HEIGHT })
+
+      }
       .height(CC.FULL_PARENT)
-      .backgroundColor('#F5F5F5')
+
+    }
+
   }
 }
