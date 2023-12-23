@@ -1,4 +1,4 @@
-import CC from '../common/constants/CConstants'
+import CC from '../common/CConstants'
 
 /*
 定义组件的没一项

@@ -1,4 +1,4 @@
-import CC from '../common/constants/CConstants'
+import CC from '../common/CConstants'
 import UIKitView from  '../view/UIKitView'
 import CaseView from '../view/CaseView'
 

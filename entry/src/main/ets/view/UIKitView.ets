@@ -1,7 +1,8 @@
-import CC from '../common/constants/CConstants'
+import CC from '../common/CConstants'
 import TextCommonWidget from './TextCommonWidget'
 import mainViewModel from '../viewmodel/MainViewModel'
 import ItemModel from '../viewmodel/ItemDataModel'
+
 
 @Component
 export default struct UIKitView {
@@ -29,7 +30,7 @@ export default struct UIKitView {
                 textImage:item.img,
                 title: item.title,
                 onItemClick: () => {
-                  console.log(`click item ${item.title}`)
+                  console.log('xxxx')
                 }
               })
             }
