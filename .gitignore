@@ -9,3 +9,6 @@
 /.clang-format
 /.clang-tidy
 **/.test
+
+# OS X
+.DS_Store
