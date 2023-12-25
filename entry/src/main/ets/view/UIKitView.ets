@@ -2,7 +2,9 @@ import CC from '../common/CConstants'
 import TextCommonWidget from './TextCommonWidget'
 import mainViewModel from '../viewmodel/MainViewModel'
 import ItemModel from '../viewmodel/ItemDataModel'
-
+import Utils from  '../common/FWUtils'
+import router from '@ohos.router';
+import Log from '../common/FWLog'
 
 @Component
 export default struct UIKitView {
@@ -30,7 +32,25 @@ export default struct UIKitView {
                 textImage:item.img,
                 title: item.title,
                 onItemClick: () => {
-                  console.log('xxxx')
+
+                  let url = ''
+                  if ('基本语法' === item.title) {
+                    url = 'pages/FwBasicGrammarPage'
+                  }
+
+                  Log.debug('Push Page:' + url)
+
+                  if (url.length > 0) {
+                    router.pushUrl({
+                      url: url,
+                      params: {
+                        src: 'page params'
+                      }
+                    }).catch((error: Error) => {
+                      Log.error('IndexPage push error' + JSON.stringify(error) + ', URL:' + url);
+                    })
+                  }
+
                 }
               })
             }

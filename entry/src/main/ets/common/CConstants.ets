@@ -14,8 +14,11 @@ export  default class CConstants {
   // Common Spacing of Components
   static readonly SPACE = '12vp'
 
-  // Common Spacing of Components
+  // Table bar height
   static readonly BAR_HEIGHT = '56vp'
+
+  // Navigation bar height
+  static readonly NAV_BAR_HEIGHT = '140vp'
 
   // The width or height of the component is spread across the parent component.
   static readonly  FULL_PARENT = '100%'

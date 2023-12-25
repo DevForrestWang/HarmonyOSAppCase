@@ -1,6 +1,7 @@
 import CC from '../common/CConstants'
 import UIKitView from  '../view/UIKitView'
 import CaseView from '../view/CaseView'
+import router from '@ohos.router';
 
 @Entry
 @Component
