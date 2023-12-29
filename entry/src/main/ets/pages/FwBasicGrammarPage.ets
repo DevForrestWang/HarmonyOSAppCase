@@ -12,6 +12,27 @@ struct FwBasicGrammarPage {
   // 获取前一个页面的参数
   @State params: string = (router.getParams() as Record<string, string>)['src']
 
+
+  aboutToAppear() {
+    Log.debug("aboutToAppear")
+  }
+
+  aboutToDisappear() {
+    Log.debug("aboutToDisappear")
+  }
+
+  onPageShow(){
+    Log.debug("onPageShow")
+  }
+
+  onPageHide() {
+    Log.debug("onPageHide")
+  }
+
+  onBackPress() {
+    Log.debug("onBackPress")
+  }
+
   build() {
     Row(){
       Column(){

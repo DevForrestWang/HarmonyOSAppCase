@@ -21,6 +21,7 @@
         "startWindowIcon": "$media:logo",
         "startWindowBackground": "$color:start_window_background",
         "exported": true,
+        "launchType": "singleton",
         "skills": [
           {
             "entities": [
