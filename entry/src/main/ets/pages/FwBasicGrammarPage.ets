@@ -33,24 +33,37 @@ struct FwBasicGrammarPage {
     Log.debug("onBackPress")
   }
 
+  // CustomBuilder类型的菜单栏
+  @Builder NavigationMenus() {
+    Row() {
+      Image($r('app.media.ic_birthdate'))
+        .size({ width: 24, height: 24 })
+      Image($r('app.media.ic_signature'))
+        .size({ width: 24, height: 24 })
+        .margin({ left: 5 })
+    }.justifyContent(FlexAlign.End)
+  }
+
   build() {
-    Row(){
-      Column(){
-        Button('Back')
-          .fontSize(CC.vp(16))
-          .width(CC.vp(80))
-          .height(CC.vp(44))
-          .backgroundColor('#007DFF')
-          .onClick(()=> {
-            Log.debug('Params: ' + this.params)
-            router.back()
-          })
+
+    Column() {
+      Navigation() {
+        Text("首页内容")
+          .textAlign(TextAlign.Center)
+          .fontSize(30)
+          .size({ width: CC.FULL_PARENT, height: CC.FULL_PARENT })
+          .backgroundColor('#ffd4e9ee')
       }
-      .width(CC.FULL_PARENT)
-      .height(CC.NAV_BAR_HEIGHT)
+      .title("ArkUI")
+      .mode(NavigationMode.Stack)
+      .titleMode(NavigationTitleMode.Mini)
+      .hideBackButton(false)
+      .menus(this.NavigationMenus())
+      // .toolBar(this.NavigationToolbar())
+      .size({ width: CC.FULL_PARENT, height: CC.FULL_PARENT })
     }
+    .width(CC.FULL_PARENT)
     .height(CC.FULL_PARENT)
-    .backgroundColor('$F1F3F5')
   }
 
 }
