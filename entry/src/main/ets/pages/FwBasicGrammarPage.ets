@@ -12,7 +12,6 @@ struct FwBasicGrammarPage {
   // 获取前一个页面的参数
   @State params: string = (router.getParams() as Record<string, string>)['src']
 
-
   aboutToAppear() {
     Log.debug("aboutToAppear")
   }
@@ -44,6 +43,17 @@ struct FwBasicGrammarPage {
     }.justifyContent(FlexAlign.End)
   }
 
+  // 导航栏标题居中
+  @Builder NavigationTitle() {
+    Row() {
+      Text('ArkUI')
+        .fontSize(CC.vp(24))
+        .fontWeight(FontWeight.Medium)
+        .textAlign(TextAlign.Center)
+        .size({ width: '65%'})
+    }
+  }
+
   build() {
 
     Column() {
@@ -54,12 +64,12 @@ struct FwBasicGrammarPage {
           .size({ width: CC.FULL_PARENT, height: CC.FULL_PARENT })
           .backgroundColor('#ffd4e9ee')
       }
-      .title("ArkUI")
+      .title(this.NavigationTitle())
       .mode(NavigationMode.Stack)
       .titleMode(NavigationTitleMode.Mini)
       .hideBackButton(false)
       .menus(this.NavigationMenus())
-      // .toolBar(this.NavigationToolbar())
+      //.toolBar(this.NavigationToolbar())
       .size({ width: CC.FULL_PARENT, height: CC.FULL_PARENT })
     }
     .width(CC.FULL_PARENT)
