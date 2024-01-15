@@ -1,36 +1,9 @@
-import router from '@ohos.router';
 import CC from '../common/CConstants'
 import Log from '../common/FWLog'
 
-/**
- * 语法基本页面
- */
-@Entry
+/// 导航栏基本页面
 @Component
-struct FwBasicGrammarPage {
-
-  // 获取前一个页面的参数
-  @State params: string = (router.getParams() as Record<string, string>)['src']
-
-  aboutToAppear() {
-    Log.debug("aboutToAppear")
-  }
-
-  aboutToDisappear() {
-    Log.debug("aboutToDisappear")
-  }
-
-  onPageShow(){
-    Log.debug("onPageShow")
-  }
-
-  onPageHide() {
-    Log.debug("onPageHide")
-  }
-
-  onBackPress() {
-    Log.debug("onBackPress")
-  }
+export default  struct BaseNavigationView {
 
   // CustomBuilder类型的菜单栏
   @Builder NavigationMenus() {
@@ -78,7 +51,6 @@ struct FwBasicGrammarPage {
         .titleMode(NavigationTitleMode.Mini)
         .hideBackButton(false)
         .menus(this.NavigationMenus())
-        //.toolBar(this.NavigationToolbar())
         .size({ width: CC.FULL_PARENT, height: CC.FULL_PARENT })
       }
       .width(CC.FULL_PARENT)
