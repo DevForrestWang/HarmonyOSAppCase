@@ -1,6 +1,17 @@
 {
   "src": [
     "pages/MainPage",
-    "pages/FwBasicGrammarPage"
+    "pages/FwBasicGrammarPage",
+    "pages/FwTextDemoPage",
+    "pages/FwContainerDemoPage",
+    "pages/FwTextAreaDemoPage",
+    "pages/FwImageDemoPage",
+    "pages/FwTextInputDemoPage",
+    "pages/FwButtonDemoPage",
+    "pages/FwProgressDemoPage",
+    "pages/FwListDemoPage",
+    "pages/FwGridDemoPage",
+    "pages/FwSwiperDemoPage",
+    "pages/FwNetWorkDemoPage"
   ]
 }

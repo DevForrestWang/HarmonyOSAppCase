@@ -36,6 +36,28 @@ export default struct UIKitView {
                   let url = ''
                   if ('基本语法' === item.title) {
                     url = 'pages/FwBasicGrammarPage'
+                  } else if ('页面布局，容器' == item.title) {
+                    url = 'pages/FwContainerDemoPage'
+                  } else if ('UI组件：Text' == item.title) {
+                    url = 'pages/FwTextDemoPage'
+                  } else if ('UI组件：TextArea' == item.title) {
+                    url = 'pages/FwTextAreaDemoPage'
+                  } else if ('UI组件：Image' == item.title) {
+                    url = 'pages/FwImageDemoPage'
+                  } else if ('UI组件：TextInput' == item.title) {
+                    url = 'pages/FwTextInputDemoPage'
+                  } else if ('UI组件：Button' == item.title) {
+                    url = 'pages/FwButtonDemoPage'
+                  } else if ('UI组件：LoadingProgress' == item.title) {
+                    url = 'pages/FwProgressDemoPage'
+                  } else if ('UI组件：List' == item.title) {
+                    url = 'pages/FwListDemoPage'
+                  } else if ('UI组件：Grid' == item.title) {
+                    url = 'pages/FwGridDemoPage'
+                  } else if ('UI组件：Swiper' == item.title) {
+                    url = 'pages/FwSwiperDemoPage'
+                  } else if ('网络请求' == item.title) {
+                    url = 'pages/FwNetWorkDemoPage'
                   }
 
                   Log.debug('Push Page:' + url)
