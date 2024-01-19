@@ -6,11 +6,10 @@ import BaseNaView from '../view/BaseNavigationView'
 @Entry
 @Component
 struct FwContainerDemoPage {
-  @State message: string = 'Hello World'
 
   build() {
 
-    Scroll(){
+    Column(){
       BaseNaView({title: '页面布局，容器'}){
 
         Text('Flex 布局:')
@@ -67,10 +66,8 @@ struct FwContainerDemoPage {
         .padding(10)
         .backgroundColor(0xAFEEEE)
         .margin({top: CC.vp(10)})
-
       }
 
     }
-
   }
 }

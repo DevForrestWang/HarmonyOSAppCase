@@ -31,19 +31,25 @@ export default struct BaseNavigationView {
   }
 
   build() {
-    Column() {
-      Navigation() {
-        this.contentCloser()
+
+    Navigation() {
+      Scroll(){ // 内容过多时支持滚动
+        Column(){
+          this.contentCloser()
+        }
       }
-      .title(this.NavigationTitle())
-      .mode(NavigationMode.Stack)
-      .titleMode(NavigationTitleMode.Mini)
-      .hideBackButton(false)
-      .menus(this.NavigationMenus())
-      .size({ width: CC.FULL_PARENT, height: CC.FULL_PARENT })
+      .scrollable(ScrollDirection.Vertical) // 滚动方向纵向
+      .scrollBar(BarState.Off) // 滚动条常驻显示
+      .edgeEffect(EdgeEffect.Spring) // 滚动到边沿后回弹
     }
-    .width(CC.FULL_PARENT)
-    .height(CC.FULL_PARENT)
+    .title(this.NavigationTitle())
+    .mode(NavigationMode.Stack)
+    .titleMode(NavigationTitleMode.Mini)
+    .hideBackButton(false)
+    .menus(this.NavigationMenus())
+    .size({ width: CC.FULL_PARENT, height: CC.FULL_PARENT })
+    .backgroundColor('0xf4f4f7') // 显示不全时，背景颜色便于查看容器大小
+
   }
 
 }
