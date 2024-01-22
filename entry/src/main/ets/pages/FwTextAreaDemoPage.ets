@@ -5,7 +5,10 @@ import BaseNaView from '../view/BaseNavigationView'
 @Entry
 @Component
 struct FwTextAreaDemoPage {
-  @State message: string = 'Hello World'
+  @State text: string = ''
+
+  // 通过它设置TextArea组件的光标位置。
+  controller: TextAreaController = new TextAreaController()
 
   build() {
 
@@ -14,9 +17,41 @@ struct FwTextAreaDemoPage {
 
         Column({ space: 10 }) {
 
+          Text('Please enter content:')
+            .textAlign(TextAlign.Start)
+            .width(CC.FULL_PARENT)
+          TextArea({
+            placeholder: 'The text area can hold an unlimited amount of text. input your word...',
+            controller: this.controller
+          })
+            .placeholderFont({ size: 16, weight: 400 })
+            .width(CC.FULL_PARENT)
+            .height(100)
+            .margin({bottom: 10})
+            .fontSize(16)
+            .fontColor('#182431')
+            .backgroundColor('#FFFFFF')
+            .borderRadius(8)
+            .onChange((value: string) => {
+              this.text = value
+            })
+
+          Text('Input: ' + this.text)
+            .textAlign(TextAlign.Start)
+            .width(CC.FULL_PARENT)
+
+          Button('Set caretPosition 1')
+            .backgroundColor('#007DFF')
+            .margin(15)
+            .onClick(() => {
+              // 设置光标位置到第一个字符后
+              this.controller.caretPosition(1)
+            })
+
         }
         .width(CC.FULL_PARENT)
-        .padding({ left: 35, right: 35, top: 15 })
+        .padding({ left: 20, right: 20, top: 20 })
+        .backgroundColor('#F1F3F5')
 
       }
     }

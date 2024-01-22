@@ -42,7 +42,7 @@ struct FwBasicGrammarPage {
         }
         .width(CC.FULL_PARENT)
         .padding({ left: 35, right: 35, top: 15 })
-        
+
       }
     }
 
