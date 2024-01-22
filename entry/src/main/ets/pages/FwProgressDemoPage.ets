@@ -10,11 +10,13 @@ struct FwProgressDemoPage {
 
     Scroll(){
       BaseNaView({title: 'UI组件Progress'}){
-        Text("UI组件：LoadingProgress使用")
-          .textAlign(TextAlign.Center)
-          .fontSize(30)
-          .size({ width: CC.FULL_PARENT, height: CC.FULL_PARENT })
-          .backgroundColor('#ffd4e9ee')
+
+        Column({ space: 10 }) {
+
+        }
+        .width(CC.FULL_PARENT)
+        .padding({ left: 35, right: 35, top: 15 })
+
       }
     }
 
