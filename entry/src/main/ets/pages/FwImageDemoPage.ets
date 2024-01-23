@@ -27,7 +27,7 @@ struct FwImageDemoPage {
 
           Row() {
             // 加载svg格式图片
-            Image($r('app.media.NewTux'))
+            Image($r('app.media.down_arrow'))
               .width(110).height(110).margin(15)
               .overlay('svg', { align: Alignment.Bottom, offset: { x: 0, y: 20 } })
             // 加载jpg格式图片

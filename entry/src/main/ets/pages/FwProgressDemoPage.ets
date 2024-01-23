@@ -13,6 +13,12 @@ struct FwProgressDemoPage {
 
         Column({ space: 10 }) {
 
+          Text('Orbital LoadingProgress ').fontSize(14).fontColor(Color.Black)
+          LoadingProgress()
+            .color(Color.Blue)
+            .width(200)
+            .height(200)
+
         }
         .width(CC.FULL_PARENT)
         .padding({ left: 35, right: 35, top: 15 })

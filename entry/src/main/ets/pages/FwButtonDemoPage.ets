@@ -1,5 +1,6 @@
 import CC from '../common/CConstants'
 import BaseNaView from '../view/BaseNavigationView'
+import Utils from  '../common/FWUtils'
 
 /// UI组件：Button
 @Entry
@@ -12,7 +13,66 @@ struct FwButtonDemoPage {
     Scroll(){
       BaseNaView({title: 'UI组件：Button'}){
 
-        Column({ space: 10 }) {
+        Column({ space: 20 }) {
+
+          Text('Normal button').fontSize(14).fontColor(Color.Black)
+          Button('OK', { type: ButtonType.Normal, stateEffect: true })
+            .borderRadius(8)
+            .backgroundColor(0x317aff)
+            .width(90)
+            .onClick(() => {
+              Utils.toast('ButtonType.Normal')
+            })
+
+          Button({ type: ButtonType.Normal, stateEffect: true }) {
+            Row() {
+              LoadingProgress()
+                .width(20)
+                .height(20)
+                .margin({ left: 12 })
+                .color(0xFFFFFF)
+              Text('loading')
+                .fontSize(12)
+                .fontColor(0xffffff)
+                .margin({ left: 5, right: 12 })
+            }.alignItems(VerticalAlign.Center)
+          }
+          .borderRadius(8)
+          .backgroundColor(0x317aff)
+          .width(90)
+          .height(40)
+          .onClick(() => {
+            Utils.toast('ButtonType.Normal with row')
+          })
+
+          Button('Disable', { type: ButtonType.Normal, /* stateEffect: false */ })
+            //.opacity(0.4)
+            .borderRadius(8)
+            .backgroundColor(0x317aff)
+            .width(90)
+            .enabled(false) //
+            .onClick(() => {
+              Utils.toast('ButtonType.Normal Disable')
+            })
+
+
+          Text('Capsule button').fontSize(14).fontColor(Color.Black)
+          Button('OK', { type: ButtonType.Capsule, stateEffect: true })
+            .backgroundColor(0x317aff)
+            .width(90)
+
+
+          Text('Circle button').fontSize(14).fontColor(Color.Black)
+          Button({ type: ButtonType.Circle, stateEffect: true }) {
+            LoadingProgress()
+              .width(20)
+              .height(20)
+              .color(0xFFFFFF)
+          }
+          .width(55)
+          .height(55)
+          .margin({ left: 20 })
+          .backgroundColor(0xF55A42)
 
         }
         .width(CC.FULL_PARENT)

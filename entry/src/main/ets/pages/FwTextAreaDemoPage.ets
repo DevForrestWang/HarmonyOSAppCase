@@ -20,9 +20,12 @@ struct FwTextAreaDemoPage {
           Text('Please enter content:')
             .textAlign(TextAlign.Start)
             .width(CC.FULL_PARENT)
+
+          // 问题：文本过长时,无法滚动
           TextArea({
             placeholder: 'The text area can hold an unlimited amount of text. input your word...',
-            controller: this.controller
+            controller: this.controller,
+            //text: ''
           })
             .placeholderFont({ size: 16, weight: 400 })
             .width(CC.FULL_PARENT)
