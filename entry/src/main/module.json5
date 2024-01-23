@@ -33,6 +33,20 @@
           }
         ]
       }
-    ]
+    ],
+
+    "requestPermissions":[
+      {
+        "name" : "ohos.permission.INTERNET",
+        "reason": "$string:reason",
+        "usedScene": {
+          "abilities": [
+            "FormAbility"
+          ],
+          "when":"inuse"
+        }
+      },
+    ],
+
   }
 }
