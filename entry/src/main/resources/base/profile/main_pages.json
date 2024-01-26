@@ -12,6 +12,7 @@
     "pages/uikit/FwListDemoPage",
     "pages/uikit/FwGridDemoPage",
     "pages/uikit/FwSwiperDemoPage",
-    "pages/uikit/FwNetWorkDemoPage"
+    "pages/uikit/FwNetWorkDemoPage",
+    "pages/case/pages/SetFontSizePage"
   ]
 }

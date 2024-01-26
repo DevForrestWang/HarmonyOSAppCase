@@ -15,6 +15,10 @@
     {
       "name": "reason",
       "value": "图片下载使用"
+    },
+    {
+      "name": "empty",
+      "value": "empty"
     }
   ]
 }
