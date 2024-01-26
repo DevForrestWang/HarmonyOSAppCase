@@ -1,32 +1,27 @@
+import router from '@ohos.router'
 import CC from '../common/CConstants'
 import TextCommonWidget from './TextCommonWidget'
 import Log from '../common/FWLog'
 import Utils from  '../common/FWUtils'
+import TitleBarComponent from '../view/TitleBarComponent'
 
 @Component
 export default struct CaseView {
 
   build() {
 
-    Scroll(){
+    Column(){
 
-      Column({space: CC.SPACE}) {
+      // 导航栏
+      TitleBarComponent({ isBack: false, title: 'Case' })
 
-        // 导航栏
-        Column() {
-          Text('Case')
-            .fontWeight(FontWeight.Medium)
-            .fontColor(CC.vp(24))
-            .padding({top: CC.SPACE, bottom: CC.SPACE})
-        }
-        .width(CC.FULL_PARENT)
-        .alignItems(HorizontalAlign.Center)
+      Scroll() {
 
         Column(){
 
           TextCommonWidget({
-            title: 'TestTitle',
-            textImage: $r('app.media.storage'),
+            title: '打印日志、Toast 测试',
+            textImage: $r('app.media.ic_display_and_brightness'),
             onItemClick: () => {
               Log.debug("debug test log")
               Log.info("info test log")
@@ -38,24 +33,28 @@ export default struct CaseView {
               Log.debug(`heitht/2: ${CC.screenHeight() / 2}`)
               Log.debug(`weight: ${CC.screenWeight()}`)
             }
+          })
 
+          TextCommonWidget({
+            title: '聊天页面',
+            textImage: $r('app.media.ic_app_management'),
+            onItemClick: () => {
+
+              router.pushUrl({
+                url: 'pages/FwContainerDemoPage'
+              }).catch((error: Error) => {
+                Log.info('CasePage push error' + JSON.stringify(error));
+              })
+
+            }
           })
 
         }
         .width(CC.FULL_PARENT)
-        .height(CC.FULL_PARENT)
-        .margin({bottom: CC.BAR_HEIGHT})
-        .padding({top: CC.vp(5), bottom: CC.vp(5)})
-        .backgroundColor(Color.Orange)
+        .backgroundColor('#F5F5F5')
 
       }
-      .height(CC.FULL_PARENT)
-
     }
-
+    .height(CC.FULL_PARENT)
   }
-
-
-
-
 }

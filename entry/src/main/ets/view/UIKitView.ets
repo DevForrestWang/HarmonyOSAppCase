@@ -5,6 +5,7 @@ import ItemModel from '../viewmodel/ItemDataModel'
 import Utils from  '../common/FWUtils'
 import router from '@ohos.router';
 import Log from '../common/FWLog'
+import TitleBarComponent from '../view/TitleBarComponent';
 
 @Component
 export default struct UIKitView {
@@ -14,14 +15,7 @@ export default struct UIKitView {
 
       Column({space: CC.SPACE}){
 
-        Column(){
-          Text("UIKit")
-            .fontWeight(FontWeight.Medium)
-            .fontSize(CC.vp(24))
-            .padding({ top: CC.SPACE, bottom: CC.SPACE })
-        }
-        .width(CC.FULL_PARENT)
-        .alignItems(HorizontalAlign.Center)
+        TitleBarComponent({ isBack: false, title: 'UIKit' })
 
         List() {
 

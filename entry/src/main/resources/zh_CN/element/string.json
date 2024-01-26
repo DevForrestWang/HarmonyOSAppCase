@@ -11,6 +11,10 @@
     {
       "name": "EntryAbility_label",
       "value": "HmCase"
+    },
+    {
+      "name": "reason",
+      "value": "图片下载使用"
     }
   ]
 }
