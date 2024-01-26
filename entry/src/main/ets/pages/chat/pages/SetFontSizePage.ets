@@ -4,7 +4,7 @@ import SetViewModel from '../viewmodel/SetViewModel';
 import CommonConstants from '../common/CommonConstants';
 import StyleConstants from '../common/StyleConstants';
 import Logger from '../../../common/FWLog';
-import PreferencesUtil from '../../../common/Preferencesutil';
+import SaveFontSizeUtil from '../common/SaveFontSizeUtil';
 import ChatData from '../viewmodel/ChatData';
 import CC from '../../../common/CConstants'
 
@@ -17,7 +17,7 @@ struct SetFontSizePage {
   @State fontSizeText: string = "Normal";
 
   onPageShow() {
-    PreferencesUtil.getChangeFontSize().then((value) => {
+    SaveFontSizeUtil.getChangeFontSize().then((value) => {
       this.changeFontSize = value;
       this.fontSizeText = SetViewModel.getTextByFontSize(value);
       Logger.info('Get the value of changeFontSize: ' + this.changeFontSize);
@@ -86,14 +86,14 @@ struct SliderLayout {
             .width(StyleConstants.SLIDER_WIDTH_PERCENT)
             .onChange(async (value: number) => {
               if (this.changeFontSize === 0) {
-                this.changeFontSize = await PreferencesUtil.getChangeFontSize();
+                this.changeFontSize = await SaveFontSizeUtil.getChangeFontSize();
                 this.fontSizeText = SetViewModel.getTextByFontSize(value);
                 return;
               }
               this.changeFontSize = (value === CommonConstants.SET_SLIDER_MAX ?
               CommonConstants.SET_SIZE_HUGE : value);
               this.fontSizeText = SetViewModel.getTextByFontSize(this.changeFontSize);
-              PreferencesUtil.saveChangeFontSize(this.changeFontSize);
+              SaveFontSizeUtil.saveChangeFontSize(this.changeFontSize);
             })
 
           Text("A")

@@ -17,29 +17,37 @@ import dataPreferences from '@ohos.data.preferences';
 import { GlobalContext } from './GlobalContext';
 import Logger from './FWLog';
 
-const PREFERENCES_NAME = 'myPreferences';
-const KEY_APP_FONT_SIZE = 'appFontSize';
+const FS_PREFERENCES_NAME = 'FwPreferences';
 
 /**
- * The PreferencesUtil provides preferences of create, save and query.
+ * 持久化工具类：提供创建、保存、查询、删除数据工具类
  */
 export class PreferencesUtil {
-  createFontPreferences(context: Context) {
+
+  /**
+   * 初始化保存空间
+   * @param context
+   */
+  createFontPreferences(context: Context): void {
     let fontPreferences: Function = (() => {
-      let preferences: Promise<dataPreferences.Preferences> = dataPreferences.getPreferences(context,
-        PREFERENCES_NAME);
+      let preferences: Promise<dataPreferences.Preferences> = dataPreferences.getPreferences(context, 'fwPreferences');
       return preferences;
     });
-    GlobalContext.getContext().setObject('getFontPreferences', fontPreferences);
+    GlobalContext.getContext().setObject(FS_PREFERENCES_NAME, fontPreferences);
   }
 
-  saveDefaultFontSize(fontSize: number) {
-    let getFontPreferences: Function = GlobalContext.getContext().getObject('getFontPreferences') as Function;
-    getFontPreferences().then((preferences: dataPreferences.Preferences) => {
-      preferences.has(KEY_APP_FONT_SIZE).then(async (isExist: boolean) => {
+  /**
+   * 保存数据
+   * @param key
+   * @param value
+   */
+  saveObject(key: string, value: any): void {
+    let referencesFun: Function = GlobalContext.getContext().getObject(FS_PREFERENCES_NAME) as Function;
+    referencesFun().then((preferences: dataPreferences.Preferences) => {
+      preferences.has(key).then(async (isExist: boolean) => {
         Logger.info('preferences has changeFontSize is ' + isExist);
         if (!isExist) {
-          await preferences.put(KEY_APP_FONT_SIZE, fontSize);
+          await preferences.put(key, value);
           preferences.flush();
         }
       }).catch((err: Error) => {
@@ -50,27 +58,27 @@ export class PreferencesUtil {
     });
   }
 
-  saveChangeFontSize(fontSize: number) {
-    let getFontPreferences: Function = GlobalContext.getContext().getObject('getFontPreferences') as Function;
-    getFontPreferences().then(async (preferences: dataPreferences.Preferences) => {
-      await preferences.put(KEY_APP_FONT_SIZE, fontSize);
-      preferences.flush();
-    }).catch((err: Error) => {
-      Logger.error('put the preferences failed, err: ' + err);
-    });
+  /**
+   * 获取保存数据
+   * @param key
+   * @returns
+   */
+  async getObject(key: string): Promise<Object | undefined> {
+    let value: Object;
+    let preferencesFun: Function = GlobalContext.getContext().getObject(FS_PREFERENCES_NAME) as Function;
+    value = await (await preferencesFun()).get(key, value);
+    return value;
   }
 
-  async getChangeFontSize() {
-    let fontSize: number = 0;
-    let getFontPreferences: Function = GlobalContext.getContext().getObject('getFontPreferences') as Function;
-    fontSize = await (await getFontPreferences()).get(KEY_APP_FONT_SIZE, fontSize);
-    return fontSize;
-  }
+  /**
+   * 删除保存数据
+   * @param key
+   */
+  async deleteObject(key: string) {
+    let preferencesFunc: Function = GlobalContext.getContext().getObject(FS_PREFERENCES_NAME) as Function;
+    const preferences: dataPreferences.Preferences = await preferencesFunc();
 
-  async deleteChangeFontSize() {
-    let getFontPreferences: Function = GlobalContext.getContext().getObject('getFontPreferences') as Function;
-    const preferences: dataPreferences.Preferences = await getFontPreferences();
-    let deleteValue = preferences.delete(KEY_APP_FONT_SIZE);
+    let deleteValue = preferences.delete(key);
     deleteValue.then(() => {
       Logger.info('Succeeded in deleting the key appFontSize.');
     }).catch((err: Error) => {

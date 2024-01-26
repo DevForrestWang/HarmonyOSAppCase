@@ -12,8 +12,6 @@ export default class EntryAbility extends UIAbility {
 
     GlobalContext.getContext().setObject('abilityWant', want);
     PreferencesUtil.createFontPreferences(this.context);
-    // 设置字体默认大小
-    PreferencesUtil.saveDefaultFontSize(16);
   }
 
   onDestroy() {
