@@ -13,6 +13,6 @@
     "pages/uikit/FwGridDemoPage",
     "pages/uikit/FwSwiperDemoPage",
     "pages/uikit/FwNetWorkDemoPage",
-    "pages/case/pages/SetFontSizePage"
+    "pages/chat/pages/SetFontSizePage"
   ]
 }

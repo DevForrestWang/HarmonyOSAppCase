@@ -41,7 +41,7 @@ export default struct CaseView {
             onItemClick: () => {
 
               router.pushUrl({
-                url: 'pages/case/pages/SetFontSizePage'
+                url: 'pages/chat/pages/SetFontSizePage'
               }).catch((error: Error) => {
                 Log.info('CasePage push error' + JSON.stringify(error));
               })
