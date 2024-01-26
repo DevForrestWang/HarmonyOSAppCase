@@ -1,5 +1,5 @@
-import CC from '../common/CConstants'
-import BaseNaView from '../view/BaseNavigationView'
+import CC from '../../common/CConstants'
+import BaseNaView from '../../view/BaseNavigationView'
 
 /// 页面布局，容器
 /// 参考资料：https://developer.harmonyos.com/cn/docs/documentation/doc-guides-V3/arkts-layout-development-flex-layout-0000001504525013-V3

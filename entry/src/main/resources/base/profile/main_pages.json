@@ -1,17 +1,17 @@
 {
   "src": [
     "pages/MainPage",
-    "pages/FwBasicGrammarPage",
-    "pages/FwTextDemoPage",
-    "pages/FwContainerDemoPage",
-    "pages/FwTextAreaDemoPage",
-    "pages/FwImageDemoPage",
-    "pages/FwTextInputDemoPage",
-    "pages/FwButtonDemoPage",
-    "pages/FwProgressDemoPage",
-    "pages/FwListDemoPage",
-    "pages/FwGridDemoPage",
-    "pages/FwSwiperDemoPage",
-    "pages/FwNetWorkDemoPage"
+    "pages/uikit/FwBasicGrammarPage",
+    "pages/uikit/FwTextDemoPage",
+    "pages/uikit/FwContainerDemoPage",
+    "pages/uikit/FwTextAreaDemoPage",
+    "pages/uikit/FwImageDemoPage",
+    "pages/uikit/FwTextInputDemoPage",
+    "pages/uikit/FwButtonDemoPage",
+    "pages/uikit/FwProgressDemoPage",
+    "pages/uikit/FwListDemoPage",
+    "pages/uikit/FwGridDemoPage",
+    "pages/uikit/FwSwiperDemoPage",
+    "pages/uikit/FwNetWorkDemoPage"
   ]
 }

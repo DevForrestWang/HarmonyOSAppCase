@@ -1,7 +1,7 @@
 import router from '@ohos.router';
-import CC from '../common/CConstants'
-import Log from '../common/FWLog'
-import BaseNaView from '../view/BaseNavigationView'
+import CC from '../../common/CConstants'
+import Log from '../../common/FWLog'
+import BaseNaView from '../../view/BaseNavigationView'
 
 /**
  * 语法基本页面

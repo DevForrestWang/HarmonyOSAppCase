@@ -41,7 +41,7 @@ export default struct CaseView {
             onItemClick: () => {
 
               router.pushUrl({
-                url: 'pages/FwContainerDemoPage'
+                url: 'pages/uikit/FwContainerDemoPage'
               }).catch((error: Error) => {
                 Log.info('CasePage push error' + JSON.stringify(error));
               })

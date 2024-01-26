@@ -1,5 +1,5 @@
-import CC from '../common/CConstants'
-import BaseNaView from '../view/BaseNavigationView'
+import CC from '../../common/CConstants'
+import BaseNaView from '../../view/BaseNavigationView'
 
 /// 网络请求
 @Entry

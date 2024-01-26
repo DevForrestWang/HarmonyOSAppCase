@@ -29,29 +29,29 @@ export default struct UIKitView {
 
                   let url = ''
                   if ('基本语法' === item.title) {
-                    url = 'pages/FwBasicGrammarPage'
+                    url = 'pages/uikit/FwBasicGrammarPage'
                   } else if ('页面布局，容器' == item.title) {
-                    url = 'pages/FwContainerDemoPage'
+                    url = 'pages/uikit/FwContainerDemoPage'
                   } else if ('UI组件：Text' == item.title) {
-                    url = 'pages/FwTextDemoPage'
+                    url = 'pages/uikit/FwTextDemoPage'
                   } else if ('UI组件：TextArea' == item.title) {
-                    url = 'pages/FwTextAreaDemoPage'
+                    url = 'pages/uikit/FwTextAreaDemoPage'
                   } else if ('UI组件：Image' == item.title) {
-                    url = 'pages/FwImageDemoPage'
+                    url = 'pages/uikit/FwImageDemoPage'
                   } else if ('UI组件：TextInput' == item.title) {
-                    url = 'pages/FwTextInputDemoPage'
+                    url = 'pages/uikit/FwTextInputDemoPage'
                   } else if ('UI组件：Button' == item.title) {
-                    url = 'pages/FwButtonDemoPage'
+                    url = 'pages/uikit/FwButtonDemoPage'
                   } else if ('UI组件：LoadingProgress' == item.title) {
-                    url = 'pages/FwProgressDemoPage'
+                    url = 'pages/uikit/FwProgressDemoPage'
                   } else if ('UI组件：List' == item.title) {
-                    url = 'pages/FwListDemoPage'
+                    url = 'pages/uikit/FwListDemoPage'
                   } else if ('UI组件：Grid' == item.title) {
-                    url = 'pages/FwGridDemoPage'
+                    url = 'pages/uikit/FwGridDemoPage'
                   } else if ('UI组件：Swiper' == item.title) {
-                    url = 'pages/FwSwiperDemoPage'
+                    url = 'pages/uikit/FwSwiperDemoPage'
                   } else if ('网络请求' == item.title) {
-                    url = 'pages/FwNetWorkDemoPage'
+                    url = 'pages/uikit/FwNetWorkDemoPage'
                   }
 
                   Log.debug('Push Page:' + url)

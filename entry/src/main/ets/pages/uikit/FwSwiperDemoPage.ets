@@ -1,6 +1,6 @@
-import CC from '../common/CConstants'
-import BaseNaView from '../view/BaseNavigationView'
-import MyDataSource from '../viewmodel/MyDataSource'
+import CC from '../../common/CConstants'
+import BaseNaView from '../../view/BaseNavigationView'
+import MyDataSource from '../../viewmodel/MyDataSource'
 
 /// UI组件：Swiper
 @Entry
