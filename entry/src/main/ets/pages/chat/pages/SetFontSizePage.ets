@@ -13,7 +13,7 @@ import CC from '../../../common/CConstants'
 @Component
 struct SetFontSizePage {
   private contentArr = SetViewModel.initChatData();
-  @State changeFontSize: number = 0;
+  @State changeFontSize: number = 14;
   @State fontSizeText: string = "Normal";
 
   onPageShow() {

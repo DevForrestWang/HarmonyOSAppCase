@@ -41,15 +41,13 @@ export class PreferencesUtil {
    * @param key
    * @param value
    */
-  saveObject(key: string, value: any): void {
+  saveObject(key: string, value: number): void {
     let referencesFun: Function = GlobalContext.getContext().getObject(FS_PREFERENCES_NAME) as Function;
     referencesFun().then((preferences: dataPreferences.Preferences) => {
       preferences.has(key).then(async (isExist: boolean) => {
         Logger.info('preferences has changeFontSize is ' + isExist);
-        if (!isExist) {
-          await preferences.put(key, value);
-          preferences.flush();
-        }
+        await preferences.put(key, value);
+        preferences.flush();
       }).catch((err: Error) => {
         Logger.error('Has the value failed with err: ' + err);
       });
@@ -63,8 +61,8 @@ export class PreferencesUtil {
    * @param key
    * @returns
    */
-  async getObject(key: string): Promise<Object | undefined> {
-    let value: Object;
+  async getObject(key: string): Promise<number> {
+    let value: number;
     let preferencesFun: Function = GlobalContext.getContext().getObject(FS_PREFERENCES_NAME) as Function;
     value = await (await preferencesFun()).get(key, value);
     return value;
