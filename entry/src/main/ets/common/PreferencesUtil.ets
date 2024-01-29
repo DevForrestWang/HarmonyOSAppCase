@@ -63,24 +63,10 @@ export class PreferencesUtil {
    * @returns
    */
   async getObject(key: string): Promise<number> {
-    let value: number = 0;
-    let preferencesFun: Function = GlobalContext.getContext().getObject(FS_PREFERENCES_NAME) as Function;
-
-    preferencesFun().then((preferences: dataPreferences.Preferences) => {
-      preferences.has(key).then(async (isExist: boolean) => {
-        Logger.info('preferences has changeFontSize is ' + isExist);
-        if (isExist) {
-          value = await (await preferencesFun()).get(key, value);
-        }
-        Logger.info('Get data key: ' + key + ', value: ' + value);
-      }).catch((err: Error) => {
-        Logger.error('Has the value failed with err: ' + err);
-      });
-    }).catch((err: Error) => {
-      Logger.error('Get the preferences failed, err: ' + err);
-    });
-
-    return value;
+    let fontSize: number = 0;
+    let getFontPreferences: Function = GlobalContext.getContext().getObject(FS_PREFERENCES_NAME) as Function;
+    fontSize = await (await getFontPreferences()).get(key, fontSize);
+    return fontSize;
   }
 
   /**
