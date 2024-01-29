@@ -41,7 +41,7 @@ export class PreferencesUtil {
    * @param key
    * @param value
    */
-  saveObject(key: string, value: number): void {
+  saveObject(key: string, value: string): void {
     let preferencesFun: Function = GlobalContext.getContext().getObject(FS_PREFERENCES_NAME) as Function;
     preferencesFun().then((preferences: dataPreferences.Preferences) => {
       preferences.has(key).then(async (isExist: boolean) => {
@@ -62,8 +62,8 @@ export class PreferencesUtil {
    * @param key
    * @returns
    */
-  async getObject(key: string): Promise<number> {
-    let fontSize: number = 0;
+  async getObject(key: string): Promise<string> {
+    let fontSize: string = '';
     let getFontPreferences: Function = GlobalContext.getContext().getObject(FS_PREFERENCES_NAME) as Function;
     fontSize = await (await getFontPreferences()).get(key, fontSize);
     return fontSize;

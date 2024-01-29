@@ -18,11 +18,12 @@ struct SetFontSizePage {
 
   onPageShow() {
     SaveFontSizeUtil.getChangeFontSize().then((value) => {
-      if (value <= 14) {
-        value = 14
+      let number = new Number(`${value}`).valueOf()
+      if (number <= 14) {
+        number = 14
       }
-      this.changeFontSize = value;
-      this.fontSizeText = SetViewModel.getTextByFontSize(value);
+      this.changeFontSize = number;
+      this.fontSizeText = SetViewModel.getTextByFontSize(number);
       Logger.info('Get the value of changeFontSize: ' + this.changeFontSize);
     });
   }
@@ -89,7 +90,15 @@ struct SliderLayout {
             .width(StyleConstants.SLIDER_WIDTH_PERCENT)
             .onChange(async (value: number) => {
               if (this.changeFontSize === 0) {
-                this.changeFontSize = await SaveFontSizeUtil.getChangeFontSize();
+
+                SaveFontSizeUtil.getChangeFontSize().then((value) => {
+                  let number = new Number(`${value}`).valueOf()
+                  if (number <= 14) {
+                    number = 14
+                  }
+                  this.changeFontSize = number
+                });
+
                 this.fontSizeText = SetViewModel.getTextByFontSize(value);
                 return;
               }

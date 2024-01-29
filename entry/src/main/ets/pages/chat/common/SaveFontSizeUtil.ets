@@ -6,12 +6,12 @@ const KEY_APP_FONT_SIZE = 'appFontSize';
 export class SaveFontSizeUtil {
 
   saveChangeFontSize(fontSize: number) {
-    PreferencesUtil.saveObject(KEY_APP_FONT_SIZE, fontSize)
+    PreferencesUtil.saveObject(KEY_APP_FONT_SIZE, `${fontSize}`)
   }
 
-  async getChangeFontSize() {
-    let fontSize: number = PreferencesUtil.getObject(KEY_APP_FONT_SIZE);
-    return fontSize;
+  async getChangeFontSize(): Promise<string>  {
+    let fontSize: Promise<string> = await PreferencesUtil.getObject(KEY_APP_FONT_SIZE);
+    return fontSize
   }
 
   async deleteChangeFontSize() {
