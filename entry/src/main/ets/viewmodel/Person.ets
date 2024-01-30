@@ -1,15 +1,179 @@
+import ArrayList from '@ohos.util.ArrayList'
+import HashMap from '@ohos.util.HashMap'
+import Log from '../common/FWLog'
 
-export class Person {
-  private name: string
-  private age: number
+export let pi = 3.14
+
+export function baseFunc(a: number, b: number): number {
+
+  // 布尔值: true或者false
+  let isDone: boolean = false
+
+  // 数字: 数字都是浮点数，这些浮点数的类型是 number。除了支持十进制，还支持二进制、八进制、十六进制。
+  let decLiteral: number = 2023
+  let binaryLiteral: number = 0b11111100111
+  let octalLiteral: number = 0o3747
+  let hexLiteral: number = 0x7e7
+
+  // 字符串: 使用 string表示文本数据类型， 可以使用双引号（ "）或单引号（'）表示字符串
+  // https://www.runoob.com/typescript/ts-string.html
+  let name: string = "Jacky"
+  name = 'Mick'
+  let str = new String( "This is string")
+  str.length
+  str.charAt(0)
+  str.concat( " cat string" )
+  str.indexOf( "ing" )
+  var index = str.localeCompare( "This is string");
+
+
+  // 数组
+  // 在元素类型后面接上 []
+  let listAry: number[] = [1, 2, 3]
+
+  // 使用数组泛型，Array<元素类型>
+  let listArray: Array<number> = [1, 2, 3]
+
+  // 元组: 表示一个已知元素数量和类型的数组，各元素的类型不必相同
+  let x: [string, number]
+  x = ['hello', 10]
+  Log.debug(`元组: ${x[0]}, ${x[1]}`)
+
+  // 枚举: 使用枚举类型可以为一组数值赋予友好的名字
+  enum Color {Red, Green, Blue};
+  let c: Color = Color.Green;
+
+  // Unknown: 在编程阶段还不清楚类型的变量指定一个类型。我们可以使用unknown类型来标记这些变量。
+  let notSure: unknown = 4
+  notSure = 'maybe a string instead'
+  notSure = false;
+
+  // Void: 当函数没有返回值时，你通常会见到其返回值类型是 void。
+
+  // Null 和 Undefined: undefined和null两者各自有自己的类型分别叫做undefined和null。
+  let u: undefined = undefined
+  let n: null = null
+
+  // 联合类型（Union Types）表示取值可以为多种类型中的一种。
+  let myFavoriteNumber: string | number
+  myFavoriteNumber = 'seven'
+  myFavoriteNumber = 7
+
+  // 数据类型判断， 判断字符串、整型、对象
+  // 使用：typeof strs === "string" typeof strs === "object" typeof padding === "number"
+  let list = new ArrayList<number>()
+  Log.debug("ArrayList类型：" + typeof list) // ArrayList类型：object
+  let map = new HashMap<string, number>()
+  Log.debug("HashMap类型：" + typeof map)  // HashMap类型：object
+  Log.debug("Number类型：" + typeof decLiteral)  // Number类型：number
+  Log.debug("string类型：" + typeof name) // string类型：string
+
+
+  // 数据类型判断
+  let checkType: Date | string
+  checkType = new Date()
+  if (checkType instanceof Date) {
+    Log.debug("checkType is Date type")
+  } else {
+    Log.debug("checkType is string type")
+  }
+
+  // for..in 返回被迭代对象的键列表
+  let listIteAry: number[] =  [4, 5, 6]
+  for (let i in listIteAry) {
+    Log.debug(i); // "0", "1", "2",
+  }
+
+  // for..of 返回被迭代对象的数字属性的值列表
+  for (let i of listIteAry) {
+    Log.debug(i.toString()); // 4, 5, 6
+  }
+
+  // 下标循环
+  for (let i = 0; i < listIteAry.length; i++) {
+    var num = listIteAry[i];
+    Log.debug(`${num}`);
+  }
+
+  // 使用 const、var 或 let 声明变量时, var 和 let 都允许更改变量中保存的内容，而 const 不允许。const 是 let 的增强，因为它防止重新分配给变量。
+  // let关键字来代替大家所熟悉的JavaScript关键字var。 let是ES2015引入的关键字，它比var更加安全，因此被看做是声明变量的标准方式。
+
+  // 模块导入、导入，支持多个导出
+  // import { NewsData, XX  } from '../common/bean/NewsData'
+
+  // 数据类型转换 字符串 与 整型
+  // string to number
+  Log.debug(Number('123').toString())
+  Log.debug(parseInt('123').toString())
+  Log.debug(parseFloat('123.45').toString())
+  Log.debug(`${parseFloat('123.45')}`)
+
+  if (isNaN(Number('abc1234'))) {
+    Log.debug("The abc1234 is NaN")
+  } else {
+    Log.debug("The abc1234 is not NaN")
+  }
+
+  // number to string
+  const myNumber = 1200;
+  Log.debug(myNumber.toString(16))
+  Log.debug(Math.abs(myNumber).toString(16))
+  Log.debug(parseFloat(myNumber.toString()).toFixed(2))
+
+
+
+  // string 函数
+  // `Hello ${person}, today is ${date.toDateString()}!`;
+  // "Hello ".concat(person, ", today is ").concat(date.toDateString(), "!");
+
+  Log.debug("Hello World".split("").reverse().join(""))
+
+  return a + b;
+}
+
+// 接口
+interface PersonInter {
+  name: string
+  age: number
+  sayHello(): void
+}
+
+// 接口实现
+export class Person implements PersonInter {
+  public name: string
+  public age: number
 
   constructor(name: string, age: number) {
     this.name = name;
     this.age = age;
   }
 
+  sayHello(): void {
+    Log.debug("sayHello")
+  }
+
   public getPersonInfo(): string {
-    return `My name is ${this.name} and age is ${this.age}`;
+    return ` My name is ${this.name} and age is ${this.age}`;
   }
 }
-export default new Person('Jacky', 18);
+
+/// 继承
+export class Student extends Person {
+
+  public tomObj: PersonInter = {
+    name: "Tom",
+    age: 18,
+    sayHello: function() {
+      Log.debug(`Hello, my name is ${this.name}!, age: ${this.age}`);
+    }
+  }
+
+  constructor(name: string) {
+    super(name, 18);
+  }
+
+  public sayHelloToTeacher(teacher: Person) {
+    Log.debug(`Hello, ${teacher.name}, I'm ${this.name}.`);
+  }
+}
+

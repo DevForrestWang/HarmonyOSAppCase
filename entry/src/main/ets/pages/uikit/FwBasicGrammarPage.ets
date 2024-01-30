@@ -2,7 +2,7 @@ import router from '@ohos.router';
 import CC from '../../common/CConstants'
 import Log from '../../common/FWLog'
 import BaseNaView from '../../view/BaseNavigationView'
-import Person from '../../viewmodel/Person'
+import { pi, baseFunc, Person, Student } from '../../viewmodel/Person'
 
 /**
  * 语法基本页面
@@ -15,10 +15,16 @@ struct FwBasicGrammarPage {
   @State params: string = (router.getParams() as Record<string, string>)['src']
 
   // 类、方法，类似Web中JavaScript，只允许在属性、生命周期方法、事件、循环容器中使用
-  private personInfo:string = Person.getPersonInfo()
+  private student:Student = new Student('Jack')
 
   aboutToAppear() {
-    Log.debug("aboutToAppear" + this.personInfo)
+    Log.debug("aboutToAppear")
+
+    Log.debug('pi:' + pi)
+    baseFunc(5, 10)
+    Log.debug("student: getPersonInfo" + this.student.getPersonInfo())
+    this.student.tomObj.sayHello()
+    this.student.sayHelloToTeacher(new Person("Tom", 30))
   }
 
   aboutToDisappear() {
@@ -39,17 +45,17 @@ struct FwBasicGrammarPage {
 
   @Builder componentBuilder() {
 
-    Button('OK', { type: ButtonType.Normal, stateEffect: true })
+    Button(this.student.name, { type: ButtonType.Normal, stateEffect: true })
       .borderRadius(8)
       .backgroundColor(0x317aff)
       .width(90)
       .onClick(() => {
-        Log.debug("Person" + this.personInfo)
+        Log.debug("Person" + this.student.getPersonInfo())
       })
 
   }
 
-  // UI组件，类似与Web中Html页面，
+  // UI组件，声明式的方式来描述UI的结构，类似与Web中Html页面，在内部key进行页面布局描述
   build() {
     Scroll(){
       BaseNaView({title: '基本语法'}){
