@@ -6,6 +6,8 @@ export let pi = 3.14
 
 export function baseFunc(a: number, b: number): number {
 
+  // 每行指令都是一段语句，你可以使用分号或不使用， 分号在 TypeScript 中是可选的
+
   // 布尔值: true或者false
   let isDone: boolean = false
 
@@ -15,7 +17,7 @@ export function baseFunc(a: number, b: number): number {
   let octalLiteral: number = 0o3747
   let hexLiteral: number = 0x7e7
 
-  // 字符串: 使用 string表示文本数据类型， 可以使用双引号（ "）或单引号（'）表示字符串
+  // 字符串: 使用 string表示文本数据类型， 可以使用双引号（ "）或单引号（'）表示字符串；反引号（`）来定义多行文本和内嵌表达式。
   // https://www.runoob.com/typescript/ts-string.html
   let name: string = "Jacky"
   name = 'Mick'
@@ -94,6 +96,23 @@ export function baseFunc(a: number, b: number): number {
     var num = listIteAry[i];
     Log.debug(`${num}`);
   }
+
+  listIteAry.forEach((val, idx, array) => {
+    // val: 当前值
+    // idx：当前index
+    // array: Array
+    Log.debug(`forEach, val: ${val}, idx:${idx}, array: ${array}`)
+  });
+
+  listIteAry.every((val, idx, array) => {
+    // val: 当前值
+    // idx：当前index
+    // array: Array
+    Log.debug(`every, val: ${val}, idx:${idx}, array: ${array}`)
+    return true // Continues
+    // Return false will quit the iteration
+  });
+
 
   // 使用 const、var 或 let 声明变量时, var 和 let 都允许更改变量中保存的内容，而 const 不允许。const 是 let 的增强，因为它防止重新分配给变量。
   // let关键字来代替大家所熟悉的JavaScript关键字var。 let是ES2015引入的关键字，它比var更加安全，因此被看做是声明变量的标准方式。
