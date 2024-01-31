@@ -1,6 +1,6 @@
 import ArrayList from '@ohos.util.ArrayList'
 import HashMap from '@ohos.util.HashMap'
-import Log from '../common/FWLog'
+import Log from '../common/Logger'
 
 export let pi = 3.14
 

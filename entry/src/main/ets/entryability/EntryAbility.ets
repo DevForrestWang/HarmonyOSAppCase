@@ -5,6 +5,8 @@ import Want from '@ohos.app.ability.Want';
 import AbilityConstant from '@ohos.app.ability.AbilityConstant';
 import window from '@ohos.window';
 import { GlobalContext } from '../common/GlobalContext';
+import { WindowBarManager } from '../common/WindowBar';
+import CC from '../common/CConstants'
 
 export default class EntryAbility extends UIAbility {
   onCreate(want: Want, launchParam: AbilityConstant.LaunchParam) {
@@ -22,7 +24,10 @@ export default class EntryAbility extends UIAbility {
     // Main window is created, set main page for this ability
     hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onWindowStageCreate');
 
-    windowStage.loadContent('pages/MainPage', (err, data) => {
+    const windowBarMag = new WindowBarManager();
+    windowBarMag.immersiveWindow(windowStage, CC.TRANSPARENT_COLOR, false);
+
+    windowStage.loadContent('pages/Splash', (err, data) => {
       if (err.code) {
         hilog.error(0x0000, 'testTag', 'Failed to load the content. Cause: %{public}s', JSON.stringify(err) ?? '');
         return;

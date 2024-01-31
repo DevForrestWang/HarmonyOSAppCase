@@ -1,5 +1,6 @@
 {
   "src": [
+    "pages/Splash",
     "pages/MainPage",
     "pages/uikit/FwBasicGrammarPage",
     "pages/uikit/FwTextDemoPage",

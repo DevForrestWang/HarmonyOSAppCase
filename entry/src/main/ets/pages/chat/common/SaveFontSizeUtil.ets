@@ -1,7 +1,6 @@
 // @ts-nocheck
-import Logger from '../../../common/FWLog';
-import PreferencesUtil from '../../../common/Preferencesutil';
-const KEY_APP_FONT_SIZE = 'appFontSize';
+import PreferencesUtil from '../../../common/Preferencesutil'
+const KEY_APP_FONT_SIZE = 'appFontSize'
 
 export class SaveFontSizeUtil {
 

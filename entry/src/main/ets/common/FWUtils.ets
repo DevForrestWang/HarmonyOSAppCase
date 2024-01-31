@@ -1,4 +1,4 @@
-import prompt from '@system.prompt';
+import prompt from '@system.prompt'
 import CC from './CConstants'
 
 export default class FWUtils {

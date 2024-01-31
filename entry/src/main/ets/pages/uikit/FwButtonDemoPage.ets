@@ -74,6 +74,30 @@ struct FwButtonDemoPage {
           .margin({ left: 20 })
           .backgroundColor(0xF55A42)
 
+          Text('单选框').fontSize(14).fontColor(Color.Black)
+          Row() {
+            Radio({ value: 'Radio1', group: 'radioGroup' })
+              .checked(false)
+              .width(CC.vp(30))
+              .height(CC.vp(30))
+            Radio({ value: 'Radio2', group: 'radioGroup' })
+              .checked(true)
+              .width(CC.vp(30))
+              .height(CC.vp(30))
+          }.alignItems(VerticalAlign.Center)
+
+
+          Text('切换按钮').fontSize(14).fontColor(Color.Black)
+          Row() {
+            Toggle({ type: ToggleType.Checkbox, isOn: false })
+              .width(CC.vp(30))
+              .height(CC.vp(30))
+            Toggle({ type: ToggleType.Checkbox, isOn: true })
+              .width(CC.vp(30))
+              .height(CC.vp(30))
+          }.alignItems(VerticalAlign.Center)
+
+
         }
         .width(CC.FULL_PARENT)
         .padding({ left: 35, right: 35, top: 15 })

@@ -1,4 +1,4 @@
-import display from '@ohos.display';
+import display from '@ohos.display'
 
 /**
  * Common constants
@@ -22,6 +22,12 @@ export  default class CConstants {
 
   // The width or height of the component is spread across the parent component.
   static readonly  FULL_PARENT = '100%'
+
+  static readonly TRANSPARENT_COLOR: string = '#00ffffff';
+  static readonly NAVIGATION_BAR_COLOR: string = '#00ff00';
+  static readonly STATUS_BAR_CONTENT_COLOR: string = '#ffffff';
+  static readonly NAVIGATION_BAR_CONTENT_COLOR: string = '#ffffff';
+  static readonly THEME_COLOR: string = '#c82424';
 
   // 添加单位:vp
   public static vp(value: number): string {

@@ -3,11 +3,10 @@ import TitleBarComponent from '../../../view/TitleBarComponent';
 import SetViewModel from '../viewmodel/SetViewModel';
 import CommonConstants from '../common/CommonConstants';
 import StyleConstants from '../common/StyleConstants';
-import Logger from '../../../common/FWLog';
+import Logger from '../../../common/Logger';
 import SaveFontSizeUtil from '../common/SaveFontSizeUtil';
 import ChatData from '../viewmodel/ChatData';
 import CC from '../../../common/CConstants'
-
 
 @Entry
 @Component

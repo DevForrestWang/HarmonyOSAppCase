@@ -1,0 +1,139 @@
+/*
+ * Copyright (c) 2023 Huawei Device Co., Ltd.
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+import router from '@ohos.router';
+import CC from '../common/CConstants';
+
+
+@Entry
+@Component
+struct Splash {
+  private swiperController: SwiperController = new SwiperController();
+  private data: Resource[] = [ $r('app.media.splash1'), $r('app.media.splash2'), $r('app.media.splash3')];
+  @State countdown: number = 5;
+  @State showSwiper: boolean = false;
+  private timer:number = -1;
+
+  aboutToAppear(): void {
+    setTimeout(() => {
+      this.showSwiper = true;
+      this.startTiming();
+    }, 3000);
+  }
+
+  startTiming() {
+    this.timer = setInterval(() => {
+      this.countdown--;
+      if (this.countdown === 0) {
+        this.clearTiming();
+        this.jumpToMainPage();
+      }
+    }, 1000);
+  }
+
+  clearTiming() {
+    if (this.timer !== -1) {
+      clearInterval(this.timer);
+      this.timer = -1;
+    }
+  }
+
+  jumpToMainPage() {
+    this.clearTiming();
+    router.replaceUrl({
+      url: 'pages/MainPage'
+    });
+  }
+
+  aboutToDisappear() {
+    this.clearTiming();
+  }
+
+  build() {
+    Column() {
+      Stack() {
+        if (this.showSwiper) {
+          Swiper(this.swiperController) {
+            ForEach(this.data, (item: Resource) => {
+              Image(item)
+                .width(CC.FULL_PARENT)
+                .height(CC.FULL_PARENT)
+                .objectFit(ImageFit.Cover)
+            })
+          }
+          .loop(true)
+          .interval(2 * 1000)
+          .duration(1000)
+          .autoPlay(true)
+          .indicatorStyle({
+            bottom: CC.vp(100),
+            color: "#99FFFFFF"
+          })
+          .curve(Curve.Linear)
+          .onChange((index: number) => {
+            console.info(index.toString())
+          })
+
+          Text() {
+            Span('跳过')
+            Span(`${this.countdown}`)
+          }
+          .onClick(() => this.jumpToMainPage())
+          .fontColor(Color.White)
+          .fontSize(CC.vp(12))
+          .backgroundColor("#4d182431")
+          .width(CC.vp(63))
+          .height(CC.vp(24))
+          .borderRadius(CC.vp(10))
+          .textAlign(TextAlign.Center)
+          .position({
+            x: '78%',
+            y: CC.vp(35)
+          })
+        } else {
+          Image($r('app.media.splash_bg'))
+            .width(CC.FULL_PARENT)
+            .height(CC.FULL_PARENT)
+          Image($r('app.media.ic_splash'))
+            .width(CC.vp(192))
+            .height(CC.vp(192))
+            .offset({
+              y: `-${'15%'}`
+            })
+            .objectFit(ImageFit.Contain)
+
+          Column() {
+            Text('溪流背坡村')
+              .fontColor(Color.White)
+              .fontSize(CC.vp(24))
+              .fontWeight(FontWeight.Medium)
+
+            Text('溪村欢迎您')
+              .fontSize(CC.vp(16))
+              .fontColor(Color.White)
+              .margin({
+                top: CC.vp(5)
+              })
+          }
+          .offset({
+            y:  '25%'
+          })
+        }
+      }
+    }
+    .height(CC.FULL_PARENT)
+    .width(CC.FULL_PARENT)
+  }
+}

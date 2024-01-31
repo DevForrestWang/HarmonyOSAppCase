@@ -13,11 +13,11 @@
  * limitations under the License.
  */
 
-import dataPreferences from '@ohos.data.preferences';
-import { GlobalContext } from './GlobalContext';
-import Logger from './FWLog';
+import dataPreferences from '@ohos.data.preferences'
+import { GlobalContext } from './GlobalContext'
+import Logger from './Logger'
 
-const FS_PREFERENCES_NAME = 'FwPreferences';
+const FS_PREFERENCES_NAME = 'FwPreferences'
 
 /**
  * 持久化工具类：提供创建、保存、查询、删除数据工具类
@@ -30,10 +30,10 @@ export class PreferencesUtil {
    */
   createFontPreferences(context: Context): void {
     let fontPreferences: Function = (() => {
-      let preferences: Promise<dataPreferences.Preferences> = dataPreferences.getPreferences(context, FS_PREFERENCES_NAME);
-      return preferences;
+      let preferences: Promise<dataPreferences.Preferences> = dataPreferences.getPreferences(context, FS_PREFERENCES_NAME)
+      return preferences
     });
-    GlobalContext.getContext().setObject(FS_PREFERENCES_NAME, fontPreferences);
+    GlobalContext.getContext().setObject(FS_PREFERENCES_NAME, fontPreferences)
   }
 
   /**
@@ -42,18 +42,18 @@ export class PreferencesUtil {
    * @param value
    */
   saveObject(key: string, value: string): void {
-    let preferencesFun: Function = GlobalContext.getContext().getObject(FS_PREFERENCES_NAME) as Function;
+    let preferencesFun: Function = GlobalContext.getContext().getObject(FS_PREFERENCES_NAME) as Function
     preferencesFun().then((preferences: dataPreferences.Preferences) => {
       preferences.has(key).then(async (isExist: boolean) => {
-        Logger.info('preferences has changeFontSize is ' + isExist);
+        Logger.info('preferences has changeFontSize is ' + isExist)
         await preferences.put(key, value);
         await preferences.flush();
-        Logger.info('Save data key: ' + key + ', value: ' + value);
+        Logger.info('Save data key: ' + key + ', value: ' + value)
       }).catch((err: Error) => {
-        Logger.error('Has the value failed with err: ' + err);
+        Logger.error('Has the value failed with err: ' + err)
       });
     }).catch((err: Error) => {
-      Logger.error('Get the preferences failed, err: ' + err);
+      Logger.error('Get the preferences failed, err: ' + err)
     });
   }
 
@@ -64,9 +64,9 @@ export class PreferencesUtil {
    */
   async getObject(key: string): Promise<string> {
     let fontSize: string = '';
-    let getFontPreferences: Function = GlobalContext.getContext().getObject(FS_PREFERENCES_NAME) as Function;
-    fontSize = await (await getFontPreferences()).get(key, fontSize);
-    return fontSize;
+    let getFontPreferences: Function = GlobalContext.getContext().getObject(FS_PREFERENCES_NAME) as Function
+    fontSize = await (await getFontPreferences()).get(key, fontSize)
+    return fontSize
   }
 
   /**
@@ -74,16 +74,16 @@ export class PreferencesUtil {
    * @param key
    */
   async deleteObject(key: string) {
-    let preferencesFunc: Function = GlobalContext.getContext().getObject(FS_PREFERENCES_NAME) as Function;
-    const preferences: dataPreferences.Preferences = await preferencesFunc();
+    let preferencesFunc: Function = GlobalContext.getContext().getObject(FS_PREFERENCES_NAME) as Function
+    const preferences: dataPreferences.Preferences = await preferencesFunc()
 
-    let deleteValue = preferences.delete(key);
+    let deleteValue = preferences.delete(key)
     deleteValue.then(() => {
-      Logger.info('Succeeded in deleting the key appFontSize.');
+      Logger.info('Succeeded in deleting the key appFontSize.')
     }).catch((err: Error) => {
-      Logger.error('Failed to delete the key appFontSize. Cause: ' + err);
+      Logger.error('Failed to delete the key appFontSize. Cause: ' + err)
     });
   }
 }
 
-export default new PreferencesUtil();
+export default new PreferencesUtil()

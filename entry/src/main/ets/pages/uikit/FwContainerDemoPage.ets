@@ -66,6 +66,22 @@ struct FwContainerDemoPage {
         .padding(10)
         .backgroundColor(0xAFEEEE)
         .margin({top: CC.vp(10)})
+
+        Text('Stack 层叠布局:')
+          .width('90%')
+          .height(30)
+          .margin({top: CC.vp(30)})
+        Stack() {
+          Row().width(CC.FULL_PARENT).height('40%').backgroundColor('#58b87c')
+          Row().width('80%').height('30%').backgroundColor('#c3f6aa')
+          Row().width('40%').height('20%').backgroundColor('#8ff3eb')
+        }
+        .width('90%')
+        .padding(10)
+        .backgroundColor(0xAFEEEE)
+        .margin({top: CC.vp(10)})
+
+
       }
 
     }

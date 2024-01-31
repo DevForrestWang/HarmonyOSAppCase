@@ -4,7 +4,7 @@ import mainViewModel from '../viewmodel/MainViewModel'
 import ItemModel from '../viewmodel/ItemDataModel'
 import Utils from  '../common/FWUtils'
 import router from '@ohos.router';
-import Log from '../common/FWLog'
+import Log from '../common/Logger'
 import TitleBarComponent from '../view/TitleBarComponent';
 
 @Component
