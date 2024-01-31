@@ -22,14 +22,42 @@ export function baseFunc(a: number, b: number): number {
   let name: string = "Jacky"
   name = 'Mick'
   let str = new String( "This is string")
-  str.length
-  str.charAt(0)
-  str.concat( " cat string" )
-  str.indexOf( "ing" )
-  var index = str.localeCompare( "This is string");
+  str.length // 字符串的长度
+  str.charAt(0) //返回在指定位置的字符
+  str.concat( " cat string" ) // 连接两个或更多字符串，并返回新的字符串。
+  str.indexOf( "ing" ) // 返回某个指定的字符串值在字符串中首次出现的位置
+  str.lastIndexOf("ing") // 从后向前搜索字符串，并从起始位置（0）开始计算返回字符串最后出现的位置。
+
+  // match() 查找找到一个或多个正则表达式的匹配。
+  let matchsStr="The rain in SPAIN stays mainly in the plain"
+  let target = matchsStr.match(/ain/g) // ain,ain,ain
+
+  // split() 把字符串分割为子字符串数组。
+  let splitted = str.split(" ")
+  Log.debug(splitted[1])
+
+  // substr() 从起始索引号提取字符串中指定数目的字符。
+
+  // substring() 提取字符串中两个指定的索引号之间的字符。
+  Log.debug(str.substring(0, 10))
+
+  // replace() 替换与正则表达式匹配的子串
+  // search() 搜索 检索与正则表达式相匹配的值
 
 
-  // 数组
+  // Number对象
+  // toFixed: 把数字转换为字符串，并对小数点指定位数。
+  let baseNum = 177.23456
+  Log.debug(baseNum.toFixed()) // 输出：177
+  Log.debug(baseNum.toFixed(2))  //输出：177.23
+
+  // toPrecision() 把数字格式化为指定的长度。
+  Log.debug(baseNum.toPrecision(2)) // 输出：7.1
+
+  // toString() 把数字转换为字符串数字的基数是 2 ~ 36 之间的整数。若省略该参数，则使用基数 10。
+  Log.debug(baseNum.toString())  // 输出10进制：10
+
+  // 数组 参考：https://www.runoob.com/typescript/ts-array.html
   // 在元素类型后面接上 []
   let listAry: number[] = [1, 2, 3]
 

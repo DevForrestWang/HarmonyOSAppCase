@@ -3,6 +3,7 @@ import CC from '../../common/CConstants'
 import Log from '../../common/FWLog'
 import BaseNaView from '../../view/BaseNavigationView'
 import { pi, baseFunc, Person, Student } from '../../viewmodel/Person'
+import Utils from  '../../common/FWUtils'
 
 /**
  * 语法基本页面
@@ -50,7 +51,7 @@ struct FwBasicGrammarPage {
       .backgroundColor(0x317aff)
       .width(90)
       .onClick(() => {
-        Log.debug("Person" + this.student.getPersonInfo())
+        Utils.toast("Person" + this.student.getPersonInfo())
       })
 
   }
