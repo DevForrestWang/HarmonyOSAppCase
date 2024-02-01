@@ -46,7 +46,7 @@
     - 点击 + 选择 OpenHarmony App
     - Name 输入：entry, Moduls 选择 entry
 
-  <img src="./doc/hrmony_os_0001.png" style="zoom:40%;" />
+  <img src="./doc/hrmony_os_0001.png" />
 
 
 
@@ -219,7 +219,7 @@
 
 
 
-<img src="./doc/hrmony_os_0002.png" style="zoom:25%;" />
+<img src="./doc/hrmony_os_0002.png" />
 
 
 
