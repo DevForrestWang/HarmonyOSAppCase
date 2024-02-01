@@ -1,4 +1,6 @@
 import prompt from '@system.prompt'
+import display from '@ohos.display'
+import window from '@ohos.window'
 import CC from './CConstants'
 
 export default class CCUtils {
@@ -11,8 +13,59 @@ export default class CCUtils {
     prompt.showToast({
       message: name,
       duration: duration,
-      bottom: CC.screenHeight() / 2 - 20
+      bottom: this.screenHeight() / 2 - 20
     })
+  }
+
+  /**
+   * 去掉浮点的小数
+   */
+  public static float2Int (value?: number) {
+    if (value === undefined || value === null) {
+      return 0
+    }
+
+    if (value < 0) {
+      return Math.ceil(value);
+    }
+    return Math.floor(value);
+  }
+
+  /**
+   * Get the device size.
+   *
+   * @returns promise of window.
+   */
+  public static getDeviceSize(context: Context): Promise<window.Window> {
+    return window.getLastWindow(context);
+  }
+
+  /**
+   * 屏幕高度(像素比屏幕密度)
+   * @returns
+   */
+  public static screenHeight(): number {
+    let defaultDisplay = display.getDefaultDisplaySync()
+    let height = defaultDisplay.height / defaultDisplay.scaledDensity
+
+    if (isNaN(height)) {
+      return 0
+    }
+    return this.float2Int(height)
+  }
+
+  /**
+   * 屏幕宽度(像素比屏幕密度)
+   * @returns
+   */
+  public static screenWeight(): number {
+    let defaultDisplay = display.getDefaultDisplaySync()
+    let width = defaultDisplay.width / defaultDisplay.scaledDensity
+
+    if (isNaN(width)) {
+      return 0
+    }
+    return this.float2Int(width)
   }
 
   /**

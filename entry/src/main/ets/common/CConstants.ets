@@ -1,4 +1,3 @@
-import display from '@ohos.display'
 
 /**
  * Common constants
@@ -37,24 +36,6 @@ export  default class CConstants {
   // 添加单位:vp
   public static fp(value: number): string {
     return `${value}fp`
-  }
-
-  /**
-   * 屏幕高度(像素比屏幕密度)
-   * @returns
-   */
-  public static screenHeight(): number {
-    let defaultDisplay = display.getDefaultDisplaySync()
-    return defaultDisplay.height / defaultDisplay.scaledDensity
-  }
-
-  /**
-   * 屏幕宽度(像素比屏幕密度)
-   * @returns
-   */
-  public static screenWeight(): number {
-    let defaultDisplay = display.getDefaultDisplaySync()
-    return defaultDisplay.width / defaultDisplay.scaledDensity
   }
 
 }

@@ -1,4 +1,5 @@
 import router from '@ohos.router'
+import window from '@ohos.window'
 import CC from '../common/CConstants'
 import TextCommonWidget from './TextCommonWidget'
 import Log from '../common/Logger'
@@ -29,9 +30,15 @@ export default struct CaseView {
 
               Utils.toast("吐司测试")
 
-              Log.debug(`heitht: ${CC.screenHeight()}`)
-              Log.debug(`heitht/2: ${CC.screenHeight() / 2}`)
-              Log.debug(`weight: ${CC.screenWeight()}`)
+              Log.debug(`heitht: ${Utils.screenHeight()}`)
+              Log.debug(`heitht/2: ${Utils.screenHeight() / 2}`)
+              Log.debug(`weight: ${Utils.screenWeight()}`)
+
+              let deviceSize = Utils.getDeviceSize(getContext(this));
+              deviceSize.then((data: window.Window) => {
+                Log.debug(`window Object: ${data}`)
+              });
+
             }
           })
 
