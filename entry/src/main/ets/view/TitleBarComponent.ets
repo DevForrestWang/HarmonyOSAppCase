@@ -15,6 +15,7 @@
 
 import router from '@ohos.router';
 import CC from '../common/CConstants';
+import Utils from '../common/CCUtils'
 
 /**
  * The title bar component.
@@ -28,9 +29,9 @@ export default struct TitleBarComponent {
     Row() {
       if (this.isBack) {
         Image($r('app.media.ic_public_back'))
-          .height(CC.vp(24))
-          .width(CC.vp(24))
-          .margin({ right: CC.vp(4) })
+          .height(Utils.vp(24))
+          .width(Utils.vp(24))
+          .margin({ right: Utils.vp(4) })
           .onClick(() => {
             router.back();
           })
@@ -40,13 +41,13 @@ export default struct TitleBarComponent {
         .fontColor(Color.Black)
         .fontSize($r('sys.float.ohos_id_text_size_headline8'))
         .fontWeight(FontWeight.Medium)
-        .margin({ left: CC.vp(8) })
+        .margin({ left: Utils.vp(8) })
         .textAlign(TextAlign.Center)
         .width(CC.FULL_PARENT)
-        .padding({right: CC.vp(40)})
+        .padding({right: Utils.vp(40)})
     }
     .width(CC.FULL_PARENT)
     .height('7.2%')
-    .padding({ left: CC.vp(16) })
+    .padding({ left: Utils.vp(16) })
   }
 }

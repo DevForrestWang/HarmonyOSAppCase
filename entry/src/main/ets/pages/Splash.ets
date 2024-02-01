@@ -88,7 +88,7 @@ struct Splash {
           .duration(1000)
           .autoPlay(true)
           .indicatorStyle({
-            bottom: CC.vp(100),
+            bottom: Utils.vp(100),
             color: "#99FFFFFF"
           })
           .curve(Curve.Linear)
@@ -103,23 +103,23 @@ struct Splash {
           }
           .onClick(() => this.jumpToMainPage())
           .fontColor(Color.White)
-          .fontSize(CC.vp(12))
+          .fontSize(Utils.vp(12))
           .backgroundColor("#4d182431")
-          .width(CC.vp(63))
-          .height(CC.vp(24))
-          .borderRadius(CC.vp(10))
+          .width(Utils.vp(63))
+          .height(Utils.vp(24))
+          .borderRadius(Utils.vp(10))
           .textAlign(TextAlign.Center)
           .position({
             x: '78%',
-            y: CC.vp(35)
+            y: Utils.vp(35)
           })
         } else {
           Image($r('app.media.splash_bg'))
             .width(CC.FULL_PARENT)
             .height(CC.FULL_PARENT)
           Image($r('app.media.ic_splash'))
-            .width(CC.vp(192))
-            .height(CC.vp(192))
+            .width(Utils.vp(192))
+            .height(Utils.vp(192))
             .offset({
               y: `-${'15%'}`
             })
@@ -128,14 +128,14 @@ struct Splash {
           Column() {
             Text('鸿蒙系统')
               .fontColor(Color.White)
-              .fontSize(CC.vp(24))
+              .fontSize(Utils.vp(24))
               .fontWeight(FontWeight.Medium)
 
             Text('欢迎来到HmCase')
-              .fontSize(CC.vp(16))
+              .fontSize(Utils.vp(16))
               .fontColor(Color.White)
               .margin({
-                top: CC.vp(5)
+                top: Utils.vp(5)
               })
           }
           .offset({

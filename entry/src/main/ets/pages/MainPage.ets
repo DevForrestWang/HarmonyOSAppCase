@@ -1,7 +1,7 @@
 import CC from '../common/CConstants'
 import UIKitView from  '../view/UIKitView'
 import CaseView from '../view/CaseView'
-import router from '@ohos.router';
+import Utils from '../common/CCUtils'
 
 @Entry
 @Component
@@ -20,15 +20,15 @@ struct MainPage {
   @Builder TabBuilder(title: string, index: number, selectImg: Resource, normalImg: Resource) {
     Column() {
       Image(this.currentIndex === index ? selectImg : normalImg)
-        .width(CC.vp(25))
-        .height(CC.vp(25))
+        .width(Utils.vp(25))
+        .height(Utils.vp(25))
       Text(title)
-        .margin({top: CC.vp(4)})
-        .fontSize(CC.vp(10))
+        .margin({top: Utils.vp(4)})
+        .fontSize(Utils.vp(10))
         .fontColor(this.currentIndex === index ? "#1698CE" : "#6B6B6B")
     }
     .justifyContent(FlexAlign.Center)
-    .height(CC.vp(56))
+    .height(Utils.vp(56))
     .width(CC.FULL_PARENT)
     .onClick(() => {
       this.currentIndex = index;

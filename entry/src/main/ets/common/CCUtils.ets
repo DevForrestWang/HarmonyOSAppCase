@@ -1,9 +1,22 @@
 import prompt from '@system.prompt'
 import display from '@ohos.display'
 import window from '@ohos.window'
-import CC from './CConstants'
 
 export default class CCUtils {
+
+  // 添加单位:vp
+  public static vp(value: number): string {
+    return `${value}vp`
+  }
+
+  // 添加单位:vp
+  public static fp(value: number): string {
+    return `${value}fp`
+  }
+
+  public static percent(value: number): string {
+    return `${value}%`
+  }
 
   /**
    * 吐司提示

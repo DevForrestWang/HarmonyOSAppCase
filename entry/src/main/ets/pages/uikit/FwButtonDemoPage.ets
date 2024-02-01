@@ -78,23 +78,23 @@ struct FwButtonDemoPage {
           Row() {
             Radio({ value: 'Radio1', group: 'radioGroup' })
               .checked(false)
-              .width(CC.vp(30))
-              .height(CC.vp(30))
+              .width(Utils.vp(30))
+              .height(Utils.vp(30))
             Radio({ value: 'Radio2', group: 'radioGroup' })
               .checked(true)
-              .width(CC.vp(30))
-              .height(CC.vp(30))
+              .width(Utils.vp(30))
+              .height(Utils.vp(30))
           }.alignItems(VerticalAlign.Center)
 
 
           Text('切换按钮').fontSize(14).fontColor(Color.Black)
           Row() {
             Toggle({ type: ToggleType.Checkbox, isOn: false })
-              .width(CC.vp(30))
-              .height(CC.vp(30))
+              .width(Utils.vp(30))
+              .height(Utils.vp(30))
             Toggle({ type: ToggleType.Checkbox, isOn: true })
-              .width(CC.vp(30))
-              .height(CC.vp(30))
+              .width(Utils.vp(30))
+              .height(Utils.vp(30))
           }.alignItems(VerticalAlign.Center)
 
 

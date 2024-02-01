@@ -16,7 +16,7 @@
 import ChatData from '../viewmodel/ChatData';
 import { ItemDirection } from '../viewmodel/ItemDirection';
 import StyleConstants from '../common/StyleConstants';
-import CC from '../../../common/CConstants'
+import Utils from '../../../common/CCUtils'
 
 /**
  * The chat list item component.
@@ -70,13 +70,13 @@ struct ChatContent {
     .constraintSize({ maxWidth: StyleConstants.MAX_CHAT_WIDTH_PERCENT })
     .direction(Direction.Ltr)
     .padding({
-      left: CC.vp(20),
-      right:  CC.vp(20),
-      top:  CC.vp(12),
-      bottom: CC.vp(12)
+      left: Utils.vp(20),
+      right:  Utils.vp(20),
+      top:  Utils.vp(12),
+      bottom: Utils.vp(12)
     })
     .backgroundColor(this.item.itemDirection === ItemDirection.RIGHT
       ? "#D7E9F3" : "#FFFFFF")
-    .borderRadius(CC.vp(24))
+    .borderRadius(Utils.vp(24))
   }
 }

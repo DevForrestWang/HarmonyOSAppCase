@@ -76,7 +76,7 @@ export default struct UIKitView {
         }
         .backgroundColor('#F5F5F5')
         .width(CC.FULL_PARENT)
-        .padding({top: CC.vp(5), bottom: CC.vp(5)})
+        .padding({top: Utils.vp(5), bottom: Utils.vp(5)})
         .margin({ bottom: CC.BAR_HEIGHT })
 
       }

@@ -23,7 +23,7 @@ export default struct BaseNavigationView {
   @Builder NavigationTitle() {
     Row() {
       Text(this.title)
-        .fontSize(CC.vp(24))
+        .fontSize(Utils.vp(24))
         .fontWeight(FontWeight.Medium)
         .textAlign(TextAlign.Center)
         .size({ width: '65%'})

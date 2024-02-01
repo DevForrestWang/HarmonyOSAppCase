@@ -1,5 +1,6 @@
 import CC from '../../common/CConstants'
 import BaseNaView from '../../view/BaseNavigationView'
+import Utils from '../../common/CCUtils'
 
 /// UI组件：Text
 @Entry
@@ -59,7 +60,7 @@ struct FwTextDemoPage {
             .width(CC.FULL_PARENT)
 
           // 文本超长时显示方式
-          Text('TextOverflow+maxLines: ').fontSize(14).fontColor(Color.Green).margin({top: CC.vp(20)})
+          Text('TextOverflow+maxLines: ').fontSize(14).fontColor(Color.Green).margin({top: Utils.vp(20)})
           // 超出maxLines截断内容展示
           Text('This is the setting of textOverflow to Clip text content This is the setting of textOverflow to None text content. This is the setting of textOverflow to Clip text content This is the setting of textOverflow to None text content.')
             .textOverflow({ overflow: TextOverflow.Clip })
@@ -77,7 +78,7 @@ struct FwTextDemoPage {
             .border({ width: 1 })
             .padding(10)
 
-          Text('lineHeight').fontSize(14).fontColor(Color.Green).margin({top: CC.vp(20)})
+          Text('lineHeight').fontSize(14).fontColor(Color.Green).margin({top: Utils.vp(20)})
           Text('This is the text with the line height set. This is the text with the line height set.')
             .fontSize(12)
             .border({ width: 1 })
@@ -90,7 +91,7 @@ struct FwTextDemoPage {
             .lineHeight(20)
             .width(CC.FULL_PARENT)
 
-          Text('decoration:').fontSize(14).fontColor(Color.Green).margin({top: CC.vp(20)})
+          Text('decoration:').fontSize(14).fontColor(Color.Green).margin({top: Utils.vp(20)})
           Text('This is the text content with the decoration set to LineThrough and the color set to Red.')
             .decoration({
               type: TextDecorationType.LineThrough,
@@ -122,7 +123,7 @@ struct FwTextDemoPage {
             .width(CC.FULL_PARENT)
 
           // 文本基线偏移
-          Text('baselineOffset').fontSize(14).fontColor(Color.Green).margin({top: CC.vp(20)})
+          Text('baselineOffset').fontSize(14).fontColor(Color.Green).margin({top: Utils.vp(20)})
           Text('This is the text content with baselineOffset 0.')
             .baselineOffset(0)
             .fontSize(12)
@@ -145,7 +146,7 @@ struct FwTextDemoPage {
             .width(CC.FULL_PARENT)
 
           // 文本字符间距
-          Text('letterSpacing').fontSize(14).fontColor(Color.Green).margin({top: CC.vp(20)})
+          Text('letterSpacing').fontSize(14).fontColor(Color.Green).margin({top: Utils.vp(20)})
           Text('This is the text content with letterSpacing 0.')
             .letterSpacing(0)
             .fontSize(12)
@@ -167,7 +168,7 @@ struct FwTextDemoPage {
             .padding(10)
             .width(CC.FULL_PARENT)
 
-          Text('textCase').fontSize(14).fontColor(Color.Green).margin({top: CC.vp(20)})
+          Text('textCase').fontSize(14).fontColor(Color.Green).margin({top: Utils.vp(20)})
           Text('This is the text content with textCase set to Normal.')
             .textCase(TextCase.Normal)
             .fontSize(12)

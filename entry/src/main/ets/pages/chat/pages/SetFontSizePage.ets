@@ -6,7 +6,7 @@ import StyleConstants from '../common/StyleConstants';
 import Logger from '../../../common/Logger';
 import SaveFontSizeUtil from '../common/SaveFontSizeUtil';
 import ChatData from '../viewmodel/ChatData';
-import CC from '../../../common/CConstants'
+import Utils from '../../../common/CCUtils'
 
 @Entry
 @Component
@@ -58,24 +58,24 @@ struct SliderLayout {
   build() {
     Column() {
       Text("Text size")
-        .fontSize(CC.vp(14))
+        .fontSize(Utils.vp(14))
         .fontColor("#182431")
         .margin({ left: StyleConstants.SLIDER_LAYOUT_LEFT_PERCENT, top: StyleConstants.SLIDER_LAYOUT_TOP_PERCENT })
         .fontWeight(FontWeight.Medium)
 
       Column() {
         Text(this.fontSizeText)
-          .fontSize(CC.vp(14))
+          .fontSize(Utils.vp(14))
           .fontColor("#182431")
 
         Row() {
           Text("A")
             .fontColor("#182431")
-            .fontSize(CC.vp(20))
+            .fontSize(Utils.vp(20))
             .fontWeight(FontWeight.Medium)
             .textAlign(TextAlign.End)
             .width(StyleConstants.A_WIDTH_PERCENT)
-            .padding({ right: CC.vp(9) })
+            .padding({ right: Utils.vp(9) })
 
           Slider({
             value: this.changeFontSize === CommonConstants.SET_SIZE_HUGE
@@ -109,16 +109,16 @@ struct SliderLayout {
 
           Text("A")
             .fontColor("#182431")
-            .fontSize(CC.vp(24))
+            .fontSize(Utils.vp(24))
             .fontWeight(FontWeight.Bold)
             .width(StyleConstants.A_WIDTH_PERCENT)
-            .padding({ left: CC.vp(8) })
+            .padding({ left: Utils.vp(8) })
         }
       }
       .backgroundColor(Color.White)
-      .borderRadius(CC.vp(24))
+      .borderRadius(Utils.vp(24))
       .width(StyleConstants.BLOCK_WIDTH_PERCENT)
-      .padding({ top: CC.vp(16), bottom: CC.vp(21) })
+      .padding({ top: Utils.vp(16), bottom: Utils.vp(21) })
       .margin({
         left: StyleConstants.SLIDER_HORIZONTAL_MARGIN_PERCENT,
         right: StyleConstants.SLIDER_HORIZONTAL_MARGIN_PERCENT,

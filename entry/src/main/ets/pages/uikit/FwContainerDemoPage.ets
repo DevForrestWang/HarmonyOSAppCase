@@ -1,5 +1,6 @@
 import CC from '../../common/CConstants'
 import BaseNaView from '../../view/BaseNavigationView'
+import Utils from '../../common/CCUtils'
 
 /// 页面布局，容器
 /// 参考资料：https://developer.harmonyos.com/cn/docs/documentation/doc-guides-V3/arkts-layout-development-flex-layout-0000001504525013-V3
@@ -25,7 +26,7 @@ struct FwContainerDemoPage {
         .width('90%')
         .padding(10)
         .backgroundColor(0xAFEEEE)
-        .margin({top: CC.vp(10)})
+        .margin({top: Utils.vp(10)})
 
         // 主轴为垂直方向，子组件从起始端沿着垂直方向开始排布。
         Flex({ direction: FlexDirection.Column }) {
@@ -37,12 +38,12 @@ struct FwContainerDemoPage {
         .width('90%')
         .padding(10)
         .backgroundColor(0xAFEEEE)
-        .margin({top: CC.vp(20)})
+        .margin({top: Utils.vp(20)})
 
         Text('Column 布局:')
           .width('90%')
           .height(30)
-          .margin({top: CC.vp(30)})
+          .margin({top: Utils.vp(30)})
         Column({ space: 20 }) {
           Row().width('90%').height(50).backgroundColor(0xF5DEB3)
           Row().width('90%').height(50).backgroundColor(0xD2B48C)
@@ -51,12 +52,12 @@ struct FwContainerDemoPage {
         .width('90%')
         .padding(10)
         .backgroundColor(0xAFEEEE)
-        .margin({top: CC.vp(10)})
+        .margin({top: Utils.vp(10)})
 
         Text('Row 布局:')
           .width('90%')
           .height(30)
-          .margin({top: CC.vp(30)})
+          .margin({top: Utils.vp(30)})
         Row({ space: 35 }) {
           Row().width('10%').height(150).backgroundColor(0xF5DEB3)
           Row().width('10%').height(150).backgroundColor(0xD2B48C)
@@ -65,12 +66,12 @@ struct FwContainerDemoPage {
         .width('90%')
         .padding(10)
         .backgroundColor(0xAFEEEE)
-        .margin({top: CC.vp(10)})
+        .margin({top: Utils.vp(10)})
 
         Text('Stack 层叠布局:')
           .width('90%')
           .height(30)
-          .margin({top: CC.vp(30)})
+          .margin({top: Utils.vp(30)})
         Stack() {
           Row().width(CC.FULL_PARENT).height('40%').backgroundColor('#58b87c')
           Row().width('80%').height('30%').backgroundColor('#c3f6aa')
@@ -79,7 +80,7 @@ struct FwContainerDemoPage {
         .width('90%')
         .padding(10)
         .backgroundColor(0xAFEEEE)
-        .margin({top: CC.vp(10)})
+        .margin({top: Utils.vp(10)})
 
 
       }
