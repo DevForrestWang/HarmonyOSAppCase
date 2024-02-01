@@ -35,12 +35,11 @@ struct Splash {
     CCPreference.getData(SPLASH_KEY).then((value: string) => {
       if (Utils.isEmpty(value) || value !== SPLASH_VALUE) {
         this.showSwiper = true
-        this.startTiming()
       } else {
         this.showSwiper = false;
         this.countdown = 2;
-        this.startTiming()
       }
+      this.startTiming()
    });
   }
 
