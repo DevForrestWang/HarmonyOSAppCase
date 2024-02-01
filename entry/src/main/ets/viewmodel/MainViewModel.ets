@@ -17,6 +17,7 @@ export class MainViewModel {
       new ItemModel('UI组件：List', $r('app.media.privacy')),
       new ItemModel('UI组件：Grid', $r('app.media.record')),
       new ItemModel('UI组件：Swiper', $r('app.media.recycle')),
+      new ItemModel('Web组件', $r('app.media.down_arrow')),
       new ItemModel('网络请求', $r('app.media.discover_selected')),
     ]
     return dataModel

@@ -14,6 +14,7 @@
     "pages/uikit/FwGridDemoPage",
     "pages/uikit/FwSwiperDemoPage",
     "pages/uikit/FwNetWorkDemoPage",
-    "pages/chat/pages/SetFontSizePage"
+    "pages/chat/pages/SetFontSizePage",
+    "pages/uikit/FwWebComponentPage"
   ]
 }
