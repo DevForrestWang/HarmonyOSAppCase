@@ -115,12 +115,12 @@ struct Splash {
             .objectFit(ImageFit.Contain)
 
           Column() {
-            Text('溪流背坡村')
+            Text('鸿蒙系统')
               .fontColor(Color.White)
               .fontSize(CC.vp(24))
               .fontWeight(FontWeight.Medium)
 
-            Text('溪村欢迎您')
+            Text('欢迎来到HmCase')
               .fontSize(CC.vp(16))
               .fontColor(Color.White)
               .margin({
@@ -128,7 +128,7 @@ struct Splash {
               })
           }
           .offset({
-            y:  '25%'
+            y: '25%'
           })
         }
       }
