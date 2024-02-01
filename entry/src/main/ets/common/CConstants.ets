@@ -24,10 +24,10 @@ export  default class CConstants {
 
   static readonly  HALF_PARENT = '50%'
 
-  static readonly TRANSPARENT_COLOR: string = '#00ffffff';
-  static readonly NAVIGATION_BAR_COLOR: string = '#00ff00';
-  static readonly STATUS_BAR_CONTENT_COLOR: string = '#ffffff';
-  static readonly NAVIGATION_BAR_CONTENT_COLOR: string = '#ffffff';
-  static readonly THEME_COLOR: string = '#c82424';
+  static readonly TRANSPARENT_COLOR: string = '#00ffffff'
+  static readonly NAVIGATION_BAR_COLOR: string = '#00ff00'
+  static readonly STATUS_BAR_CONTENT_COLOR: string = '#ffffff'
+  static readonly NAVIGATION_BAR_CONTENT_COLOR: string = '#ffffff'
+
 
 }

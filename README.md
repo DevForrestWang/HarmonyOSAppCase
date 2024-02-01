@@ -1,7 +1,5 @@
 ## HarmonyOS学习概要
 
-[TOC]
-
 ### 鸿蒙介绍
 
 - 官方资料
@@ -114,7 +112,7 @@
 
 - 颜色值配置：/entry/src/main/resources/base/element/color.json
 
-  ```json
+  ```typescript
   {
     "color": [
       {
@@ -130,7 +128,7 @@
 
 - 视图尺寸：/entry/src/main/resources/base/element/float.json
 
-  ```json
+  ```typescript
   {
     "float": [
       {
@@ -146,7 +144,7 @@
 
 - 语言资源定义,base、 en_US、zh_CN  下的 string.json 都要添加，否则会报错
 
-  ```json
+  ```typescript
   {
     "string": [
       {
