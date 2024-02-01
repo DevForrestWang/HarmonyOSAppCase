@@ -1,6 +1,6 @@
 import CC from '../../common/CConstants'
 import BaseNaView from '../../view/BaseNavigationView'
-import Utils from  '../../common/FWUtils'
+import Utils from '../../common/CCUtils'
 
 /// UI组件：Button
 @Entry

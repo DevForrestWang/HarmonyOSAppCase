@@ -3,7 +3,7 @@ import CC from '../../common/CConstants'
 import Log from '../../common/Logger'
 import BaseNaView from '../../view/BaseNavigationView'
 import { pi, baseFunc, Person, Student } from '../../viewmodel/Person'
-import Utils from  '../../common/FWUtils'
+import Utils from '../../common/CCUtils'
 
 /**
  * 语法基本页面

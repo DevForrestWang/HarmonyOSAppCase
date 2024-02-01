@@ -1,5 +1,5 @@
 import CC from '../common/CConstants'
-import Utils from '../common/FWUtils'
+import Utils from '../common/CCUtils'
 
 /// 导航栏基本页面
 @Component

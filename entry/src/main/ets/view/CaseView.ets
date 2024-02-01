@@ -2,7 +2,7 @@ import router from '@ohos.router'
 import CC from '../common/CConstants'
 import TextCommonWidget from './TextCommonWidget'
 import Log from '../common/Logger'
-import Utils from  '../common/FWUtils'
+import Utils from '../common/CCUtils'
 import TitleBarComponent from '../view/TitleBarComponent'
 
 @Component

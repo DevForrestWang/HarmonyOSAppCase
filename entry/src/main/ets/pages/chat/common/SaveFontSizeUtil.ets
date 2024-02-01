@@ -1,21 +1,23 @@
-// @ts-nocheck
-import PreferencesUtil from '../../../common/Preferencesutil'
+import CCPreference from '../../../common/CCPreference';
+
 const KEY_APP_FONT_SIZE = 'appFontSize'
 
 export class SaveFontSizeUtil {
 
   saveChangeFontSize(fontSize: number) {
-    PreferencesUtil.saveObject(KEY_APP_FONT_SIZE, `${fontSize}`)
+    if (fontSize === undefined) {
+      return
+    }
+    CCPreference.writeData(KEY_APP_FONT_SIZE, fontSize.toString())
   }
 
   async getChangeFontSize(): Promise<string>  {
-    let fontSize: Promise<string> = await PreferencesUtil.getObject(KEY_APP_FONT_SIZE);
+    let fontSize = await CCPreference.getData(KEY_APP_FONT_SIZE)
     return fontSize
   }
 
   async deleteChangeFontSize() {
-    PreferencesUtil.deleteObject(KEY_APP_FONT_SIZE);
+    CCPreference.deleteData(KEY_APP_FONT_SIZE);
   }
 }
-
 export default new SaveFontSizeUtil();

@@ -15,7 +15,12 @@
 
 import router from '@ohos.router';
 import CC from '../common/CConstants';
+import CCPreference from '../common/CCPreference';
+import Logger from '../common/Logger';
+import Utils from '../common/CCUtils'
 
+const SPLASH_KEY = 'ShowSplashKey'
+const SPLASH_VALUE = 'ShowSplash'
 
 @Entry
 @Component
@@ -27,10 +32,16 @@ struct Splash {
   private timer:number = -1;
 
   aboutToAppear(): void {
-    setTimeout(() => {
-      this.showSwiper = true;
-      this.startTiming();
-    }, 3000);
+    CCPreference.getData(SPLASH_KEY).then((value: string) => {
+      if (Utils.isEmpty(value) || value !== SPLASH_VALUE) {
+        this.showSwiper = true
+        this.startTiming()
+      } else {
+        this.showSwiper = false;
+        this.countdown = 2;
+        this.startTiming()
+      }
+   });
   }
 
   startTiming() {
@@ -83,7 +94,8 @@ struct Splash {
           })
           .curve(Curve.Linear)
           .onChange((index: number) => {
-            console.info(index.toString())
+            Logger.debug(index.toString())
+            CCPreference.writeData(SPLASH_KEY, SPLASH_VALUE)
           })
 
           Text() {
