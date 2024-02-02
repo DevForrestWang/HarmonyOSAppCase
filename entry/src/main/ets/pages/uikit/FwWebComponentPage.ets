@@ -1,4 +1,5 @@
 import webView from '@ohos.web.webview'
+import Utils from '../../common/CCUtils'
 import CC from '../../common/CConstants'
 import BaseNaView from '../../view/BaseNavigationView'
 
@@ -9,15 +10,19 @@ struct FwWebComponentPage {
 
   build() {
 
-    Scroll(){
-      BaseNaView({title: 'UI组件：TextInput'}){
+    Column(){
+      BaseNaView({title: 'UI组件：WebView'}){
 
-        Column({ space: 10 }) {
-          Web({ src: 'https://developer.huawei.com/consumer/cn/app', controller: this.webviewVC})
-            .javaScriptAccess(true)
-        }
-        .width(CC.FULL_PARENT)
-        .padding({ left: 35, right: 35, top: 15 })
+        Web({ src: 'm.baidu.com', controller: this.webviewVC})
+          .javaScriptAccess(true)
+          .fileAccess(true)
+          .padding(Utils.vp(20))
+          .height(CC.FULL_PARENT)
+          .onConsole((event) => {
+            console.log('getMessage:' + event.message.getMessage());
+            console.log('getMessageLevel:' + event.message.getMessageLevel());
+            return false;
+          })
 
       }
     }

@@ -465,7 +465,9 @@ struct FwXXXPage {
 
 
 ### [网络获取数据](https://developer.huawei.com/consumer/cn/training/course/slightMooc/C101667364948559963) ->
-
+- Web组件
+  - Web组件来加载网页，借助它我们就相当于在自己的应用程序里嵌入一个浏览器，从而非常轻松地展示各种各样的网页。
+  - 存在问题：[webview 加载的 h5 页面，点击没有反应](https://developer.huawei.com/consumer/cn/forum/topic/0204134856168916017)
 
 
 - JSON转换
