@@ -36,5 +36,4 @@ export class GlobalData {
   setObject(key: string, objectClass: Object): void {
     this._objects.set(key, objectClass);
   }
-
 }

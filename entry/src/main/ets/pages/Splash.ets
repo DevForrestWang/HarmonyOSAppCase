@@ -14,10 +14,7 @@
  */
 
 import router from '@ohos.router';
-import CC from '../common/CConstants';
-import CCPreference from '../common/CCPreference';
-import Logger from '../common/Logger';
-import Utils from '../common/CCUtils'
+import CM from '../common/CCommon'
 
 const SPLASH_KEY = 'ShowSplashKey'
 const SPLASH_VALUE = 'ShowSplash'
@@ -32,8 +29,8 @@ struct Splash {
   private timer:number = -1;
 
   aboutToAppear(): void {
-    CCPreference.getData(SPLASH_KEY).then((value: string) => {
-      if (Utils.isEmpty(value) || value !== SPLASH_VALUE) {
+    CM.CCPreference.getData(SPLASH_KEY).then((value: string) => {
+      if (CM.Utils.isEmpty(value) || value !== SPLASH_VALUE) {
         this.showSwiper = true
       } else {
         this.showSwiper = false;
@@ -78,8 +75,8 @@ struct Splash {
           Swiper(this.swiperController) {
             ForEach(this.data, (item: Resource) => {
               Image(item)
-                .width(CC.FULL_PARENT)
-                .height(CC.FULL_PARENT)
+                .width(CM.Co.FULL_PARENT)
+                .height(CM.Co.FULL_PARENT)
                 .objectFit(ImageFit.Cover)
             })
           }
@@ -88,13 +85,13 @@ struct Splash {
           .duration(1000)
           .autoPlay(true)
           .indicatorStyle({
-            bottom: Utils.vp(100),
+            bottom: CM.Utils.vp(100),
             color: "#99FFFFFF"
           })
           .curve(Curve.Linear)
           .onChange((index: number) => {
-            Logger.debug(index.toString())
-            CCPreference.writeData(SPLASH_KEY, SPLASH_VALUE)
+            CM.Logger.debug(index.toString())
+            CM.CCPreference.writeData(SPLASH_KEY, SPLASH_VALUE)
           })
 
           Text() {
@@ -103,23 +100,23 @@ struct Splash {
           }
           .onClick(() => this.jumpToMainPage())
           .fontColor(Color.White)
-          .fontSize(Utils.vp(12))
+          .fontSize(CM.Utils.vp(12))
           .backgroundColor("#4d182431")
-          .width(Utils.vp(63))
-          .height(Utils.vp(24))
-          .borderRadius(Utils.vp(10))
+          .width(CM.Utils.vp(63))
+          .height(CM.Utils.vp(24))
+          .borderRadius(CM.Utils.vp(10))
           .textAlign(TextAlign.Center)
           .position({
             x: '78%',
-            y: Utils.vp(35)
+            y: CM.Utils.vp(35)
           })
         } else {
           Image($r('app.media.splash_bg'))
-            .width(CC.FULL_PARENT)
-            .height(CC.FULL_PARENT)
+            .width(CM.Co.FULL_PARENT)
+            .height(CM.Co.FULL_PARENT)
           Image($r('app.media.ic_splash'))
-            .width(Utils.vp(192))
-            .height(Utils.vp(192))
+            .width(CM.Utils.vp(192))
+            .height(CM.Utils.vp(192))
             .offset({
               y: `-${'15%'}`
             })
@@ -128,14 +125,14 @@ struct Splash {
           Column() {
             Text('鸿蒙系统')
               .fontColor(Color.White)
-              .fontSize(Utils.vp(24))
+              .fontSize(CM.Utils.vp(24))
               .fontWeight(FontWeight.Medium)
 
             Text('欢迎来到HmCase')
-              .fontSize(Utils.vp(16))
+              .fontSize(CM.Utils.vp(16))
               .fontColor(Color.White)
               .margin({
-                top: Utils.vp(5)
+                top: CM.Utils.vp(5)
               })
           }
           .offset({
@@ -144,7 +141,7 @@ struct Splash {
         }
       }
     }
-    .height(CC.FULL_PARENT)
-    .width(CC.FULL_PARENT)
+    .height(CM.Co.FULL_PARENT)
+    .width(CM.Co.FULL_PARENT)
   }
 }
