@@ -15,7 +15,6 @@ struct FwNetWorkDemoPage {
       pageSize: 10
     }
 
-    url += '?currentPage=' + 1 + '&pageSize=' + 10;
     CM.HttpRequestGet(url, params).then((data: ResponseResult) => {
       if (data.code === CM.HttpConstant.SERVER_CODE_SUCCESS) {
         CM.Logger.debug('getNewsList data', JSON.stringify(data.data));

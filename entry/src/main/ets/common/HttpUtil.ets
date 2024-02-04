@@ -10,6 +10,13 @@ export class HttpConstant {
 
   // The request success status code.
   static readonly SERVER_CODE_SUCCESS: string = 'success'
+
+  static requestId: number = 0
+
+  // 请求头定义
+  static heads = {
+    'Content-Type': 'application/json'
+  }
 }
 
 export class HttpURL {
@@ -46,17 +53,11 @@ export interface ParamsType {
   [key: string]: any
 }
 
-let requestId: number = 0
-
-// 请求头定义
-let requestHeads = {
-  'Content-Type': 'application/json'
-}
 function _printRequest(url: string, reqId: number, params?: ParamsType) {
   Logger.debug(`===========<request-id:${reqId} tag:>===========`)
   Logger.debug(`Request Url: ${url}`)
   Logger.debug("Request Params:" + JSON.stringify(params, null, 4))
-  Logger.debug("Request Header:" + JSON.stringify(requestHeads, null, 4))
+  Logger.debug("Request Header:" + JSON.stringify(HttpConstant.heads, null, 4))
 }
 
 /**
@@ -73,7 +74,7 @@ function _baseRequest(url: string, method: http.RequestMethod, reqId: number, ex
     method: method,
     readTimeout: HttpConstant.HTTP_READ_TIMEOUT,
     connectTimeout: HttpConstant.HTTP_READ_TIMEOUT,
-    header: requestHeads,
+    header: HttpConstant.heads,
     extraData: extraData
   });
 
@@ -96,10 +97,12 @@ function _baseRequest(url: string, method: http.RequestMethod, reqId: number, ex
       serverData.code = resultJson.code;
       serverData.msg = resultJson.msg;
     } else {
+      serverData.code = "failed"
       serverData.msg = `网络请求失败，请稍后尝试！&${value.responseCode}`;
     }
     return serverData;
   }).catch(() => {
+    serverData.code = "failed"
     serverData.msg = "网络请求失败，请稍后尝试！";
     return serverData;
   })
@@ -121,9 +124,9 @@ export function HttpRequestGet(url: string, params?: ParamsType): Promise<Respon
     tmpUrl += "?" + strParams
   }
 
-  requestId += 1
-  _printRequest(url, requestId, params)
-  return _baseRequest(tmpUrl, http.RequestMethod.GET, requestId)
+  HttpConstant.requestId += 1
+  _printRequest(tmpUrl, HttpConstant.requestId, params)
+  return _baseRequest(tmpUrl, http.RequestMethod.GET, HttpConstant.requestId)
 }
 
 /**
@@ -132,7 +135,7 @@ export function HttpRequestGet(url: string, params?: ParamsType): Promise<Respon
  * @returns
  */
 export function HttpRequestPost(url: string, params?:ParamsType): Promise<ResponseResult> {
-  requestId += 1
-  _printRequest(url, requestId, params)
-  return _baseRequest(url, http.RequestMethod.POST, requestId, params)
+  HttpConstant.requestId += 1
+  _printRequest(url, HttpConstant.requestId, params)
+  return _baseRequest(url, http.RequestMethod.POST, HttpConstant.requestId, params)
 }
