@@ -20,8 +20,7 @@
     - [开发环境 DevEco Studio IDE 安装及运行Hello World](https://developer.huawei.com/consumer/cn/training/course/slightMooc/C101667303102887820)
     - [HUAWEI DevEco Studio和SDK下载](https://developer.harmonyos.com/cn/develop/deveco-studio#download)
 
-
-
+  
 - [快捷键及编辑器配置](https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V2/editer_overview-0000001053502418-V2)
     - 代码自动跳转：在编辑器中，可以按住 **Command/Ctrl 键**，鼠标单击代码中引用的类、方法、参数、变量等名称，自动跳转到定义处。
     - 跨语言跳转，在编辑器中右击，在弹出的菜单中选择**Go To > Implementation(s)**实现跨语言跳转。
@@ -93,18 +92,13 @@
 
 
 - TypeScript
-
     - **TypeScript 是带有编译时类型检查器的 JavaScript 运行时** 。
-
     - [TypeScript 教程(runoob.com)](https://www.runoob.com/typescript/ts-tutorial.html)
-
     - [ArkTS开发语言介绍](https://developer.huawei.com/consumer/cn/training/course/slightMooc/C101667356568959645)
-
     - [TypeScript: 学习](https://www.typescriptlang.org/zh/docs/)
-
     - [TypeScript 中文网: 手册](https://ts.nodejs.cn/docs/handbook/intro.html)
-
     - [TypeScript 使用指南手册](https://www.patrickzhong.com/TypeScript/PREFACE.html)
+    - [TypeScript 语言教程](https://wangdoc.com/typescript/intro)
 
 
 
