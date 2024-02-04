@@ -3,7 +3,7 @@ import hilog from '@ohos.hilog';
 import Want from '@ohos.app.ability.Want';
 import AbilityConstant from '@ohos.app.ability.AbilityConstant';
 import window from '@ohos.window';
-import { WindowBarManager } from '../common/WindowBar';
+import WindowBarManager from '../common/WindowBar';
 import CM from '../common/CCommon'
 
 export default class EntryAbility extends UIAbility {

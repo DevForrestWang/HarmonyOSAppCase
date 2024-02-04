@@ -145,9 +145,6 @@ export function baseFunc(a: number, b: number): number {
   // 使用 const、var 或 let 声明变量时, var 和 let 都允许更改变量中保存的内容，而 const 不允许。const 是 let 的增强，因为它防止重新分配给变量。
   // let关键字来代替大家所熟悉的JavaScript关键字var。 let是ES2015引入的关键字，它比var更加安全，因此被看做是声明变量的标准方式。
 
-  // 模块导入、导入，支持多个导出
-  // import { NewsData, XX  } from '../common/bean/NewsData'
-
   // 数据类型转换 字符串 与 整型
   // string to number
   CM.Logger.debug(Number('123').toString())
@@ -167,13 +164,9 @@ export function baseFunc(a: number, b: number): number {
   CM.Logger.debug(Math.abs(myNumber).toString(16))
   CM.Logger.debug(parseFloat(myNumber.toString()).toFixed(2))
 
-
-
-  // string 函数
-  // `Hello ${person}, today is ${date.toDateString()}!`;
-  // "Hello ".concat(person, ", today is ").concat(date.toDateString(), "!");
-
-  CM.Logger.debug("Hello World".split("").reverse().join(""))
+  // 模块导入、导入
+  // import { NewsData, XX  } from '../XX' key导出多个属性或对象
+  // import AA from '../BB' 导出含有缺省对象
 
   return a + b;
 }

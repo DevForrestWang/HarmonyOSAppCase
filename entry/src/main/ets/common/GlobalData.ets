@@ -16,7 +16,7 @@
 /**
  * 内存中保存数据
  */
-export class GlobalData {
+export default class GlobalData {
 
   private static instance: GlobalData;
   private _objects = new Map<string, Object>();

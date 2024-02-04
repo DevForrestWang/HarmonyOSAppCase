@@ -1,26 +1,24 @@
-import dataPreferences from '@ohos.data.preferences';
-import Logger from './Logger';
+import dataPreferences from '@ohos.data.preferences'
+import Logger from './Logger'
 import Utils from './CCUtils'
-
-let preference: dataPreferences.Preferences;
-let preferenceTemp: dataPreferences.Preferences;
-
-// The name of the data store.
-const PREFERENCES_NAME = 'CCPreferences.db';
 
 /**
  * Preference model.
  *
  * @param fruitData Fruit data.
  */
-class CCPreference {
+export class CCPreference {
+
+  private preference: dataPreferences.Preferences
+  private preferenceTemp: dataPreferences.Preferences
+  private preferencesName = 'CCPreferences.db'
 
   /**
    * Read the specified Preferences persistence file and load the data into the Preferences instance.
    */
   private async getPreferencesFromStorage() {
     try {
-      preference = await dataPreferences.getPreferences(getContext(this), PREFERENCES_NAME);
+      this.preference = await dataPreferences.getPreferences(getContext(this), this.preferencesName);
     } catch (err) {
       Logger.error(`Failed to get preferences, Cause: ${err}`);
     }
@@ -34,17 +32,17 @@ class CCPreference {
       return;
     }
 
-    if (!preference) {
+    if (!this.preference) {
       await this.getPreferencesFromStorage();
     }
 
     try {
-      await preference.put(key, value);
+      await this.preference.put(key, value);
     } catch (err) {
       Logger.error(`Failed to put value, Cause: ${err}`);
     }
     // Store the Preference instance in the preference persistence file
-    await preference.flush();
+    await this.preference.flush();
   }
 
   /**
@@ -56,11 +54,11 @@ class CCPreference {
       return value;
     }
 
-    if (!preference) {
+    if (!this.preference) {
       await this.getPreferencesFromStorage();
     }
     try {
-      value = (await preference.get(key, '')).toString();
+      value = (await this.preference.get(key, '')).toString();
     } catch (err) {
       Logger.error(`Failed to get value, Cause: ${err}`);
     }
@@ -76,11 +74,11 @@ class CCPreference {
       return;
     }
 
-    if (!preference) {
+    if (!this.preference) {
       await this.getPreferencesFromStorage();
     }
 
-    let deleteValue = preference.delete(key)
+    let deleteValue = this.preference.delete(key)
     deleteValue.then(() => {
       Logger.info('Succeeded in deleting the key appFontSize.')
     }).catch((err: Error) => {
@@ -93,11 +91,11 @@ class CCPreference {
    */
   public async deletePreferences() {
     try {
-      await dataPreferences.deletePreferences(getContext(this), PREFERENCES_NAME);
+      await dataPreferences.deletePreferences(getContext(this), this.preferencesName);
     } catch(err) {
       Logger.error(`Failed to delete preferences, Cause: ${err}`);
     };
-    preference = preferenceTemp;
+    this.preference = this.preferenceTemp;
   }
 
 }

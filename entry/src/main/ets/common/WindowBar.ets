@@ -17,7 +17,7 @@ import window from '@ohos.window';
 import Logger from './Logger'
 import CC from './CConstants'
 
-export class WindowBarManager {
+export default class WindowBarManager {
   private static instance: WindowBarManager;
   currentBarColor: string | Resource = '';
   cacheWindowStage?: window.WindowStage;
