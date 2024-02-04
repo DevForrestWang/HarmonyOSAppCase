@@ -99,11 +99,17 @@ function _baseRequest(url: string, method: http.RequestMethod, reqId: number, ex
     } else {
       serverData.code = "failed"
       serverData.msg = `网络请求失败，请稍后尝试！&${value.responseCode}`;
+
+      Logger.error(`===========<response-idS:${reqId} tag:>===========`)
+      Logger.error(`Response Data:${JSON.stringify(serverData, null, 4)} `)
     }
     return serverData;
   }).catch(() => {
     serverData.code = "failed"
     serverData.msg = "网络请求失败，请稍后尝试！";
+
+    Logger.error(`===========<response-idS:${reqId} tag:>===========`)
+    Logger.error(`Response Data:${JSON.stringify(serverData, null, 4)} `)
     return serverData;
   })
 }
