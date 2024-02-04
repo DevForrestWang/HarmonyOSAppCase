@@ -1,11 +1,27 @@
 import CM from '../../common/CCommon'
+import { ResponseResult } from '../../common/HttpUtil'
 import BaseNaView from '../../view/BaseNavigationView'
 
 /// 网络请求
 @Entry
 @Component
 struct FwNetWorkDemoPage {
-  @State message: string = 'Hello World'
+
+  aboutToAppear() {
+
+    let url = `http://192.168.1.177:9588/news/getNewsType`;
+    url += '?currentPage=' + 1 + '&pageSize=' + 10;
+    CM.HttpRequestGet(url).then((data: ResponseResult) => {
+      if (data.code === CM.HttpConstant.SERVER_CODE_SUCCESS) {
+        CM.Logger.debug('getNewsList data', JSON.stringify(data.data));
+      } else {
+        CM.Logger.error('getNewsList failed', JSON.stringify(data));
+      }
+    }).catch((err: Error) => {
+      CM.Logger.error('getNewsList failed', JSON.stringify(err));
+    });
+
+  }
 
   build() {
 
