@@ -1,4 +1,4 @@
-import CC from '../../common/CConstants'
+import CM from '../../common/CCommon'
 import BaseNaView from '../../view/BaseNavigationView'
 
 /// UI组件：List
@@ -26,7 +26,7 @@ struct FwListDemoPage {
               ListItem() {
                 Flex({direction: FlexDirection.Row, alignItems: ItemAlign.Center}) {
                   Text('' + item)
-                    .width(CC.FULL_PARENT)
+                    .width(CM.Co.FULL_PARENT)
                     .height(80)
                     .fontSize(25)
                     .textAlign(TextAlign.Center)
@@ -51,10 +51,10 @@ struct FwListDemoPage {
               .borderRadius(3)
               .backgroundColor(0xAFEEEE)
             }, item => item)
-          }.width(CC.FULL_PARENT)
+          }.width(CM.Co.FULL_PARENT)
 
         }
-        .width(CC.FULL_PARENT)
+        .width(CM.Co.FULL_PARENT)
         .padding({ left: 35, right: 35, top: 15 })
       }
     }

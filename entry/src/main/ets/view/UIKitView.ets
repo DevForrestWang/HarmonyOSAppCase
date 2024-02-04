@@ -1,10 +1,8 @@
-import CC from '../common/CConstants'
+import router from '@ohos.router';
+import CM from '../common/CCommon'
 import TextCommonWidget from './TextCommonWidget'
 import mainViewModel from '../viewmodel/MainViewModel'
 import ItemModel from '../viewmodel/ItemDataModel'
-import Utils from '../common/CCUtils'
-import router from '@ohos.router';
-import Log from '../common/Logger'
 import TitleBarComponent from '../view/TitleBarComponent';
 
 @Component
@@ -13,7 +11,7 @@ export default struct UIKitView {
   build() {
     Scroll() {
 
-      Column({space: CC.SPACE}){
+      Column({space: CM.Co.SPACE}){
 
         TitleBarComponent({ isBack: false, title: 'UIKit' })
 
@@ -56,7 +54,7 @@ export default struct UIKitView {
                     url = 'pages/uikit/FwNetWorkDemoPage'
                   }
 
-                  Log.debug('Push Page:' + url)
+                  CM.Logger.debug('Push Page:' + url)
 
                   if (url.length > 0) {
                     router.pushUrl({
@@ -65,7 +63,7 @@ export default struct UIKitView {
                         src: 'page params'
                       }
                     }).catch((error: Error) => {
-                      Log.error('IndexPage push error' + JSON.stringify(error) + ', URL:' + url);
+                      CM.Logger.error('IndexPage push error' + JSON.stringify(error) + ', URL:' + url);
                     })
                   }
 
@@ -77,12 +75,12 @@ export default struct UIKitView {
 
         }
         .backgroundColor('#F5F5F5')
-        .width(CC.FULL_PARENT)
-        .padding({top: Utils.vp(5), bottom: Utils.vp(5)})
-        .margin({ bottom: CC.BAR_HEIGHT })
+        .width(CM.Co.FULL_PARENT)
+        .padding({top: CM.Utils.vp(5), bottom: CM.Utils.vp(5)})
+        .margin({ bottom: CM.Co.BAR_HEIGHT })
 
       }
-      .height(CC.FULL_PARENT)
+      .height(CM.Co.FULL_PARENT)
 
     }
 

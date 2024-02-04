@@ -1,4 +1,4 @@
-import CC from '../../common/CConstants'
+import CM from '../../common/CCommon'
 import BaseNaView from '../../view/BaseNavigationView'
 
 /// UI组件：Grid
@@ -21,8 +21,8 @@ struct FwGridDemoPage {
                   Text(day)
                     .fontSize(16)
                     .backgroundColor(0xF9CF93)
-                    .width(CC.FULL_PARENT)
-                    .height(CC.FULL_PARENT)
+                    .width(CM.Co.FULL_PARENT)
+                    .height(CM.Co.FULL_PARENT)
                     .textAlign(TextAlign.Center)
                 }
               }, day => day)
@@ -36,7 +36,7 @@ struct FwGridDemoPage {
           .backgroundColor(0xFAEEE0)
           .height(300)
 
-          Text('Scroll').fontColor(Color.Black).fontSize(14).width(CC.FULL_PARENT)
+          Text('Scroll').fontColor(Color.Black).fontSize(14).width(CM.Co.FULL_PARENT)
           Grid(this.scroller) {
             ForEach(this.Number, (day: string) => {
               ForEach(this.Number, (day: string) => {
@@ -44,7 +44,7 @@ struct FwGridDemoPage {
                   Text(day)
                     .fontSize(16)
                     .backgroundColor(0xF9CF93)
-                    .width(CC.FULL_PARENT)
+                    .width(CM.Co.FULL_PARENT)
                     .height(80)
                     .textAlign(TextAlign.Center)
                 }
@@ -67,7 +67,7 @@ struct FwGridDemoPage {
             })
 
         }
-        .width(CC.FULL_PARENT)
+        .width(CM.Co.FULL_PARENT)
         .padding({ left: 35, right: 35, top: 15 })
 
       }

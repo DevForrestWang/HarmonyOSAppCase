@@ -1,6 +1,5 @@
-import CC from '../../common/CConstants'
+import CM from '../../common/CCommon'
 import BaseNaView from '../../view/BaseNavigationView'
-import Utils from '../../common/CCUtils'
 
 /// UI组件：Button
 @Entry
@@ -21,7 +20,7 @@ struct FwButtonDemoPage {
             .backgroundColor(0x317aff)
             .width(90)
             .onClick(() => {
-              Utils.toast('ButtonType.Normal')
+              CM.Utils.toast('ButtonType.Normal')
             })
 
           Button({ type: ButtonType.Normal, stateEffect: true }) {
@@ -42,7 +41,7 @@ struct FwButtonDemoPage {
           .width(90)
           .height(40)
           .onClick(() => {
-            Utils.toast('ButtonType.Normal with row')
+            CM.Utils.toast('ButtonType.Normal with row')
           })
 
           Button('Disable', { type: ButtonType.Normal, /* stateEffect: false */ })
@@ -52,7 +51,7 @@ struct FwButtonDemoPage {
             .width(90)
             .enabled(false) //
             .onClick(() => {
-              Utils.toast('ButtonType.Normal Disable')
+              CM.Utils.toast('ButtonType.Normal Disable')
             })
 
 
@@ -78,28 +77,28 @@ struct FwButtonDemoPage {
           Row() {
             Radio({ value: 'Radio1', group: 'radioGroup' })
               .checked(false)
-              .width(Utils.vp(30))
-              .height(Utils.vp(30))
+              .width(CM.Utils.vp(30))
+              .height(CM.Utils.vp(30))
             Radio({ value: 'Radio2', group: 'radioGroup' })
               .checked(true)
-              .width(Utils.vp(30))
-              .height(Utils.vp(30))
+              .width(CM.Utils.vp(30))
+              .height(CM.Utils.vp(30))
           }.alignItems(VerticalAlign.Center)
 
 
           Text('切换按钮').fontSize(14).fontColor(Color.Black)
           Row() {
             Toggle({ type: ToggleType.Checkbox, isOn: false })
-              .width(Utils.vp(30))
-              .height(Utils.vp(30))
+              .width(CM.Utils.vp(30))
+              .height(CM.Utils.vp(30))
             Toggle({ type: ToggleType.Checkbox, isOn: true })
-              .width(Utils.vp(30))
-              .height(Utils.vp(30))
+              .width(CM.Utils.vp(30))
+              .height(CM.Utils.vp(30))
           }.alignItems(VerticalAlign.Center)
 
 
         }
-        .width(CC.FULL_PARENT)
+        .width(CM.Co.FULL_PARENT)
         .padding({ left: 35, right: 35, top: 15 })
 
       }

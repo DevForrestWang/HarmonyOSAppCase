@@ -12,11 +12,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
+import CM from '../../../common/CCommon'
 import ChatData from '../viewmodel/ChatData';
 import { ItemDirection } from '../viewmodel/ItemDirection';
 import StyleConstants from '../common/StyleConstants';
-import Utils from '../../../common/CCUtils'
 
 /**
  * The chat list item component.
@@ -70,13 +69,13 @@ struct ChatContent {
     .constraintSize({ maxWidth: StyleConstants.MAX_CHAT_WIDTH_PERCENT })
     .direction(Direction.Ltr)
     .padding({
-      left: Utils.vp(20),
-      right:  Utils.vp(20),
-      top:  Utils.vp(12),
-      bottom: Utils.vp(12)
+      left: CM.Utils.vp(20),
+      right:  CM.Utils.vp(20),
+      top:  CM.Utils.vp(12),
+      bottom: CM.Utils.vp(12)
     })
     .backgroundColor(this.item.itemDirection === ItemDirection.RIGHT
       ? "#D7E9F3" : "#FFFFFF")
-    .borderRadius(Utils.vp(24))
+    .borderRadius(CM.Utils.vp(24))
   }
 }

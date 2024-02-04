@@ -2,7 +2,6 @@ import dataPreferences from '@ohos.data.preferences';
 import Logger from './Logger';
 import Utils from './CCUtils'
 
-let context = getContext(this);
 let preference: dataPreferences.Preferences;
 let preferenceTemp: dataPreferences.Preferences;
 
@@ -21,7 +20,7 @@ class CCPreference {
    */
   private async getPreferencesFromStorage() {
     try {
-      preference = await dataPreferences.getPreferences(context, PREFERENCES_NAME);
+      preference = await dataPreferences.getPreferences(getContext(this), PREFERENCES_NAME);
     } catch (err) {
       Logger.error(`Failed to get preferences, Cause: ${err}`);
     }
@@ -94,7 +93,7 @@ class CCPreference {
    */
   public async deletePreferences() {
     try {
-      await dataPreferences.deletePreferences(context, PREFERENCES_NAME);
+      await dataPreferences.deletePreferences(getContext(this), PREFERENCES_NAME);
     } catch(err) {
       Logger.error(`Failed to delete preferences, Cause: ${err}`);
     };

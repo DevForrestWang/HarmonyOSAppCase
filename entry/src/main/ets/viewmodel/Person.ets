@@ -1,6 +1,6 @@
 import ArrayList from '@ohos.util.ArrayList'
 import HashMap from '@ohos.util.HashMap'
-import Log from '../common/Logger'
+import CM from '../common/CCommon'
 
 export let pi = 3.14
 
@@ -34,12 +34,12 @@ export function baseFunc(a: number, b: number): number {
 
   // split() 把字符串分割为子字符串数组。
   let splitted = str.split(" ")
-  Log.debug(splitted[1])
+  CM.Logger.debug(splitted[1])
 
   // substr() 从起始索引号提取字符串中指定数目的字符。
 
   // substring() 提取字符串中两个指定的索引号之间的字符。
-  Log.debug(str.substring(0, 10))
+  CM.Logger.debug(str.substring(0, 10))
 
   // replace() 替换与正则表达式匹配的子串
   // search() 搜索 检索与正则表达式相匹配的值
@@ -48,14 +48,14 @@ export function baseFunc(a: number, b: number): number {
   // Number对象
   // toFixed: 把数字转换为字符串，并对小数点指定位数。
   let baseNum = 177.23456
-  Log.debug(baseNum.toFixed()) // 输出：177
-  Log.debug(baseNum.toFixed(2))  //输出：177.23
+  CM.Logger.debug(baseNum.toFixed()) // 输出：177
+  CM.Logger.debug(baseNum.toFixed(2))  //输出：177.23
 
   // toPrecision() 把数字格式化为指定的长度。
-  Log.debug(baseNum.toPrecision(2)) // 输出：7.1
+  CM.Logger.debug(baseNum.toPrecision(2)) // 输出：7.1
 
   // toString() 把数字转换为字符串数字的基数是 2 ~ 36 之间的整数。若省略该参数，则使用基数 10。
-  Log.debug(baseNum.toString())  // 输出10进制：10
+  CM.Logger.debug(baseNum.toString())  // 输出10进制：10
 
   // 数组 参考：https://www.runoob.com/typescript/ts-array.html
   // 在元素类型后面接上 []
@@ -67,7 +67,7 @@ export function baseFunc(a: number, b: number): number {
   // 元组: 表示一个已知元素数量和类型的数组，各元素的类型不必相同
   let x: [string, number]
   x = ['hello', 10]
-  Log.debug(`元组: ${x[0]}, ${x[1]}`)
+  CM.Logger.debug(`元组: ${x[0]}, ${x[1]}`)
 
   // 枚举: 使用枚举类型可以为一组数值赋予友好的名字
   enum Color {Red, Green, Blue};
@@ -92,51 +92,51 @@ export function baseFunc(a: number, b: number): number {
   // 数据类型判断， 判断字符串、整型、对象
   // 使用：typeof strs === "string" typeof strs === "object" typeof padding === "number"
   let list = new ArrayList<number>()
-  Log.debug("ArrayList类型：" + typeof list) // ArrayList类型：object
+  CM.Logger.debug("ArrayList类型：" + typeof list) // ArrayList类型：object
   let map = new HashMap<string, number>()
-  Log.debug("HashMap类型：" + typeof map)  // HashMap类型：object
-  Log.debug("Number类型：" + typeof decLiteral)  // Number类型：number
-  Log.debug("string类型：" + typeof name) // string类型：string
+  CM.Logger.debug("HashMap类型：" + typeof map)  // HashMap类型：object
+  CM.Logger.debug("Number类型：" + typeof decLiteral)  // Number类型：number
+  CM.Logger.debug("string类型：" + typeof name) // string类型：string
 
 
   // 数据类型判断
   let checkType: Date | string
   checkType = new Date()
   if (checkType instanceof Date) {
-    Log.debug("checkType is Date type")
+    CM.Logger.debug("checkType is Date type")
   } else {
-    Log.debug("checkType is string type")
+    CM.Logger.debug("checkType is string type")
   }
 
   // for..in 返回被迭代对象的键列表
   let listIteAry: number[] =  [4, 5, 6]
   for (let i in listIteAry) {
-    Log.debug(i); // "0", "1", "2",
+    CM.Logger.debug(i); // "0", "1", "2",
   }
 
   // for..of 返回被迭代对象的数字属性的值列表
   for (let i of listIteAry) {
-    Log.debug(i.toString()); // 4, 5, 6
+    CM.Logger.debug(i.toString()); // 4, 5, 6
   }
 
   // 下标循环
   for (let i = 0; i < listIteAry.length; i++) {
     var num = listIteAry[i];
-    Log.debug(`${num}`);
+    CM.Logger.debug(`${num}`);
   }
 
   listIteAry.forEach((val, idx, array) => {
     // val: 当前值
     // idx：当前index
     // array: Array
-    Log.debug(`forEach, val: ${val}, idx:${idx}, array: ${array}`)
+    CM.Logger.debug(`forEach, val: ${val}, idx:${idx}, array: ${array}`)
   });
 
   listIteAry.every((val, idx, array) => {
     // val: 当前值
     // idx：当前index
     // array: Array
-    Log.debug(`every, val: ${val}, idx:${idx}, array: ${array}`)
+    CM.Logger.debug(`every, val: ${val}, idx:${idx}, array: ${array}`)
     return true // Continues
     // Return false will quit the iteration
   });
@@ -150,22 +150,22 @@ export function baseFunc(a: number, b: number): number {
 
   // 数据类型转换 字符串 与 整型
   // string to number
-  Log.debug(Number('123').toString())
-  Log.debug(parseInt('123').toString())
-  Log.debug(parseFloat('123.45').toString())
-  Log.debug(`${parseFloat('123.45')}`)
+  CM.Logger.debug(Number('123').toString())
+  CM.Logger.debug(parseInt('123').toString())
+  CM.Logger.debug(parseFloat('123.45').toString())
+  CM.Logger.debug(`${parseFloat('123.45')}`)
 
   if (isNaN(Number('abc1234'))) {
-    Log.debug("The abc1234 is NaN")
+    CM.Logger.debug("The abc1234 is NaN")
   } else {
-    Log.debug("The abc1234 is not NaN")
+    CM.Logger.debug("The abc1234 is not NaN")
   }
 
   // number to string
   const myNumber = 1200;
-  Log.debug(myNumber.toString(16))
-  Log.debug(Math.abs(myNumber).toString(16))
-  Log.debug(parseFloat(myNumber.toString()).toFixed(2))
+  CM.Logger.debug(myNumber.toString(16))
+  CM.Logger.debug(Math.abs(myNumber).toString(16))
+  CM.Logger.debug(parseFloat(myNumber.toString()).toFixed(2))
 
 
 
@@ -173,7 +173,7 @@ export function baseFunc(a: number, b: number): number {
   // `Hello ${person}, today is ${date.toDateString()}!`;
   // "Hello ".concat(person, ", today is ").concat(date.toDateString(), "!");
 
-  Log.debug("Hello World".split("").reverse().join(""))
+  CM.Logger.debug("Hello World".split("").reverse().join(""))
 
   return a + b;
 }
@@ -196,7 +196,7 @@ export class Person implements PersonInter {
   }
 
   sayHello(): void {
-    Log.debug("sayHello")
+    CM.Logger.debug("sayHello")
   }
 
   public getPersonInfo(): string {
@@ -211,7 +211,7 @@ export class Student extends Person {
     name: "Tom",
     age: 18,
     sayHello: function() {
-      Log.debug(`Hello, my name is ${this.name}!, age: ${this.age}`);
+      CM.Logger.debug(`Hello, my name is ${this.name}!, age: ${this.age}`);
     }
   }
 
@@ -220,7 +220,7 @@ export class Student extends Person {
   }
 
   public sayHelloToTeacher(teacher: Person) {
-    Log.debug(`Hello, ${teacher.name}, I'm ${this.name}.`);
+    CM.Logger.debug(`Hello, ${teacher.name}, I'm ${this.name}.`);
   }
 }
 

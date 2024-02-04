@@ -1,4 +1,4 @@
-import CC from '../../common/CConstants'
+import CM from '../../common/CCommon'
 import BaseNaView from '../../view/BaseNavigationView'
 
 /// UI组件：TextArea
@@ -19,7 +19,7 @@ struct FwTextAreaDemoPage {
 
           Text('Please enter content:')
             .textAlign(TextAlign.Start)
-            .width(CC.FULL_PARENT)
+            .width(CM.Co.FULL_PARENT)
 
           // 问题：文本过长时,无法滚动
           TextArea({
@@ -28,7 +28,7 @@ struct FwTextAreaDemoPage {
             //text: ''
           })
             .placeholderFont({ size: 16, weight: 400 })
-            .width(CC.FULL_PARENT)
+            .width(CM.Co.FULL_PARENT)
             .height(100)
             .margin({bottom: 10})
             .fontSize(16)
@@ -41,7 +41,7 @@ struct FwTextAreaDemoPage {
 
           Text('Input: ' + this.text)
             .textAlign(TextAlign.Start)
-            .width(CC.FULL_PARENT)
+            .width(CM.Co.FULL_PARENT)
 
           Button('Set caretPosition 1')
             .backgroundColor('#007DFF')
@@ -52,7 +52,7 @@ struct FwTextAreaDemoPage {
             })
 
         }
-        .width(CC.FULL_PARENT)
+        .width(CM.Co.FULL_PARENT)
         .padding({ left: 20, right: 20, top: 20 })
         .backgroundColor('#F1F3F5')
 

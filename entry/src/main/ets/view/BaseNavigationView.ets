@@ -1,5 +1,4 @@
-import CC from '../common/CConstants'
-import Utils from '../common/CCUtils'
+import CM from '../common/CCommon'
 
 /// 导航栏基本页面
 @Component
@@ -14,7 +13,7 @@ export default struct BaseNavigationView {
         .size({ width: 24, height: 24 })
         .margin({ left: 5 })
         .onClick(()=> {
-          Utils.toast('signature')
+          CM.Utils.toast('signature')
         })
     }.justifyContent(FlexAlign.End)
   }
@@ -23,7 +22,7 @@ export default struct BaseNavigationView {
   @Builder NavigationTitle() {
     Row() {
       Text(this.title)
-        .fontSize(Utils.vp(24))
+        .fontSize(CM.Utils.vp(24))
         .fontWeight(FontWeight.Medium)
         .textAlign(TextAlign.Center)
         .size({ width: '65%'})
@@ -47,7 +46,7 @@ export default struct BaseNavigationView {
     .titleMode(NavigationTitleMode.Mini)
     .hideBackButton(false)
     //.menus(this.NavigationMenus())
-    .size({ width: CC.FULL_PARENT, height: CC.FULL_PARENT })
+    .size({ width: CM.Co.FULL_PARENT, height: CM.Co.FULL_PARENT })
     .backgroundColor('0xf4f4f7') // 显示不全时，背景颜色便于查看容器大小
 
   }

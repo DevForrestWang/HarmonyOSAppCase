@@ -1,13 +1,12 @@
-import CC from '../common/CConstants'
+import CM from '../common/CCommon'
 import UIKitView from  '../view/UIKitView'
 import CaseView from '../view/CaseView'
-import Utils from '../common/CCUtils'
 
 @Entry
 @Component
 struct MainPage {
 
-  @State currentIndex: number = CC.UIKIT_TAB_INDEX;
+  @State currentIndex: number = CM.Co.UIKIT_TAB_INDEX;
   private tabsController: TabsController = new TabsController();
 
   /**
@@ -20,16 +19,16 @@ struct MainPage {
   @Builder TabBuilder(title: string, index: number, selectImg: Resource, normalImg: Resource) {
     Column() {
       Image(this.currentIndex === index ? selectImg : normalImg)
-        .width(Utils.vp(25))
-        .height(Utils.vp(25))
+        .width(CM.Utils.vp(25))
+        .height(CM.Utils.vp(25))
       Text(title)
-        .margin({top: Utils.vp(4)})
-        .fontSize(Utils.vp(10))
+        .margin({top: CM.Utils.vp(4)})
+        .fontSize(CM.Utils.vp(10))
         .fontColor(this.currentIndex === index ? "#1698CE" : "#6B6B6B")
     }
     .justifyContent(FlexAlign.Center)
-    .height(Utils.vp(56))
-    .width(CC.FULL_PARENT)
+    .height(CM.Utils.vp(56))
+    .width(CM.Co.FULL_PARENT)
     .onClick(() => {
       this.currentIndex = index;
       this.tabsController.changeIndex(this.currentIndex);
@@ -46,17 +45,17 @@ struct MainPage {
         UIKitView()
       }
       .backgroundColor('#F1F3F5')
-      .tabBar(this.TabBuilder('UIKit', CC.UIKIT_TAB_INDEX, $r('app.media.home_selected'), $r('app.media.home_normal')))
+      .tabBar(this.TabBuilder('UIKit', CM.Co.UIKIT_TAB_INDEX, $r('app.media.home_selected'), $r('app.media.home_normal')))
 
       TabContent() {
         CaseView()
       }
       .backgroundColor('#F1F3F5')
-      .tabBar(this.TabBuilder('Case', CC.CASE_TAB_INDEX, $r('app.media.mine_selected'), $r('app.media.mine_normal')))
+      .tabBar(this.TabBuilder('Case', CM.Co.CASE_TAB_INDEX, $r('app.media.mine_selected'), $r('app.media.mine_normal')))
     }
-    .width(CC.FULL_PARENT)
+    .width(CM.Co.FULL_PARENT)
     .backgroundColor(Color.White)
-    .barHeight(CC.BAR_HEIGHT)
+    .barHeight(CM.Co.BAR_HEIGHT)
     .barMode(BarMode.Fixed)
     .onChange((index: number) => {
       this.currentIndex = index;

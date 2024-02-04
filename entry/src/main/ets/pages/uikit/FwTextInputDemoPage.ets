@@ -1,4 +1,4 @@
-import CC from '../../common/CConstants'
+import CM from '../../common/CCommon'
 import BaseNaView from '../../view/BaseNavigationView'
 
 /// UI组件：TextInput
@@ -20,7 +20,7 @@ struct FwTextInputDemoPage {
             .placeholderColor(Color.Grey)
             .placeholderFont({ size: 14, weight: 400 })
             .caretColor(Color.Blue)
-            .width(CC.FULL_PARENT)
+            .width(CM.Co.FULL_PARENT)
             .height(40)
             .margin(20)
             .fontSize(14)
@@ -43,7 +43,7 @@ struct FwTextInputDemoPage {
 
           // 密码输入框
           TextInput({ placeholder: 'Input your password...' })
-            .width(CC.FULL_PARENT)
+            .width(CM.Co.FULL_PARENT)
             .height(40)
             .margin(20)
             .type(InputType.Password)
@@ -53,14 +53,14 @@ struct FwTextInputDemoPage {
 
           // 内联风格输入框
           TextInput({ placeholder: 'Inline style' })
-            .width(CC.FULL_PARENT)
+            .width(CM.Co.FULL_PARENT)
             .height(50)
             .margin(20)
             .borderRadius(0)
             .style(TextInputStyle.Inline)
 
         }
-        .width(CC.FULL_PARENT)
+        .width(CM.Co.FULL_PARENT)
         .padding({ left: 35, right: 35, top: 15 })
 
       }

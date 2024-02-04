@@ -1,6 +1,5 @@
-import CC from '../../common/CConstants'
+import CM from '../../common/CCommon'
 import BaseNaView from '../../view/BaseNavigationView'
-import Utils from '../../common/CCUtils'
 
 /// UI组件：Text
 @Entry
@@ -21,21 +20,21 @@ struct FwTextDemoPage {
             .fontSize(12)
             .border({ width: 1 })
             .padding(10)
-            .width(CC.FULL_PARENT)
+            .width(CM.Co.FULL_PARENT)
           
           Text('TextAlign set to Start.')
             .textAlign(TextAlign.Start)
             .fontSize(12)
             .border({ width: 1 })
             .padding(10)
-            .width(CC.FULL_PARENT)
+            .width(CM.Co.FULL_PARENT)
           
           Text('TextAlign set to End.')
             .textAlign(TextAlign.End)
             .fontSize(12)
             .border({ width: 1 })
             .padding(10)
-            .width(CC.FULL_PARENT)
+            .width(CM.Co.FULL_PARENT)
 
           // 多行文本
           Text('This is the text content with textAlign set to Center.')
@@ -43,24 +42,24 @@ struct FwTextDemoPage {
             .fontSize(12)
             .border({ width: 1 })
             .padding(10)
-            .width(CC.FULL_PARENT)
+            .width(CM.Co.FULL_PARENT)
           
           Text('This is the text content with textAlign set to Start.')
             .textAlign(TextAlign.Start)
             .fontSize(12)
             .border({ width: 1 })
             .padding(10)
-            .width(CC.FULL_PARENT)
+            .width(CM.Co.FULL_PARENT)
           
           Text('This is the text content with textAlign set to End.')
             .textAlign(TextAlign.End)
             .fontSize(12)
             .border({ width: 1 })
             .padding(10)
-            .width(CC.FULL_PARENT)
+            .width(CM.Co.FULL_PARENT)
 
           // 文本超长时显示方式
-          Text('TextOverflow+maxLines: ').fontSize(14).fontColor(Color.Green).margin({top: Utils.vp(20)})
+          Text('TextOverflow+maxLines: ').fontSize(14).fontColor(Color.Green).margin({top: CM.Utils.vp(20)})
           // 超出maxLines截断内容展示
           Text('This is the setting of textOverflow to Clip text content This is the setting of textOverflow to None text content. This is the setting of textOverflow to Clip text content This is the setting of textOverflow to None text content.')
             .textOverflow({ overflow: TextOverflow.Clip })
@@ -78,20 +77,20 @@ struct FwTextDemoPage {
             .border({ width: 1 })
             .padding(10)
 
-          Text('lineHeight').fontSize(14).fontColor(Color.Green).margin({top: Utils.vp(20)})
+          Text('lineHeight').fontSize(14).fontColor(Color.Green).margin({top: CM.Utils.vp(20)})
           Text('This is the text with the line height set. This is the text with the line height set.')
             .fontSize(12)
             .border({ width: 1 })
             .padding(10)
-            .width(CC.FULL_PARENT)
+            .width(CM.Co.FULL_PARENT)
           Text('This is the text with the line height set. This is the text with the line height set.')
             .fontSize(12)
             .border({ width: 1 })
             .padding(10)
             .lineHeight(20)
-            .width(CC.FULL_PARENT)
+            .width(CM.Co.FULL_PARENT)
 
-          Text('decoration:').fontSize(14).fontColor(Color.Green).margin({top: Utils.vp(20)})
+          Text('decoration:').fontSize(14).fontColor(Color.Green).margin({top: CM.Utils.vp(20)})
           Text('This is the text content with the decoration set to LineThrough and the color set to Red.')
             .decoration({
               type: TextDecorationType.LineThrough,
@@ -100,7 +99,7 @@ struct FwTextDemoPage {
             .fontSize(12)
             .border({ width: 1 })
             .padding(10)
-            .width(CC.FULL_PARENT)
+            .width(CM.Co.FULL_PARENT)
 
           Text('This is the text content with the decoration set to Overline and the color set to Red.')
             .decoration({
@@ -110,7 +109,7 @@ struct FwTextDemoPage {
             .fontSize(12)
             .border({ width: 1 })
             .padding(10)
-            .width(CC.FULL_PARENT)
+            .width(CM.Co.FULL_PARENT)
 
           Text('This is the text content with the decoration set to Underline and the color set to Red.')
             .decoration({
@@ -120,61 +119,61 @@ struct FwTextDemoPage {
             .fontSize(12)
             .border({ width: 1 })
             .padding(10)
-            .width(CC.FULL_PARENT)
+            .width(CM.Co.FULL_PARENT)
 
           // 文本基线偏移
-          Text('baselineOffset').fontSize(14).fontColor(Color.Green).margin({top: Utils.vp(20)})
+          Text('baselineOffset').fontSize(14).fontColor(Color.Green).margin({top: CM.Utils.vp(20)})
           Text('This is the text content with baselineOffset 0.')
             .baselineOffset(0)
             .fontSize(12)
             .border({ width: 1 })
             .padding(10)
-            .width(CC.FULL_PARENT)
+            .width(CM.Co.FULL_PARENT)
           
           Text('This is the text content with baselineOffset 30.')
             .baselineOffset(30)
             .fontSize(12)
             .border({ width: 1 })
             .padding(10)
-            .width(CC.FULL_PARENT)
+            .width(CM.Co.FULL_PARENT)
           
           Text('This is the text content with baselineOffset -20.')
             .baselineOffset(-20)
             .fontSize(12)
             .border({ width: 1 })
             .padding(10)
-            .width(CC.FULL_PARENT)
+            .width(CM.Co.FULL_PARENT)
 
           // 文本字符间距
-          Text('letterSpacing').fontSize(14).fontColor(Color.Green).margin({top: Utils.vp(20)})
+          Text('letterSpacing').fontSize(14).fontColor(Color.Green).margin({top: CM.Utils.vp(20)})
           Text('This is the text content with letterSpacing 0.')
             .letterSpacing(0)
             .fontSize(12)
             .border({ width: 1 })
             .padding(10)
-            .width(CC.FULL_PARENT)
+            .width(CM.Co.FULL_PARENT)
           
           Text('This is the text content with letterSpacing 3.')
             .letterSpacing(3)
             .fontSize(12)
             .border({ width: 1 })
             .padding(10)
-            .width(CC.FULL_PARENT)
+            .width(CM.Co.FULL_PARENT)
           
           Text('This is the text content with letterSpacing -1.')
             .letterSpacing(-1)
             .fontSize(12)
             .border({ width: 1 })
             .padding(10)
-            .width(CC.FULL_PARENT)
+            .width(CM.Co.FULL_PARENT)
 
-          Text('textCase').fontSize(14).fontColor(Color.Green).margin({top: Utils.vp(20)})
+          Text('textCase').fontSize(14).fontColor(Color.Green).margin({top: CM.Utils.vp(20)})
           Text('This is the text content with textCase set to Normal.')
             .textCase(TextCase.Normal)
             .fontSize(12)
             .border({ width: 1 })
             .padding(10)
-            .width(CC.FULL_PARENT)
+            .width(CM.Co.FULL_PARENT)
 
           // 文本全小写展示
           Text('This is the text content with textCase set to LowerCase.')
@@ -182,7 +181,7 @@ struct FwTextDemoPage {
             .fontSize(12)
             .border({ width: 1 })
             .padding(10)
-            .width(CC.FULL_PARENT)
+            .width(CM.Co.FULL_PARENT)
 
           // 文本全大写展示
           Text('This is the text content with textCase set to UpperCase.')
@@ -190,10 +189,10 @@ struct FwTextDemoPage {
             .fontSize(12)
             .border({ width: 1 })
             .padding(10)
-            .width(CC.FULL_PARENT)
+            .width(CM.Co.FULL_PARENT)
 
         }
-        .width(CC.FULL_PARENT)
+        .width(CM.Co.FULL_PARENT)
         .padding({ left: 35, right: 35, top: 15 })
 
       }

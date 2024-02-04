@@ -1,4 +1,4 @@
-import CC from '../../common/CConstants'
+import CM from '../../common/CCommon'
 import BaseNaView from '../../view/BaseNavigationView'
 
 @Entry
@@ -25,7 +25,7 @@ struct FwProgressDemoPage {
           Progress({ value: 24, total: 100, type: ProgressType.Ring })
 
         }
-        .width(CC.FULL_PARENT)
+        .width(CM.Co.FULL_PARENT)
         .padding({ left: 35, right: 35, top: 15 })
 
       }

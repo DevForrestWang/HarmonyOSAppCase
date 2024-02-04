@@ -7,11 +7,11 @@ import { GlobalData } from './GlobalData'
 
 // common 文件导出
 let CM = {
-  Co : Co,
-  Utils : Utils,
-  CCPreference : CCPreference,
-  Logger : Logger,
-  WindowBarManager : WindowBarManager,
+  Co: Co,
+  Utils: Utils,
+  CCPreference: CCPreference,
+  Logger: Logger,
+  WindowBarManager: WindowBarManager,
   GlobalData: GlobalData,
 };
-export default CM
+export default CM;

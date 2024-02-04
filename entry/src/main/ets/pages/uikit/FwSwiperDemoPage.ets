@@ -1,4 +1,4 @@
-import CC from '../../common/CConstants'
+import CM from '../../common/CCommon'
 import BaseNaView from '../../view/BaseNavigationView'
 import MyDataSource from '../../viewmodel/MyDataSource'
 
@@ -58,7 +58,7 @@ struct FwSwiperDemoPage {
           }.margin(5)
 
         }
-        .width(CC.FULL_PARENT)
+        .width(CM.Co.FULL_PARENT)
         .padding({ left: 35, right: 35, top: 15 })
 
       }

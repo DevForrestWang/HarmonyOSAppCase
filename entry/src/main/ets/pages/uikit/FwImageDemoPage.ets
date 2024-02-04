@@ -1,4 +1,4 @@
-import CC from '../../common/CConstants'
+import CM from '../../common/CCommon'
 import BaseNaView from '../../view/BaseNavigationView'
 
 /// UI组件：Image
@@ -39,12 +39,12 @@ struct FwImageDemoPage {
           //加载网络图片，使用alt，在网络图片加载成功前使用占位图
           Image("https://developer.huawei.com/allianceCmsResource/resource/HUAWEI_Developer_VUE/images/HW-LOGO.svg")
             .alt($r('app.media.icon'))
-            .width(CC.FULL_PARENT)
+            .width(CM.Co.FULL_PARENT)
             .height(80)
 
 
         }
-        .width(CC.FULL_PARENT)
+        .width(CM.Co.FULL_PARENT)
         .padding({ left: 35, right: 35, top: 15 })
 
       }

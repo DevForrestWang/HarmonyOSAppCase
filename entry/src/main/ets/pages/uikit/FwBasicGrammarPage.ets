@@ -1,9 +1,7 @@
 import router from '@ohos.router';
-import CC from '../../common/CConstants'
-import Log from '../../common/Logger'
+import CM from '../../common/CCommon'
 import BaseNaView from '../../view/BaseNavigationView'
 import { pi, baseFunc, Person, Student } from '../../viewmodel/Person'
-import Utils from '../../common/CCUtils'
 
 /**
  * 语法基本页面
@@ -19,29 +17,29 @@ struct FwBasicGrammarPage {
   private student:Student = new Student('Jack')
 
   aboutToAppear() {
-    Log.debug("aboutToAppear")
+    CM.Logger.debug("aboutToAppear")
 
-    Log.debug('pi:' + pi)
+    CM.Logger.debug('pi:' + pi)
     baseFunc(5, 10)
-    Log.debug("student: getPersonInfo" + this.student.getPersonInfo())
+    CM.Logger.debug("student: getPersonInfo" + this.student.getPersonInfo())
     this.student.tomObj.sayHello()
     this.student.sayHelloToTeacher(new Person("Tom", 30))
   }
 
   aboutToDisappear() {
-    Log.debug("aboutToDisappear")
+    CM.Logger.debug("aboutToDisappear")
   }
 
   onPageShow(){
-    Log.debug("onPageShow")
+    CM.Logger.debug("onPageShow")
   }
 
   onPageHide() {
-    Log.debug("onPageHide")
+    CM.Logger.debug("onPageHide")
   }
 
   onBackPress() {
-    Log.debug("onBackPress")
+    CM.Logger.debug("onBackPress")
   }
 
   @Builder componentBuilder() {
@@ -51,7 +49,7 @@ struct FwBasicGrammarPage {
       .backgroundColor(0x317aff)
       .width(90)
       .onClick(() => {
-        Utils.toast("Person" + this.student.getPersonInfo())
+        CM.Utils.toast("Person" + this.student.getPersonInfo())
       })
 
   }
@@ -64,7 +62,7 @@ struct FwBasicGrammarPage {
         Column({ space: 10 }) {
           this.componentBuilder()
         }
-        .width(CC.FULL_PARENT)
+        .width(CM.Co.FULL_PARENT)
         .padding({ left: 35, right: 35, top: 15 })
       }
     }
