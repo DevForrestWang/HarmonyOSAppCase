@@ -4,7 +4,7 @@ import CCPreference from './CCPreference'
 import Logger from './Logger'
 import WindowBarManager from '../common/WindowBar'
 import GlobalData from './GlobalData'
-import {HttpConstant, ResponseResult, HttpRequestGet, HttpRequestPost} from './HttpUtil'
+import {HttpConstant, HttpURL, HttpRequestGet, HttpRequestPost} from './HttpUtil'
 
 // common模块导出类
 export class CM  {
@@ -16,9 +16,8 @@ export class CM  {
    public WindowBarManager = WindowBarManager
    public GlobalData = GlobalData
    public HttpConstant = HttpConstant
-   //public ResponseResult = ResponseResult
+   public HttpURL = HttpURL
    public HttpRequestGet = HttpRequestGet
    public HttpRequestPost = HttpRequestPost
 }
-
 export default new CM

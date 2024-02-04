@@ -1,5 +1,5 @@
 import CM from '../../common/CCommon'
-import { ResponseResult } from '../../common/HttpUtil'
+import { ResponseResult, ParamsType } from '../../common/HttpUtil'
 import BaseNaView from '../../view/BaseNavigationView'
 
 /// 网络请求
@@ -9,11 +9,17 @@ struct FwNetWorkDemoPage {
 
   aboutToAppear() {
 
-    let url = `http://192.168.1.177:9588/news/getNewsType`;
+    let url = `${CM.HttpURL.BASE_SERVER}/${CM.HttpURL.GET_NEWS_TYPE}`
+    let params:ParamsType = {
+      currentPage: 1,
+      pageSize: 10
+    }
+
     url += '?currentPage=' + 1 + '&pageSize=' + 10;
-    CM.HttpRequestGet(url).then((data: ResponseResult) => {
+    CM.HttpRequestGet(url, params).then((data: ResponseResult) => {
       if (data.code === CM.HttpConstant.SERVER_CODE_SUCCESS) {
         CM.Logger.debug('getNewsList data', JSON.stringify(data.data));
+        CM.Utils.toast("网络请求结果：" + data.code)
       } else {
         CM.Logger.error('getNewsList failed', JSON.stringify(data));
       }

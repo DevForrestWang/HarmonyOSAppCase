@@ -1,4 +1,5 @@
 import http from '@ohos.net.http';
+import Logger from './Logger'
 
 export class HttpConstant {
   // The http timeout duration.
@@ -9,6 +10,17 @@ export class HttpConstant {
 
   // The request success status code.
   static readonly SERVER_CODE_SUCCESS: string = 'success'
+}
+
+export class HttpURL {
+  // The host address of the server.
+  static readonly BASE_SERVER: string = 'http://192.168.1.177:9588';
+
+  // 接口：新闻列表
+  static readonly GET_NEWS_TYPE: string = 'news/getNewsType';
+
+  // 接口：新闻信息
+  static readonly GET_NEWS_LIST: string = 'news/getNewsList';
 }
 
 // 返回的数据结构
@@ -29,6 +41,24 @@ export class ResponseResult {
   }
 }
 
+// 定义请求参数结构
+export interface ParamsType {
+  [key: string]: any
+}
+
+let requestId: number = 0
+
+// 请求头定义
+let requestHeads = {
+  'Content-Type': 'application/json'
+}
+function _printRequest(url: string, reqId: number, params?: ParamsType) {
+  Logger.debug(`===========<request-id:${reqId} tag:>===========`)
+  Logger.debug(`Request Url: ${url}`)
+  Logger.debug("Request Params:" + JSON.stringify(params, null, 4))
+  Logger.debug("Request Header:" + JSON.stringify(requestHeads, null, 4))
+}
+
 /**
  * 基础的网络请求
  * @param url
@@ -36,16 +66,14 @@ export class ResponseResult {
  * @param extraData
  * @returns
  */
-function _baseRequest(url: string, method: http.RequestMethod, extraData?: string | Object | ArrayBuffer) {
+function _baseRequest(url: string, method: http.RequestMethod, reqId: number, extraData?: string | Object | ArrayBuffer): Promise<ResponseResult> {
   let httpRequest = http.createHttp();
 
   let responseResult = httpRequest.request(url, {
     method: method,
     readTimeout: HttpConstant.HTTP_READ_TIMEOUT,
     connectTimeout: HttpConstant.HTTP_READ_TIMEOUT,
-    header: {
-      'Content-Type': 'application/json'
-    },
+    header: requestHeads,
     extraData: extraData
   });
 
@@ -59,6 +87,8 @@ function _baseRequest(url: string, method: http.RequestMethod, extraData?: strin
       // Obtains the returned data.
       let result = `${value.result}`;
       let resultJson: ResponseResult = JSON.parse(result);
+      Logger.debug(`===========<response-idS:${reqId} tag:>===========`)
+      Logger.debug(`Response Data:${JSON.stringify(resultJson, null, 4)} `)
 
       if (resultJson.code === HttpConstant.SERVER_CODE_SUCCESS) {
         serverData.data = resultJson.data;
@@ -80,8 +110,20 @@ function _baseRequest(url: string, method: http.RequestMethod, extraData?: strin
  * @param url
  * @returns
  */
-export function HttpRequestGet(url: string): Promise<ResponseResult> {
-  return _baseRequest(url, http.RequestMethod.GET)
+export function HttpRequestGet(url: string, params?: ParamsType): Promise<ResponseResult> {
+  let strParams = ''
+  for (let key in params) {
+    strParams += key + "&" +  JSON.stringify(params[key])
+  }
+
+  let tmpUrl = url
+  if (strParams.length > 0) {
+    tmpUrl += "?" + strParams
+  }
+
+  requestId += 1
+  _printRequest(url, requestId, params)
+  return _baseRequest(tmpUrl, http.RequestMethod.GET, requestId)
 }
 
 /**
@@ -89,6 +131,8 @@ export function HttpRequestGet(url: string): Promise<ResponseResult> {
  * @param url
  * @returns
  */
-export function HttpRequestPost(url: string, extraData?: string | Object | ArrayBuffer): Promise<ResponseResult> {
-  return _baseRequest(url, http.RequestMethod.POST, extraData)
+export function HttpRequestPost(url: string, params?:ParamsType): Promise<ResponseResult> {
+  requestId += 1
+  _printRequest(url, requestId, params)
+  return _baseRequest(url, http.RequestMethod.POST, requestId, params)
 }
