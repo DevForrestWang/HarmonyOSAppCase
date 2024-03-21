@@ -15,11 +15,14 @@ struct FwWebComponentPage {
         Web({ src: 'm.baidu.com', controller: this.webviewVC})
           .javaScriptAccess(true)
           .fileAccess(true)
+          .domStorageAccess(true)
+          .mediaPlayGestureAccess(true)
+          .multiWindowAccess(true)
           .padding(CM.Utils.vp(20))
           .height(CM.Co.FULL_PARENT)
           .onConsole((event) => {
-            console.log('getMessage:' + event.message.getMessage());
-            console.log('getMessageLevel:' + event.message.getMessageLevel());
+            CM.Logger.debug('getMessage:' + event.message.getMessage());
+            CM.Logger.debug('getMessageLevel:' + event.message.getMessageLevel());
             return false;
           })
 

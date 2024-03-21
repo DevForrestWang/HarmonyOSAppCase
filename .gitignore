@@ -10,5 +10,7 @@
 /.clang-tidy
 **/.test
 
+build-profile.json5
+
 # OS X
 .DS_Store
