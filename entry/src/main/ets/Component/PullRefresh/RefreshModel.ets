@@ -14,9 +14,9 @@
  */
 
 /**
- * Animation model.
+ * RefreshModel model.
  */
-export default class ClassifyModel {
+export default class RefreshModel {
   imgRes: Resource;
   posX: number;
   delay: number;

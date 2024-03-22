@@ -14,7 +14,7 @@
  */
 
 import display from '@ohos.display';
-import ClassifyModel from './AnimationModel'
+import RefreshModel from './RefreshModel'
 import CM from '../../common/CCommon'
 
 let deviceDisplay: display.Display = CM.GlobalData.getContext().getObject('display') as display.Display;
@@ -84,12 +84,12 @@ export class RefreshConstants {
   /**
    * refresh header item feature
    */
-  static readonly REFRESH_HEADER_FEATURE: ClassifyModel[] = [
-    new ClassifyModel($r('app.media.ic_loading_game'), (px2vp(deviceDisplay.width) / 2 - RefreshConstants.REFRESH_HEADER_ITEM_DEFAULT_WIDTH / 2) - 100, 400),
-    new ClassifyModel($r('app.media.ic_loading_heart'), (px2vp(deviceDisplay.width) / 2 - RefreshConstants.REFRESH_HEADER_ITEM_DEFAULT_WIDTH / 2) - 50, 800),
-    new ClassifyModel($r('app.media.ic_loading_louder'), px2vp(deviceDisplay.width) / 2 - RefreshConstants.REFRESH_HEADER_ITEM_DEFAULT_WIDTH / 2, 1200),
-    new ClassifyModel($r('app.media.ic_loading_bag'), (px2vp(deviceDisplay.width) / 2 - RefreshConstants.REFRESH_HEADER_ITEM_DEFAULT_WIDTH / 2) + 50, 1600),
-    new ClassifyModel($r('app.media.ic_loading_file'), (px2vp(deviceDisplay.width) / 2 - RefreshConstants.REFRESH_HEADER_ITEM_DEFAULT_WIDTH / 2) + 100, 2000)
+  static readonly REFRESH_HEADER_FEATURE: RefreshModel[] = [
+    new RefreshModel($r('app.media.ic_loading_game'), (px2vp(deviceDisplay.width) / 2 - RefreshConstants.REFRESH_HEADER_ITEM_DEFAULT_WIDTH / 2) - 100, 400),
+    new RefreshModel($r('app.media.ic_loading_heart'), (px2vp(deviceDisplay.width) / 2 - RefreshConstants.REFRESH_HEADER_ITEM_DEFAULT_WIDTH / 2) - 50, 800),
+    new RefreshModel($r('app.media.ic_loading_louder'), px2vp(deviceDisplay.width) / 2 - RefreshConstants.REFRESH_HEADER_ITEM_DEFAULT_WIDTH / 2, 1200),
+    new RefreshModel($r('app.media.ic_loading_bag'), (px2vp(deviceDisplay.width) / 2 - RefreshConstants.REFRESH_HEADER_ITEM_DEFAULT_WIDTH / 2) + 50, 1600),
+    new RefreshModel($r('app.media.ic_loading_file'), (px2vp(deviceDisplay.width) / 2 - RefreshConstants.REFRESH_HEADER_ITEM_DEFAULT_WIDTH / 2) + 100, 2000)
   ];
 }
 

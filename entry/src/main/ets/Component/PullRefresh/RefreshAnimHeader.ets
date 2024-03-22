@@ -15,7 +15,7 @@
 
 import CM from '../../common/CCommon'
 import { RefreshState, RefreshConstants } from './RefreshConstants';
-import ClassifyModel from './AnimationModel';
+import RefreshModel from './RefreshModel';
 
 @Component
 export default struct RefreshAnimHeader {
@@ -30,7 +30,7 @@ export default struct RefreshAnimHeader {
     }
   }
 
-  @Builder AttrAnimIcons(iconItem: ClassifyModel) {
+  @Builder AttrAnimIcons(iconItem: RefreshModel) {
     Image(iconItem.imgRes)
       .width(px2vp(CM.Utils.adaptDimension(this.iconWidth)))
       .position({ x: iconItem.posX })
@@ -48,9 +48,9 @@ export default struct RefreshAnimHeader {
   build() {
     Row() {
       if (this.state !== RefreshState.IDLE) { // stop animation when idle state.  CM.Co.FULL_PARENT
-        ForEach(RefreshConstants.REFRESH_HEADER_FEATURE, (iconItem: ClassifyModel) => {
+        ForEach(RefreshConstants.REFRESH_HEADER_FEATURE, (iconItem: RefreshModel) => {
           this.AttrAnimIcons(iconItem)
-        }, (item: ClassifyModel) => JSON.stringify(item))
+        }, (item: RefreshModel) => JSON.stringify(item))
       }
     }
     .width(CM.Co.FULL_PARENT)
