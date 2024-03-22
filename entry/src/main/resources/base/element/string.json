@@ -19,6 +19,18 @@
     {
       "name": "empty",
       "value": "empty"
+    },
+    {
+      "name": "refresh_default_header_hint",
+      "value": "Pull Down Refresh"
+    },
+    {
+      "name": "refresh_default_header_load",
+      "value": "Release Refresh"
+    },
+    {
+      "name": "refresh_default_header_loading",
+      "value": "Refreshing..."
     }
   ]
 }

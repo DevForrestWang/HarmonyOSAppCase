@@ -19,6 +19,18 @@
     {
       "name": "empty",
       "value": "empty"
+    },
+    {
+      "name": "refresh_default_header_hint",
+      "value": "下拉刷新"
+    },
+    {
+      "name": "refresh_default_header_load",
+      "value": "松开刷新"
+    },
+    {
+      "name": "refresh_default_header_loading",
+      "value": "正在刷新..."
     }
   ]
 }

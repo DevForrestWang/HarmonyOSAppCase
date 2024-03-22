@@ -1,6 +1,7 @@
 import prompt from '@system.prompt'
 import display from '@ohos.display'
 import window from '@ohos.window'
+import GlobalData from './GlobalData'
 
 export default class CCUtils {
 
@@ -65,6 +66,18 @@ export default class CCUtils {
       return 0
     }
     return this.float2Int(height)
+  }
+
+  static adaptDimension(value: number): number {
+    const DESIGN_WIDTH = 360;
+    const DESIGN_HEIGHT = 780;
+
+    let deviceDisplay: display.Display = GlobalData.getContext().getObject('display') as display.Display;
+    let widthScale = deviceDisplay.width / DESIGN_WIDTH;
+    let virtualHeight = widthScale * DESIGN_HEIGHT;
+    let designDim = Math.sqrt(DESIGN_WIDTH * DESIGN_WIDTH + DESIGN_HEIGHT * DESIGN_HEIGHT);
+    let virtualDim = Math.sqrt(deviceDisplay.width * deviceDisplay.width + virtualHeight * virtualHeight);
+    return virtualDim * value / designDim;
   }
 
   /**
