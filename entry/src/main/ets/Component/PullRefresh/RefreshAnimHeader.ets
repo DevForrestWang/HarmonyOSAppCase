@@ -19,11 +19,11 @@ import RefreshModel from './RefreshModel';
 
 @Component
 export default struct RefreshAnimHeader {
-  @Consume(RefreshConstants.REFRESH_STATE_TAG) @Watch('onStateCheck') state: number;
+  @Consume(RefreshConstants.REFRESH_STATE_TAG) @Watch('onStateCheck') refreshState: number;
   @State iconWidth: number = RefreshConstants.REFRESH_HEADER_ITEM_DEFAULT_WIDTH;
 
   private onStateCheck() {
-    if (this.state === RefreshState.REFRESHING) {
+    if (this.refreshState === RefreshState.REFRESHING) {
       this.iconWidth = RefreshConstants.REFRESH_HEADER_ITEM_SCALE_WIDTH;
     } else {
       this.iconWidth = RefreshConstants.REFRESH_HEADER_ITEM_DEFAULT_WIDTH;
@@ -47,7 +47,7 @@ export default struct RefreshAnimHeader {
 
   build() {
     Row() {
-      if (this.state !== RefreshState.IDLE) { // stop animation when idle state.  CM.Co.FULL_PARENT
+      if (this.refreshState !== RefreshState.IDLE) { // stop animation when idle state.  CM.Co.FULL_PARENT
         ForEach(RefreshConstants.REFRESH_HEADER_FEATURE, (iconItem: RefreshModel) => {
           this.AttrAnimIcons(iconItem)
         }, (item: RefreshModel) => JSON.stringify(item))

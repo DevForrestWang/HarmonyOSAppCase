@@ -19,10 +19,10 @@ import { RefreshConstants, RefreshState } from './RefreshConstants';
 @Component
 export default struct RefreshDefaultHeader {
   @State refreshTitle: Resource = $r('app.string.refresh_default_header_hint');
-  @Consume(RefreshConstants.REFRESH_STATE_TAG) @Watch('onStateCheck') state: number;
+  @Consume(RefreshConstants.REFRESH_STATE_TAG) @Watch('onStateCheck') refreshState: number;
 
   private onStateCheck() {
-    switch (this.state) {
+    switch (this.refreshState) {
       case RefreshState.IDLE:
         this.refreshTitle = $r('app.string.refresh_default_header_hint');
         break;
@@ -36,7 +36,7 @@ export default struct RefreshDefaultHeader {
   }
 
   build() {
-    if (this.state !== RefreshState.IDLE) {
+    if (this.refreshState !== RefreshState.IDLE) {
       Text(this.refreshTitle)
         .height(CM.Co.FULL_PARENT)
         .width(CM.Co.FULL_PARENT)

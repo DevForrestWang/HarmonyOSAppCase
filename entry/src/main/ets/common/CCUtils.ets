@@ -72,7 +72,7 @@ export default class CCUtils {
     const DESIGN_WIDTH = 360;
     const DESIGN_HEIGHT = 780;
 
-    let deviceDisplay: display.Display = GlobalData.getContext().getObject('display') as display.Display;
+    let deviceDisplay: display.Display = display.getDefaultDisplaySync()
     let widthScale = deviceDisplay.width / DESIGN_WIDTH;
     let virtualHeight = widthScale * DESIGN_HEIGHT;
     let designDim = Math.sqrt(DESIGN_WIDTH * DESIGN_WIDTH + DESIGN_HEIGHT * DESIGN_HEIGHT);
