@@ -97,11 +97,11 @@ export class RefreshConstants {
  * refresh state enum
  */
 export enum RefreshState {
-  IDLE = 0,
-  DRAGGING = 1,
-  DRAGGING_REFRESHABLE = 2,
-  REFRESHING = 3,
-  COMPLETE = 4
+  IDLE = 0, //空闲
+  DRAGGING = 1, // 拖曳
+  DRAGGING_REFRESHABLE = 2, // 拖动刷新
+  REFRESHING = 3, // 刷新
+  COMPLETE = 4 // 完成
 }
 
 /**
