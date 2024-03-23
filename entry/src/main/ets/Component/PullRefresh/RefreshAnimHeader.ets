@@ -47,7 +47,7 @@ export default struct RefreshAnimHeader {
 
   build() {
     Row() {
-      if (this.refreshState !== RefreshState.IDLE) { // stop animation when idle state.  CM.Co.FULL_PARENT
+      if (this.refreshState !== RefreshState.IDLE) { // stop animation when idle state.
         ForEach(RefreshConstants.REFRESH_HEADER_FEATURE, (iconItem: RefreshModel) => {
           this.AttrAnimIcons(iconItem)
         }, (item: RefreshModel) => JSON.stringify(item))
