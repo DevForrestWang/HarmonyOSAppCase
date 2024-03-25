@@ -29,5 +29,7 @@ export  default class CConstants {
   static readonly STATUS_BAR_CONTENT_COLOR: string = '#ffffff'
   static readonly NAVIGATION_BAR_CONTENT_COLOR: string = '#ffffff'
 
-
 }
+
+// 资源类型别名定义
+type ResourceStr = Resource | string
