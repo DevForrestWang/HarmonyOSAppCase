@@ -3,7 +3,7 @@ import CM from '../common/CCommon'
 import TextCommonWidget from './TextCommonWidget'
 import mainViewModel from '../viewmodel/MainViewModel'
 import ItemModel from '../viewmodel/ItemDataModel'
-import TitleBarComponent from '../view/TitleBarComponent';
+import TitleBarComponent from '../view/TitleBarComponent'
 
 @Component
 export default struct UIKitView {

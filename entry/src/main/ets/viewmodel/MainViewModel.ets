@@ -22,6 +22,17 @@ export class MainViewModel {
     ]
     return dataModel
   }
+
+  /// Case获取的数据
+  getCaseData(): Array<ItemModel> {
+    let dataModel: ItemModel[] = [
+      new ItemModel('打印日志、Toast 测试', $r('app.media.ic_display_and_brightness')),
+      new ItemModel('聊天页面', $r('app.media.ic_app_management')),
+      new ItemModel('下载页面', $r('app.media.down_arrow')),
+    ]
+    return dataModel
+  }
+
 }
 
 export default new MainViewModel()

@@ -2,9 +2,11 @@ import router from '@ohos.router'
 import window from '@ohos.window'
 import CM from '../common/CCommon'
 import TextCommonWidget from './TextCommonWidget'
-import TitleBarComponent from '../view/TitleBarComponent'
 import RefreshComponent from '../Component/PullRefresh/RefreshComponent'
 import { RefreshHeaderStyle, RefreshState, RefreshConstants } from '../Component/PullRefresh//RefreshConstants'
+import mainViewModel from '../viewmodel/MainViewModel'
+import ItemModel from '../viewmodel/ItemDataModel'
+import TitleBarComponent from '../view/TitleBarComponent'
 
 @Component
 export default struct CaseView {
@@ -13,49 +15,65 @@ export default struct CaseView {
 
   @Builder
   ContentBody() {
-    Scroll() {
-      Column(){
 
-        TextCommonWidget({
-          title: '打印日志、Toast 测试',
-          textImage: $r('app.media.ic_display_and_brightness'),
-          onItemClick: () => {
-            CM.Logger.debug("debug test log")
-            CM.Logger.info("info test log")
-            CM.Logger.error("error test log")
+    List() {
 
-            CM.Utils.toast("吐司测试")
+      ForEach(mainViewModel.getCaseData(), (item: ItemModel) => {
 
-            CM.Logger.debug(`heitht: ${CM.Utils.screenHeight()}`)
-            CM.Logger.debug(`heitht/2: ${CM.Utils.screenHeight() / 2}`)
-            CM.Logger.debug(`weight: ${CM.Utils.screenWeight()}`)
+        ListItem(){
+          TextCommonWidget({
+            textImage:item.img,
+            title: item.title,
+            onItemClick: () => {
 
-            let deviceSize = CM.Utils.getDeviceSize(getContext(this));
-            deviceSize.then((data: window.Window) => {
-              CM.Logger.debug(`window Object: ${data}`)
-            });
+              let url = ''
+              if ('打印日志、Toast 测试' === item.title) {
+                CM.Logger.debug("debug test log")
+                CM.Logger.info("info test log")
+                CM.Logger.error("error test log")
 
-          }
-        })
+                CM.Utils.toast("吐司测试")
 
-        TextCommonWidget({
-          title: '聊天页面',
-          textImage: $r('app.media.ic_app_management'),
-          onItemClick: () => {
+                CM.Logger.debug(`heitht: ${CM.Utils.screenHeight()}`)
+                CM.Logger.debug(`heitht/2: ${CM.Utils.screenHeight() / 2}`)
+                CM.Logger.debug(`weight: ${CM.Utils.screenWeight()}`)
 
-            router.pushUrl({
-              url: 'pages/chat/pages/SetFontSizePage'
-            }).catch((error: Error) => {
-              CM.Logger.info('CasePage push error' + JSON.stringify(error));
-            })
+                let deviceSize = CM.Utils.getDeviceSize(getContext(this));
+                deviceSize.then((data: window.Window) => {
+                  CM.Logger.debug(`window Object: ${data}`)
+                });
+                return
+              } else if ('聊天页面' == item.title) {
+                url = 'pages/chat/pages/SetFontSizePage'
+              } else if ('下载页面' == item.title) {
+                url = 'pages/Case/DownloadPage'
+              }
 
-          }
-        })
+              if (url.length > 0) {
+                router.pushUrl({
+                  url: url,
+                  params: {
+                    src: 'page params'
+                  }
+                }).catch((error: Error) => {
+                  CM.Logger.error('IndexPage push error' + JSON.stringify(error) + ', URL:' + url);
+                })
+              }
 
-      }
-      .width(CM.Co.FULL_PARENT)
-      .backgroundColor('#F5F5F5')
+            }
+          })
+        }
+
+      }, (item: ItemModel) => JSON.stringify(item))
+
     }
+    .backgroundColor('#F5F5F5')
+    .width(CM.Co.FULL_PARENT)
+    .padding({top: CM.Utils.vp(5), bottom: CM.Utils.vp(5)})
+    .margin({ bottom: CM.Co.BAR_HEIGHT })
+
+
+
   }
 
   build() {

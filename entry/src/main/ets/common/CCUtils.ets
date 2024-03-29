@@ -1,7 +1,6 @@
 import prompt from '@system.prompt'
 import display from '@ohos.display'
 import window from '@ohos.window'
-import GlobalData from './GlobalData'
 
 export default class CCUtils {
 

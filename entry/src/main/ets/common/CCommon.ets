@@ -5,6 +5,8 @@ import Logger from './Logger'
 import WindowBarManager from '../common/WindowBar'
 import GlobalData from './GlobalData'
 import {HttpConstant, HttpURL, HttpRequestGet, HttpRequestPost} from './HttpUtil'
+import {createWantAgent, publishNotification, openNotificationPermission} from './CCNotificationUtil'
+import { getStringByRes } from './CCResourseUtil'
 
 // common模块导出类
 export class CM  {
@@ -19,5 +21,9 @@ export class CM  {
    public HttpURL = HttpURL
    public HttpRequestGet = HttpRequestGet
    public HttpRequestPost = HttpRequestPost
+   public createWantAgent = createWantAgent
+   public publishNotification = publishNotification
+   public openNotificationPermission = openNotificationPermission
+   public getStringByRes = getStringByRes
 }
 export default new CM
