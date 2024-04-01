@@ -1,6 +1,6 @@
 import common from '@ohos.app.ability.common';
 import notification from '@ohos.notificationManager';
-import wantAgent, { WantAgent } from '@ohos.app.ability.wantAgent';
+import { WantAgent } from '@ohos.app.ability.wantAgent';
 
 import CM from '../../common/CCommon'
 import BaseNaView from '../../view/BaseNavigationView'
