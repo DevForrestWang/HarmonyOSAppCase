@@ -31,6 +31,18 @@
     {
       "name": "refresh_default_header_loading",
       "value": "Refreshing..."
+    },
+    {
+      "name": "notification_title_download",
+      "value": "Downloading"
+    },
+    {
+      "name": "notification_title_pause",
+      "value": "Download paused"
+    },
+    {
+      "name": "notification_title_finish",
+      "value": "Download completed"
     }
   ]
 }
