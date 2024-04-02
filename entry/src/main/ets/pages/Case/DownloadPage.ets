@@ -1,7 +1,6 @@
 import common from '@ohos.app.ability.common';
 import notification from '@ohos.notificationManager';
 import { WantAgent } from '@ohos.app.ability.wantAgent';
-
 import CM from '../../common/CCommon'
 import BaseNaView from '../../view/BaseNavigationView'
 
@@ -40,6 +39,8 @@ struct DownloadPage {
   private PROGRESS_SPEED: number = 2
   private PROGRESS_TOTAL: number = 100
   private FONT_OPACITY: number = 0.6
+  private templateName: string = 'downloadTemplate'
+  private fileName = '1653067.mp4'
 
   aboutToAppear() {
     CM.openNotificationPermission();
@@ -50,7 +51,7 @@ struct DownloadPage {
     }).catch((err: Error) => {
       CM.Logger.error(`getWantAgent fail, err: ${JSON.stringify(err)}`);
     });
-    notification.isSupportTemplate('downloadTemplate').then(isSupport => {
+    notification.isSupportTemplate(this.templateName).then(isSupport => {
       if (!isSupport) {
         CM.Utils.toast('The function is not implemented')
       }
@@ -67,7 +68,6 @@ struct DownloadPage {
     Column() {
       BaseNaView({ title: '下载页面' }) {
 
-
         Row() {
           Column() {
             Image($r('app.media.ic_image'))
@@ -81,7 +81,7 @@ struct DownloadPage {
 
           Column() {
             Row() {
-              Text('1653067.mp4')
+              Text(this.fileName)
                 .fontSize(CM.Utils.vp(16))
                 .textAlign(TextAlign.Center)
                 .fontWeight(500)
@@ -99,6 +99,7 @@ struct DownloadPage {
               total: this.PROGRESS_TOTAL
             })
               .width(CM.Co.FULL_PARENT)
+
             Row() {
               Text('25.01MB')
                 .fontSize(CM.Utils.vp(14))
@@ -134,7 +135,6 @@ struct DownloadPage {
         .justifyContent(FlexAlign.SpaceBetween)
         .padding(CM.Utils.vp(16))
 
-
       }
     }
     .height(CM.Co.FULL_PARENT)
@@ -156,7 +156,12 @@ struct DownloadPage {
         this.downloadProgress += this.PROGRESS_SPEED;
       }
       if (this.isSupport) {
-        CM.publishNotification(this.downloadProgress, this.notificationTitle, this.wantAgentObj);
+        CM.publishNotification(
+          this.templateName,
+          this.NOTIFICATION_ID,
+          this.downloadProgress,
+          `${this.notificationTitle}：${this.fileName}`,
+          this.wantAgentObj);
       }
     }, this.UPDATE_FREQUENCY);
   }
@@ -179,7 +184,12 @@ struct DownloadPage {
     clearInterval(this.interval);
     this.downloadStatus = DOWNLOAD_STATUS.PAUSE;
     if (this.isSupport) {
-      CM.publishNotification(this.downloadProgress, this.notificationTitle, this.wantAgentObj);
+      CM.publishNotification(
+        this.templateName,
+        this.NOTIFICATION_ID,
+        this.downloadProgress,
+        `${this.notificationTitle}：${this.fileName}`,
+        this.wantAgentObj);
     }
   }
 
@@ -191,7 +201,6 @@ struct DownloadPage {
     this.download();
     this.downloadStatus = DOWNLOAD_STATUS.DOWNLOADING;
   }
-
 
   /**
    * Click cancel.

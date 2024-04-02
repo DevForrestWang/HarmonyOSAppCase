@@ -44,9 +44,13 @@ export function createWantAgent(bundleName: string, abilityName: string): Promis
  * @param title Notification title.
  * @param wantAgentObj The want of application.
  */
-export function publishNotification(progress: number, title: string, wantAgentObj: WantAgent) {
+export function publishNotification(templateName: string,
+                                    notificationId:number,
+                                    progress: number,
+                                    title: string,
+                                    wantAgentObj: WantAgent) {
   let template:notification.NotificationTemplate = {
-    name: 'downloadTemplate',
+    name: templateName,
     data: {
       progressValue: progress,
       progressMaxValue:100,
@@ -54,14 +58,14 @@ export function publishNotification(progress: number, title: string, wantAgentOb
     }
   };
   let notificationRequest: notification.NotificationRequest = {
-    id: 1000,
+    id: notificationId,
     slotType: notification.SlotType.CONTENT_INFORMATION,
     // Construct a progress bar template. The name field must be set to downloadTemplate.
     template: template,
     content: {
       contentType: notification.ContentType.NOTIFICATION_CONTENT_BASIC_TEXT,
       normal: {
-        title: `${title}：${'1653067.mp4'}`,
+        title: `${title}`,
         text: '',
         additionalText: `${progress}%`
       }
