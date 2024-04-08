@@ -47,6 +47,8 @@ export default struct CaseView {
                 url = 'pages/chat/pages/SetFontSizePage'
               } else if ('下载页面' == item.title) {
                 url = 'pages/Case/DownloadPage'
+              }else if ('使用lottie库' == item.title) {
+                url = 'pages/Case/LottieDemoPage'
               }
 
               if (url.length > 0) {

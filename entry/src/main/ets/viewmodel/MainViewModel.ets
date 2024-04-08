@@ -29,6 +29,7 @@ export class MainViewModel {
       new ItemModel('打印日志、Toast 测试', $r('app.media.ic_display_and_brightness')),
       new ItemModel('聊天页面', $r('app.media.ic_app_management')),
       new ItemModel('下载页面', $r('app.media.down_arrow')),
+      new ItemModel('使用lottie库', $r('app.media.ic_loading_file')),
     ]
     return dataModel
   }

@@ -16,6 +16,7 @@
     "pages/uikit/FwNetWorkDemoPage",
     "pages/chat/pages/SetFontSizePage",
     "pages/uikit/FwWebComponentPage",
-    "pages/Case/DownloadPage"
+    "pages/Case/DownloadPage",
+    "pages/Case/LottieDemoPage"
   ]
 }
