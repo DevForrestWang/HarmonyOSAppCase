@@ -5,6 +5,7 @@ import mainViewModel from '../viewmodel/MainViewModel'
 import ItemModel from '../viewmodel/ItemDataModel'
 import TitleBarComponent from '../view/TitleBarComponent'
 
+@Preview
 @Component
 export default struct UIKitView {
 
