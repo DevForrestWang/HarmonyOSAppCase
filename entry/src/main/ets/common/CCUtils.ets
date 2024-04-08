@@ -22,7 +22,7 @@ export default class CCUtils {
    * 吐司提示
    * @param name 提示内容
    */
-  public static toast(name: string, duration: number = 2000) {
+  public static toast(name: string, duration: number = 2000): void {
     prompt.showToast({
       message: name,
       duration: duration,
@@ -33,7 +33,7 @@ export default class CCUtils {
   /**
    * 去掉浮点的小数
    */
-  public static float2Int (value?: number) {
+  public static float2Int (value?: number): number {
     if (value === undefined || value === null) {
       return 0
     }
@@ -110,7 +110,7 @@ export default class CCUtils {
    * @param value 检查的值
    * @returns true 为空
    */
-  public static isEmptyArray(value?: Array<any>): boolean {
+  public static isEmptyArray(value?: Array<unknown>): boolean {
     if (value === undefined || value === null || value.length <= 0) {
       return true
     }

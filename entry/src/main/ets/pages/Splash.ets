@@ -40,7 +40,7 @@ struct Splash {
    });
   }
 
-  startTiming() {
+  startTiming(): void {
     this.timer = setInterval(() => {
       this.countdown--;
       if (this.countdown === 0) {
@@ -50,14 +50,14 @@ struct Splash {
     }, 1000);
   }
 
-  clearTiming() {
+  clearTiming(): void {
     if (this.timer !== -1) {
       clearInterval(this.timer);
       this.timer = -1;
     }
   }
 
-  jumpToMainPage() {
+  jumpToMainPage(): void {
     this.clearTiming();
     router.replaceUrl({
       url: 'pages/MainPage'

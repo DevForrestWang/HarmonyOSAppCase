@@ -22,8 +22,8 @@ import StyleConstants from '../common/StyleConstants';
  */
 @Component
 export default struct ChatItemComponent {
-  item: ChatData = new ChatData();
-  @Prop changeFontSize: number = 0;
+  item: ChatData = new ChatData()
+  @Prop changeFontSize: number
 
   build() {
     Row() {
@@ -49,9 +49,9 @@ export default struct ChatItemComponent {
 
 @Component
 struct ChatContent {
-  item: ChatData = new ChatData();
-  @Prop changeFontSize: number = 0;
-  @State isLineFeed: boolean = false;
+  item: ChatData = new ChatData()
+  @Prop changeFontSize: number
+  @State isLineFeed: boolean = false
 
   build() {
     Row() {

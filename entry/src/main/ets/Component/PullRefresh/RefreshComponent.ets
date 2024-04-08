@@ -28,7 +28,7 @@ export default struct RefreshComponent {
   @Consume(RefreshConstants.REFRESH_STATE_TAG) @Watch('onStateChanged') refreshState: number;
   @BuilderParam itemLayout?: () => void;
 
-  private onStateChanged() {
+  private onStateChanged(): void {
     switch (this.refreshState) {
       case RefreshState.REFRESHING:
         if (this.onRefresh !== undefined) {

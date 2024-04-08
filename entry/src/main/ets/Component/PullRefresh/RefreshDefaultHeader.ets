@@ -21,7 +21,7 @@ export default struct RefreshDefaultHeader {
   @State refreshTitle: Resource = $r('app.string.refresh_default_header_hint');
   @Consume(RefreshConstants.REFRESH_STATE_TAG) @Watch('onStateCheck') refreshState: number;
 
-  private onStateCheck() {
+  private onStateCheck(): void {
     switch (this.refreshState) {
       case RefreshState.IDLE:
         this.refreshTitle = $r('app.string.refresh_default_header_hint');

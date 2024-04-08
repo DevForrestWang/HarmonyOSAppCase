@@ -12,8 +12,8 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-import wantAgent, { WantAgent } from '@ohos.app.ability.wantAgent'
+import type { WantAgent } from '@ohos.app.ability.wantAgent';
+import wantAgent from '@ohos.app.ability.wantAgent'
 import notification from '@ohos.notificationManager'
 import Logger from './Logger'
 
@@ -48,7 +48,7 @@ export function publishNotification(templateName: string,
                                     notificationId:number,
                                     progress: number,
                                     title: string,
-                                    wantAgentObj: WantAgent) {
+                                    wantAgentObj: WantAgent): void {
   let template:notification.NotificationTemplate = {
     name: templateName,
     data: {
@@ -80,7 +80,7 @@ export function publishNotification(templateName: string,
 /**
  * open notification permission
  */
-export function openNotificationPermission() {
+export function openNotificationPermission(): void {
   notification.requestEnableNotification().then(() => {
     Logger.info('Enable notification success');
   }).catch((err) => {

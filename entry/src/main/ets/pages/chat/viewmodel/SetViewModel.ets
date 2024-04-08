@@ -49,7 +49,7 @@ export class SetViewModel {
     return this.chatArr;
   }
 
-  getTextByFontSize(fontSize: number) {
+  getTextByFontSize(fontSize: number): string {
     let fontSizeText: Resource | string = '';
     switch (fontSize) {
       case CommonConstants.SET_SIZE_SMALL:

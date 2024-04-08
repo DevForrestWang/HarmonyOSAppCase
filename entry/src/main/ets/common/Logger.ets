@@ -19,7 +19,7 @@ export class Logger {
    * Debug级别日志
    * @param name 打印内容
    */
-  public debug(...args: string[]) {
+  public debug(...args: string[]):void {
     hilog.debug(this.domainDebug,  this.prefix, this.format, args)
   }
 
@@ -27,7 +27,7 @@ export class Logger {
    * Info级别日志
    * @param name 打印内容
    */
-  public info(...args: string[]) {
+  public info(...args: string[]): void {
     hilog.info(this.domainInfo,  this.prefix, this.format, args)
   }
 
@@ -35,7 +35,7 @@ export class Logger {
    * Error级别日志
    * @param name 打印内容
    */
-  public error(...args: string[]) {
+  public error(...args: string[]):void {
     hilog.error(this.domainError,  this.prefix, this.format, args)
   }
 }

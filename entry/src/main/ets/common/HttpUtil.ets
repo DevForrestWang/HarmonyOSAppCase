@@ -50,10 +50,10 @@ export class ResponseResult {
 
 // 定义请求参数结构
 export interface ParamsType {
-  [key: string]: any
+  [key: string]: unknown
 }
 
-function _printRequest(url: string, reqId: number, params?: ParamsType) {
+function _printRequest(url: string, reqId: number, params?: ParamsType): void {
   Logger.debug(`===========<request-id:${reqId} tag:>===========`)
   Logger.debug(`Request Url: ${url}`)
   Logger.debug("Request Params:" + JSON.stringify(params, null, 4))

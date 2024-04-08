@@ -1,11 +1,11 @@
 import router from '@ohos.router'
-import window from '@ohos.window'
+import type window from '@ohos.window'
 import CM from '../common/CCommon'
 import TextCommonWidget from './TextCommonWidget'
 import RefreshComponent from '../Component/PullRefresh/RefreshComponent'
 import { RefreshHeaderStyle, RefreshState, RefreshConstants } from '../Component/PullRefresh//RefreshConstants'
 import mainViewModel from '../viewmodel/MainViewModel'
-import ItemModel from '../viewmodel/ItemDataModel'
+import type ItemModel from '../viewmodel/ItemDataModel'
 import TitleBarComponent from '../view/TitleBarComponent'
 
 @Component

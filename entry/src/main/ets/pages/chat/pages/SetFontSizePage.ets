@@ -5,7 +5,7 @@ import SetViewModel from '../viewmodel/SetViewModel';
 import CommonConstants from '../common/CommonConstants';
 import StyleConstants from '../common/StyleConstants';
 import SaveFontSizeUtil from '../common/SaveFontSizeUtil';
-import ChatData from '../viewmodel/ChatData';
+import type ChatData from '../viewmodel/ChatData';
 
 @Entry
 @Component

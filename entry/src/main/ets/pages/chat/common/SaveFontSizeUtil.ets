@@ -4,7 +4,7 @@ const KEY_APP_FONT_SIZE = 'appFontSize'
 
 export class SaveFontSizeUtil {
 
-  saveChangeFontSize(fontSize: number) {
+  saveChangeFontSize(fontSize: number): void {
     if (fontSize === undefined) {
       return
     }
@@ -16,7 +16,7 @@ export class SaveFontSizeUtil {
     return fontSize
   }
 
-  async deleteChangeFontSize() {
+  async deleteChangeFontSize(): Promise<void> {
     CM.CCPreference.deleteData(KEY_APP_FONT_SIZE);
   }
 }

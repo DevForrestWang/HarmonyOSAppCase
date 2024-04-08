@@ -1,4 +1,4 @@
-import common from '@ohos.app.ability.common';
+import type common from '@ohos.app.ability.common';
 import notification from '@ohos.notificationManager';
 import { WantAgent } from '@ohos.app.ability.wantAgent';
 import CM from '../../common/CCommon'
@@ -146,7 +146,7 @@ struct DownloadPage {
   /**
    * Start the timer and send notification.
    */
-  download() {
+  download(): void {
     this.interval = setInterval(async () => {
       if (this.downloadProgress === this.PROGRESS_TOTAL) {
         this.notificationTitle = await CM.getStringByRes($r('app.string.notification_title_finish'), this);
@@ -169,7 +169,7 @@ struct DownloadPage {
   /**
    * Click to download.
    */
-  async start() {
+  async start(): Promise<void> {
     this.notificationTitle = await CM.getStringByRes($r('app.string.notification_title_download'), this);
     this.downloadStatus = DOWNLOAD_STATUS.DOWNLOADING;
     this.downloadProgress = 0;
@@ -179,7 +179,7 @@ struct DownloadPage {
   /**
    * Click pause.
    */
-  async pause() {
+  async pause(): Promise<void> {
     this.notificationTitle = await CM.getStringByRes($r('app.string.notification_title_pause'), this);
     clearInterval(this.interval);
     this.downloadStatus = DOWNLOAD_STATUS.PAUSE;
@@ -196,7 +196,7 @@ struct DownloadPage {
   /**
    * Click resume.
    */
-  async resume() {
+  async resume(): Promise<void> {
     this.notificationTitle = await CM.getStringByRes($r('app.string.notification_title_download'), this);
     this.download();
     this.downloadStatus = DOWNLOAD_STATUS.DOWNLOADING;
@@ -205,7 +205,7 @@ struct DownloadPage {
   /**
    * Click cancel.
    */
-  async cancel() {
+  async cancel(): Promise<void> {
     this.downloadProgress = 0;
     clearInterval(this.interval);
     this.downloadStatus = DOWNLOAD_STATUS.INITIAL;
@@ -215,13 +215,12 @@ struct DownloadPage {
   /**
    * Open file
    */
-  open() {
+  open(): void {
     CM.Utils.toast('The function is not implemented')
   }
 
   @Builder
-  customButton(textResource: Resource | string, click: Function = () => {
-  }) {
+  customButton(textResource: Resource | string, click: Function = ():void => {}) {
     Button(textResource)
       .backgroundColor('#0A59F7')
       .buttonStyle()

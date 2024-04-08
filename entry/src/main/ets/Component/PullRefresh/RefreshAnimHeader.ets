@@ -15,14 +15,14 @@
 
 import CM from '../../common/CCommon'
 import { RefreshState, RefreshConstants } from './RefreshConstants';
-import RefreshModel from './RefreshModel';
+import type RefreshModel from './RefreshModel';
 
 @Component
 export default struct RefreshAnimHeader {
   @Consume(RefreshConstants.REFRESH_STATE_TAG) @Watch('onStateCheck') refreshState: number;
   @State iconWidth: number = RefreshConstants.REFRESH_HEADER_ITEM_DEFAULT_WIDTH;
 
-  private onStateCheck() {
+  private onStateCheck(): void {
     if (this.refreshState === RefreshState.REFRESHING) {
       this.iconWidth = RefreshConstants.REFRESH_HEADER_ITEM_SCALE_WIDTH;
     } else {

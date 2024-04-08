@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import window from '@ohos.window';
+import type window from '@ohos.window';
 import Logger from './Logger'
 import CC from './CConstants'
 
@@ -29,7 +29,7 @@ export default class WindowBarManager {
     return WindowBarManager.instance;
   }
 
-  immersiveWindow(windowStage: window.WindowStage, color: string, isLayoutFullScreen: boolean) {
+  immersiveWindow(windowStage: window.WindowStage, color: string, isLayoutFullScreen: boolean): void {
     if (this.currentBarColor && this.currentBarColor === color) return;
 
     if (windowStage) {
@@ -71,4 +71,5 @@ export default class WindowBarManager {
       });
     });
   }
+
 }
