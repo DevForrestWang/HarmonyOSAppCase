@@ -7,6 +7,7 @@ import BaseNaView from '../../view/BaseNavigationView'
 struct FwImageDemoPage {
   @State rotateAngle: number = 0
   @State iconSize: number = 20
+  @State transitStar: boolean = false
 
   build() {
 
@@ -62,6 +63,33 @@ struct FwImageDemoPage {
             .alt($r('app.media.icon'))
             .width(CM.Co.FULL_PARENT)
             .height(80)
+
+          // 转场动画，组件插入或移除时的动画，transition，要配合 animateTo一起使用
+          Row() {
+            if (this.transitStar) {
+              Image($r('app.media.favorite'))
+                .width(80)
+                .height(80)
+                .transition({
+                  type: TransitionType.Insert,
+                  opacity: 0,
+                  translate: {x: -250}
+                })
+            }
+          }
+          .height(80)
+          Row() {
+            Button('移动五角星', { type: ButtonType.Normal, stateEffect: true })
+              .borderRadius(8)
+              .backgroundColor(0x317aff)
+              .width(90)
+              .onClick(() => {
+                animateTo({duration: 1000},
+                  () => {
+                    this.transitStar = true
+                  })
+              })
+          }
 
 
         }
