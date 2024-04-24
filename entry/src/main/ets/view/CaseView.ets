@@ -74,8 +74,6 @@ export default struct CaseView {
     .padding({top: CM.Utils.vp(5), bottom: CM.Utils.vp(5)})
     .margin({ bottom: CM.Co.BAR_HEIGHT })
 
-
-
   }
 
   build() {

@@ -9,7 +9,7 @@
   "main": "",
   "version": "1.0.0",
   "dependencies": {
-    "@ohos/axios": "^2.2.0",
-    "@ohos/lottie": "^2.0.9"
+    "@ohos/lottie": "^2.0.9",
+    "@ohos/axios": "^2.2.0"
   }
 }
