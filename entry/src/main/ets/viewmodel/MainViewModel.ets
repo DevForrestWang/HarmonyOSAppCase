@@ -30,6 +30,7 @@ export class MainViewModel {
       new ItemModel('聊天页面', $r('app.media.ic_app_management')),
       new ItemModel('下载页面', $r('app.media.down_arrow')),
       new ItemModel('使用lottie库', $r('app.media.ic_loading_file')),
+      new ItemModel('店铺列表', $r('app.media.ic_storage')),
     ]
     return dataModel
   }
