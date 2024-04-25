@@ -6,5 +6,12 @@ exports.get_shop_list = (req, res) => {
 
     let from = (pageNo - 1) * pageSize
     let end = pageNo * pageSize
-    res.send(shopData.data.slice(from, end))
+    let lisData = shopData.data.slice(from, end)
+    res.send({
+        retCode : 200,
+        msg: 'success',
+        data: lisData,
+        curPage : from,
+        totalPage : shopData.data.length
+    })
 }

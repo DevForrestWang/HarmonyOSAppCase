@@ -9,21 +9,21 @@ struct FwNetWorkDemoPage {
 
   aboutToAppear() {
 
-    let url = `${CM.HttpURL.BASE_SERVER}/${CM.HttpURL.GET_NEWS_TYPE}`
+    let url = `${CM.HttpURL.BASE_SERVER}/${CM.HttpURL.shopsURL}`
     let params:ParamsType = {
-      currentPage: 1,
-      pageSize: 10
+      pageNo: 1,
+      pageSize: 2
     }
 
     CM.HttpRequestGet(url, params).then((data: ResponseResult) => {
-      if (data.code === CM.HttpConstant.SERVER_CODE_SUCCESS) {
-        CM.Logger.debug('getNewsList data', JSON.stringify(data.data));
-        CM.Utils.toast("网络请求结果：" + data.code)
+      if (data.retCode === CM.HttpConstant.HTTP_CODE_200) {
+        CM.Logger.debug('data', JSON.stringify(data.data));
+        CM.Utils.toast("网络请求结果：" + data.retCode)
       } else {
-        CM.Logger.error('getNewsList failed', JSON.stringify(data));
+        CM.Logger.error('shops failed', JSON.stringify(data));
       }
     }).catch((err: Error) => {
-      CM.Logger.error('getNewsList failed', JSON.stringify(err));
+      CM.Logger.error('shops failed', JSON.stringify(err));
     });
 
   }

@@ -9,7 +9,7 @@ export class HttpConstant {
   static readonly HTTP_CODE_200: number = 200
 
   // The request success status code.
-  static readonly SERVER_CODE_SUCCESS: string = 'success'
+  static readonly SERVER_CODE_SUCCESS: string = '200'
 
   static requestId: number = 0
 
@@ -23,28 +23,33 @@ export class HttpURL {
   // The host address of the server.
   static readonly BASE_SERVER: string = 'http://192.168.1.177:9588';
 
-  // 接口：新闻列表
-  static readonly GET_NEWS_TYPE: string = 'news/getNewsType';
-
-  // 接口：新闻信息
-  static readonly GET_NEWS_LIST: string = 'news/getNewsList';
+  // 接口：店铺列表
+  static readonly shopsURL: string = 'shops';
 }
 
-// 返回的数据结构
+// 返回的数据类型
 export class ResponseResult {
-  // Code returned by the network request: success, fail.
-  code: string;
+  // 返回结果，200成功
+  retCode: number | string;
 
-  // Message returned by the network request.
-  msg: string | Resource;
+  // 接口描述信息
+  msg: string;
 
-  // Data returned by the network request.
+  // 返回的数据
   data: string | Object | ArrayBuffer;
 
+  // 当前页码
+  curPage: number;
+
+  // 总页数
+  totalPage: number;
+
   constructor() {
-    this.code = '';
+    this.retCode = 201;
     this.msg = '';
     this.data = '';
+    this.curPage = 0;
+    this.totalPage = 0;
   }
 }
 
@@ -91,13 +96,15 @@ function _baseRequest(url: string, method: http.RequestMethod, reqId: number, ex
       Logger.debug(`===========<response-idS:${reqId} tag:>===========`)
       Logger.debug(`Response Data:${JSON.stringify(resultJson, null, 4)} `)
 
-      if (resultJson.code === HttpConstant.SERVER_CODE_SUCCESS) {
+      if (resultJson.retCode === HttpConstant.HTTP_CODE_200 ||
+      resultJson.retCode === HttpConstant.SERVER_CODE_SUCCESS) {
+        serverData.retCode = HttpConstant.HTTP_CODE_200;
         serverData.data = resultJson.data;
       }
-      serverData.code = resultJson.code;
+
       serverData.msg = resultJson.msg;
     } else {
-      serverData.code = "failed"
+      serverData.retCode = 201
       serverData.msg = `网络请求失败，请稍后尝试！&${value.responseCode}`;
 
       Logger.error(`===========<response-idS:${reqId} tag:>===========`)
@@ -105,7 +112,7 @@ function _baseRequest(url: string, method: http.RequestMethod, reqId: number, ex
     }
     return serverData;
   }).catch(() => {
-    serverData.code = "failed"
+    serverData.retCode = 201
     serverData.msg = "网络请求失败，请稍后尝试！";
 
     Logger.error(`===========<response-idS:${reqId} tag:>===========`)
