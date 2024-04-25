@@ -4,6 +4,7 @@ import CM from '../common/CCommon'
 @Component
 export default struct BaseNavigationView {
   @Prop title: string;
+  @State hasScroll: boolean = true
   @BuilderParam contentCloser: () => void
 
   // CustomBuilder类型的菜单栏
@@ -32,14 +33,21 @@ export default struct BaseNavigationView {
   build() {
 
     Navigation() {
-      Scroll(){ // 内容过多时支持滚动
+
+      if (this.hasScroll) {
+        Scroll(){ // 内容过多时支持滚动
+          Column(){
+            this.contentCloser()
+          }
+        }
+        .scrollable(ScrollDirection.Vertical) // 滚动方向纵向
+        .scrollBar(BarState.Off) // 滚动条常驻显示
+        .edgeEffect(EdgeEffect.Spring) // 滚动到边沿后回弹
+      } else {
         Column(){
           this.contentCloser()
         }
       }
-      .scrollable(ScrollDirection.Vertical) // 滚动方向纵向
-      .scrollBar(BarState.Off) // 滚动条常驻显示
-      .edgeEffect(EdgeEffect.Spring) // 滚动到边沿后回弹
     }
     .title(this.NavigationTitle())
     .mode(NavigationMode.Stack)

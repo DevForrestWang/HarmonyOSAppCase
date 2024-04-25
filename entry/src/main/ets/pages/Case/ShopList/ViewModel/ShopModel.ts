@@ -2,7 +2,7 @@ import axios from '@ohos/axios'
 import ShopInfo from './ShopInfo';
 
 class ShopModel{
-  baseURL: string = 'http://192.168.1.177:9588'
+  baseURL: string = ''
   pageNo: number = 1
 
   getShopList(): Promise<ShopInfo[]>{
