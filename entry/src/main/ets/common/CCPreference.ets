@@ -38,11 +38,12 @@ export class CCPreference {
 
     try {
       await this.preference.put(key, value);
+
+      // Store the Preference instance in the preference persistence file
+      await this.preference.flush();
     } catch (err) {
       Logger.error(`Failed to put value, Cause: ${err}`);
     }
-    // Store the Preference instance in the preference persistence file
-    await this.preference.flush();
   }
 
   /**
