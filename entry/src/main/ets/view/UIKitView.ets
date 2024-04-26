@@ -51,8 +51,6 @@ export default struct UIKitView {
                     url = 'pages/uikit/FwSwiperDemoPage'
                   } else if ('Web组件' == item.title) {
                     url = 'pages/uikit/FwWebComponentPage'
-                  } else if ('网络请求' == item.title) {
-                    url = 'pages/uikit/FwNetWorkDemoPage'
                   }
 
                   CM.Logger.debug('Push Page:' + url)

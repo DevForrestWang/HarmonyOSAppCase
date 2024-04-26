@@ -18,7 +18,6 @@ export class MainViewModel {
       new ItemModel('UI组件：Grid', $r('app.media.record')),
       new ItemModel('UI组件：Swiper', $r('app.media.recycle')),
       new ItemModel('Web组件', $r('app.media.down_arrow')),
-      new ItemModel('网络请求', $r('app.media.discover_selected')),
     ]
     return dataModel
   }
@@ -31,6 +30,7 @@ export class MainViewModel {
       new ItemModel('下载页面', $r('app.media.down_arrow')),
       new ItemModel('使用lottie库', $r('app.media.ic_loading_file')),
       new ItemModel('店铺列表', $r('app.media.ic_storage')),
+      new ItemModel('任务列表', $r('app.media.menu')),
     ]
     return dataModel
   }

@@ -51,6 +51,8 @@ export default struct CaseView {
                 url = 'pages/Case/LottieDemoPage'
               } else if ('店铺列表' == item.title) {
                 url = 'pages/Case/ShopList/Pages/ShopListPage'
+              } else if ('任务列表' == item.title) {
+                url = 'pages/Case/TaskList/Pages/TaskListPage'
               }
 
               if (url.length > 0) {

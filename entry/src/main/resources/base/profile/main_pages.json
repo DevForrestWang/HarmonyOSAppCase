@@ -13,11 +13,11 @@
     "pages/uikit/FwListDemoPage",
     "pages/uikit/FwGridDemoPage",
     "pages/uikit/FwSwiperDemoPage",
-    "pages/uikit/FwNetWorkDemoPage",
     "pages/chat/pages/SetFontSizePage",
     "pages/uikit/FwWebComponentPage",
     "pages/Case/DownloadPage",
     "pages/Case/LottieDemoPage",
-    "pages/Case/ShopList/Pages/ShopListPage"
+    "pages/Case/ShopList/Pages/ShopListPage",
+    "pages/Case/TaskList/Pages/TaskListPage"
   ]
 }
