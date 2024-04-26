@@ -5,10 +5,14 @@ import AbilityConstant from '@ohos.app.ability.AbilityConstant';
 import window from '@ohos.window';
 import WindowBarManager from '../common/WindowBar';
 import CM from '../common/CCommon'
+import TaskModel from '../pages/Case/TaskList/ViewModel/TaskModel';
 
 export default class EntryAbility extends UIAbility {
   onCreate(want: Want, launchParam: AbilityConstant.LaunchParam) {
     hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onCreate');
+
+    // 初始化任务表
+    TaskModel.initTaskDB(this.context)
   }
 
   onDestroy() {
