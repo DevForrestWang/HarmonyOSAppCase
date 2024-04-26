@@ -1,4 +1,3 @@
-import CM from '../../../../common/CCommon'
 import BaseNaView from '../../../../view/BaseNavigationView'
 import TaskList from '../View/TaskList'
 import TaskStatistics from '../View/TaskStatistics'
