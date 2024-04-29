@@ -202,7 +202,7 @@
 
   ```typescript
     onWindowStageCreate(windowStage: window.WindowStage) {
-      windowStage.loadContent('pages/MainPage', (err, data) => {
+      windowStage.loadContent('Pages/MainPage', (err, data) => {
       });
     }
   ```

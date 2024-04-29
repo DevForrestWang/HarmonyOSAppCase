@@ -15,7 +15,7 @@
 
 import display from '@ohos.display';
 import RefreshModel from './RefreshModel'
-import CM from '../../common/CCommon'
+import CM from '../../Common/CCommon'
 
 let deviceDisplay: display.Display = display.getDefaultDisplaySync()
 

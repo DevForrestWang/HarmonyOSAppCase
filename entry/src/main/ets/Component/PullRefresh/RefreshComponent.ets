@@ -13,7 +13,7 @@
  * limitations under the License.
  */
 
-import CM from '../../common/CCommon'
+import CM from '../../Common/CCommon'
 import RefreshDefaultHeader from './RefreshDefaultHeader'
 import RefreshAnimHeader from './RefreshAnimHeader'
 import { RefreshConstants, RefreshState, RefreshHeaderStyle } from './RefreshConstants';
