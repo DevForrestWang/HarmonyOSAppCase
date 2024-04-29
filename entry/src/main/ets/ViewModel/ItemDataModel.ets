@@ -1,13 +1,14 @@
-
-/// 每一项资源定义
+/// 列表项资源定义
 export default class ItemDataModel {
 
-  title: string
+	// 页面跳转key值
+	key: string
+	title: string
+	img: Resource
 
-  img: Resource
-
-  constructor(title: string, img: Resource) {
-    this.title = title
-    this.img = img
-  }
+	constructor(key: string, title: string, img: Resource) {
+		this.key = key
+		this.title = title
+		this.img = img
+	}
 }
