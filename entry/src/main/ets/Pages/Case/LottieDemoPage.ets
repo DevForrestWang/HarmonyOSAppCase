@@ -11,7 +11,6 @@ struct LottieDemoPage {
   private animateItem: AnimationItem | null = null
   @State canvasTitle: string | undefined = undefined
 
-
   aboutToAppear(): void {
     CM.Logger.info('aboutToDisappear')
     lottie.destroy()
