@@ -142,8 +142,24 @@ export function baseFunc(a: number, b: number): number {
   });
 
 
-  // 使用 const、var 或 let 声明变量时, var 和 let 都允许更改变量中保存的内容，而 const 不允许。const 是 let 的增强，因为它防止重新分配给变量。
-  // let关键字来代替大家所熟悉的JavaScript关键字var。 let是ES2015引入的关键字，它比var更加安全，因此被看做是声明变量的标准方式。
+  // let是ES2015引入的关键字，来代替JavaScript关键字var，它比var更加安全，因此被看做是声明变量的标准方式。
+  // let和var都允许更改变量中保存的内容；const不允许，const是let的增强，它防止重新分配给变量。
+  const constStr:String = 'hello'
+
+  // undefined 和 null 作为值
+  let age:number = 24
+  age = null
+  age = undefined
+
+  // 作为类型
+  let udType: undefined = undefined
+  let nullType: null = null
+
+  let udNul:undefined = null
+  let hulUd:null = undefined
+
+  let anyUd:any = undefined
+  let unKnowNul:unknown = null
 
   // 数据类型转换 字符串 与 整型
   // string to number
