@@ -184,6 +184,40 @@ export function baseFunc(a: number, b: number): number {
   // import { NewsData, XX  } from '../XX' key导出多个属性或对象
   // import AA from '../BB' 导出含有缺省对象
 
+
+  // Number 对象属性
+  console.log("TypeScript Number 属性: ")
+  console.log("最大值为: " + Number.MAX_VALUE)
+  console.log("最小值为: " + Number.MIN_VALUE)
+  console.log("负无穷大: " + Number.NEGATIVE_INFINITY)
+  console.log("正无穷大:" + Number.POSITIVE_INFINITY)
+
+  // Number 对象方法
+
+  //toExponential: 把对象的值转换为指数计数法。
+  let num1 = 1225.30
+  let val = num1.toExponential()
+  console.log(val) // 输出： 1.2253e+
+
+  // toFixed: 把数字转换为字符串，并对小数点指定位数。
+  let num2 = 177.236
+  console.log("num3.toFixed() 为 "+ num2.toFixed())    // 输出：177
+  console.log("num3.toFixed(2) 为 "+ num2.toFixed(2))  // 输出：177.23
+  console.log("num3.toFixed(6) 为 "+ num2.toFixed(6))  // 输出：177.234000
+
+  // toPrecision: 把数字格式化为指定的长度
+  let num3 = new Number(7.123456)
+  console.log(num3.toPrecision()) // 输出：7.123456
+  console.log(num3.toPrecision(1)) // 输出：7
+  console.log(num3.toPrecision(2)) // 输出：7.1
+  console.log(num3.toPrecision(6)) // 输出：7.12346
+
+  // valueOf: 返回一个 Number 对象的原始数字值。
+  let num4 = new Number(10)
+  console.log(`${num4.valueOf()}`) // 输出：10
+
+
+
   return a + b;
 }
 
