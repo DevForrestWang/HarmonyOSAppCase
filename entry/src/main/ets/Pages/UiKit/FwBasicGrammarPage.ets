@@ -1,7 +1,7 @@
 import router from '@ohos.router';
 import CM from '../../Common/CCommon'
 import BaseNaView from '../../View/BaseNavigationView'
-import { pi, baseFunc, Person, Student } from '../../ViewModel/Person'
+import { pi, runAllMethod, Person, Student } from '../../ViewModel/Person'
 
 /**
  * 语法基本页面
@@ -20,7 +20,7 @@ struct FwBasicGrammarPage {
     CM.Logger.debug("aboutToAppear")
 
     CM.Logger.debug('pi:' + pi)
-    baseFunc(5, 10)
+    runAllMethod()
     CM.Logger.debug("student: getPersonInfo" + this.student.getPersonInfo())
     this.student.tomObj.sayHello()
     this.student.sayHelloToTeacher(new Person("Tom", 30))
