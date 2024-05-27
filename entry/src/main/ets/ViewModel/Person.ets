@@ -10,6 +10,7 @@ export function runAllMethod() {
 	stringMethod()
 	numberToString()
 	arrayMethod()
+	mapMethod()
 	iterationMethod()
 }
 
@@ -306,6 +307,48 @@ function arrayMethod() {
 		CM.Logger.debug("Returned array is : " + arr); // water,orange,mango,banana,sugar
 		CM.Logger.debug("Length of the array is : " + length); // 5
 	}
+}
+
+// Map 方法
+function mapMethod() {
+	CM.Logger.debug('Enter mapMethod');
+	let nameSiteMapping = new Map()
+
+	// 设置 Map 对象
+	nameSiteMapping.set("Google", 1)
+	nameSiteMapping.set("Runoob", 2)
+	nameSiteMapping.set("Taobao", 3)
+
+	// 迭代 Map 中的 key
+	for (let key of nameSiteMapping.keys()) {
+		CM.Logger.debug(key); // Google ...
+	}
+
+	// 迭代 Map 中的 value
+	for (let value of nameSiteMapping.values()) {
+		CM.Logger.debug("value: " + value);  // value: 1 ...
+	}
+
+	// 使用对象解析
+	for (let [key, value] of nameSiteMapping) {
+		CM.Logger.debug("key:" + key + ", value:" + value) //  key:Google, value:1 ...
+	}
+
+	// 获取键对应的值
+	CM.Logger.debug("get:" + nameSiteMapping.get("Runoob")) // 2
+
+	// 判断 Map 中是否包含键对应的值
+	CM.Logger.debug("Has: " + nameSiteMapping.has("Taobao")) // true
+	CM.Logger.debug("Has: " + nameSiteMapping.has("Zhihu")) // false
+
+	// 返回 Map 对象键/值对的数量
+	CM.Logger.debug("size: " + nameSiteMapping.size) // 3
+
+	// 删除 Runoob
+	CM.Logger.debug("delete: " + nameSiteMapping.delete("Runoob")) // true
+
+	// 移除 Map 对象的所有键/值对
+	nameSiteMapping.clear() // 清除 Map
 }
 
 /// 循环迭代
