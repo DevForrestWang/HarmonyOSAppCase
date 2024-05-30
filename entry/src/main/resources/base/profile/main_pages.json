@@ -19,6 +19,6 @@
     "pages/Case/LottieDemoPage",
     "pages/Case/ShopList/Pages/ShopListPage",
     "pages/Case/TaskList/Pages/TaskListPage",
-    "pages/UiKit/FwLazyForEachPage"
+    "pages/UiKit/LazyForEach/FwLazyForEachPage"
   ]
 }
