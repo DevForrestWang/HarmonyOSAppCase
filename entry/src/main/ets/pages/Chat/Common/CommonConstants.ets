@@ -85,5 +85,5 @@ export default class CommonConstants {
   /**
    * The set font size url.
    */
-  static readonly SET_URL: string = 'Pages/SetFontSizePage';
+  static readonly SET_URL: string = 'pages/SetFontSizePage';
 }

@@ -60,7 +60,7 @@ struct Splash {
   jumpToMainPage(): void {
     this.clearTiming();
     router.replaceUrl({
-      url: 'Pages/MainPage'
+      url: 'pages/MainPage'
     });
   }
 

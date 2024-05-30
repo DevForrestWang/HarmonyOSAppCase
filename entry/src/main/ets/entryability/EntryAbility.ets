@@ -5,7 +5,7 @@ import AbilityConstant from '@ohos.app.ability.AbilityConstant';
 import window from '@ohos.window';
 import WindowBarManager from '../Common/WindowBar';
 import CM from '../Common/CCommon'
-import TaskModel from '../Pages/Case/TaskList/ViewModel/TaskModel';
+import TaskModel from '../pages/Case/TaskList/ViewModel/TaskModel';
 
 export default class EntryAbility extends UIAbility {
   onCreate(want: Want, launchParam: AbilityConstant.LaunchParam) {
@@ -26,7 +26,7 @@ export default class EntryAbility extends UIAbility {
     const windowBarMag = new WindowBarManager();
     windowBarMag.immersiveWindow(windowStage, CM.Co.TRANSPARENT_COLOR, false);
 
-    windowStage.loadContent('Pages/Splash', (err, data) => {
+    windowStage.loadContent('pages/Splash', (err, data) => {
       if (err.code) {
         hilog.error(0x0000, 'testTag', 'Failed to load the content. Cause: %{public}s', JSON.stringify(err) ?? '');
         return;

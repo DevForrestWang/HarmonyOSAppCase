@@ -82,7 +82,7 @@ struct LottieDemoPage {
                 loop: true,
                 autoplay: true,
                 name: this.animateName,
-                path: 'Pages/Case/Lottie/startData.json'
+                path: 'pages/Case/Lottie/startData.json'
               })
             })
 

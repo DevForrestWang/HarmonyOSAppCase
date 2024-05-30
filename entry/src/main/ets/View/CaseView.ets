@@ -94,15 +94,15 @@ export default struct CaseView {
 				CM.Logger.debug(`window Object: ${data}`)
 			});
 		} else if ('chat' == item.key) {
-			url = 'Pages/Chat/Pages/SetFontSizePage'
+			url = 'pages/Chat/Pages/SetFontSizePage'
 		} else if ('download' == item.key) {
-			url = 'Pages/Case/DownloadPage'
+			url = 'pages/Case/DownloadPage'
 		} else if ('lottie' == item.key) {
-			url = 'Pages/Case/LottieDemoPage'
+			url = 'pages/Case/LottieDemoPage'
 		} else if ('shopList' == item.key) {
-			url = 'Pages/Case/ShopList/Pages/ShopListPage'
+			url = 'pages/Case/ShopList/Pages/ShopListPage'
 		} else if ('taskList' == item.key) {
-			url = 'Pages/Case/TaskList/Pages/TaskListPage'
+			url = 'pages/Case/TaskList/Pages/TaskListPage'
 		}
 
 		return url

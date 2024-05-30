@@ -59,29 +59,29 @@ export default struct UIKitView {
 	getPageRoute(item: ItemModel): string {
 		let url = ''
 		if ('grammar' === item.key) {
-			url = 'Pages/UiKit/FwBasicGrammarPage'
+			url = 'pages/UiKit/FwBasicGrammarPage'
 		} else if ('layout' == item.key) {
-			url = 'Pages/UiKit/FwContainerDemoPage'
+			url = 'pages/UiKit/FwContainerDemoPage'
 		} else if ('uiText' == item.key) {
-			url = 'Pages/UiKit/FwTextDemoPage'
+			url = 'pages/UiKit/FwTextDemoPage'
 		} else if ('uiTextArea' == item.key) {
-			url = 'Pages/UiKit/FwTextAreaDemoPage'
+			url = 'pages/UiKit/FwTextAreaDemoPage'
 		} else if ('uiImage' == item.key) {
-			url = 'Pages/UiKit/FwImageDemoPage'
+			url = 'pages/UiKit/FwImageDemoPage'
 		} else if ('uiTextInput' == item.key) {
-			url = 'Pages/UiKit/FwTextInputDemoPage'
+			url = 'pages/UiKit/FwTextInputDemoPage'
 		} else if ('uiButton' == item.key) {
-			url = 'Pages/UiKit/FwButtonDemoPage'
+			url = 'pages/UiKit/FwButtonDemoPage'
 		} else if ('uiProgress' == item.key) {
-			url = 'Pages/UiKit/FwProgressDemoPage'
+			url = 'pages/UiKit/FwProgressDemoPage'
 		} else if ('uiList' == item.key) {
-			url = 'Pages/UiKit/FwListDemoPage'
+			url = 'pages/UiKit/FwListDemoPage'
 		} else if ('uiGrid' == item.key) {
-			url = 'Pages/UiKit/FwGridDemoPage'
+			url = 'pages/UiKit/FwGridDemoPage'
 		} else if ('uiSwiper' == item.key) {
-			url = 'Pages/UiKit/FwSwiperDemoPage'
+			url = 'pages/UiKit/FwSwiperDemoPage'
 		} else if ('uiWeb' == item.key) {
-			url = 'Pages/UiKit/FwWebComponentPage'
+			url = 'pages/UiKit/FwWebComponentPage'
 		}
 
 		return url
