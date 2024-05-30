@@ -18,6 +18,7 @@
     "pages/Case/DownloadPage",
     "pages/Case/LottieDemoPage",
     "pages/Case/ShopList/Pages/ShopListPage",
-    "pages/Case/TaskList/Pages/TaskListPage"
+    "pages/Case/TaskList/Pages/TaskListPage",
+    "pages/UiKit/FwLazyForEachPage"
   ]
 }

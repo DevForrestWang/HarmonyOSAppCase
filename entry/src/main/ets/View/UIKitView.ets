@@ -82,6 +82,8 @@ export default struct UIKitView {
 			url = 'pages/UiKit/FwSwiperDemoPage'
 		} else if ('uiWeb' == item.key) {
 			url = 'pages/UiKit/FwWebComponentPage'
+		} else if ('lazyForEach' == item.key) {
+			url = 'pages/UiKit/FwLazyForEachPage'
 		}
 
 		return url

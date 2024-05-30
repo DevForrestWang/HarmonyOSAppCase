@@ -18,6 +18,7 @@ export class MainViewModel {
 			new ItemModel('uiGrid', 'UI组件：Grid', $r('app.media.record')),
 			new ItemModel('uiSwiper', 'UI组件：Swiper', $r('app.media.recycle')),
 			new ItemModel('uiWeb', 'Web组件', $r('app.media.down_arrow')),
+			new ItemModel('lazyForEach', '数据懒加载', $r('app.media.ic_loading_bag')),
 		]
 		return dataModel
 	}
