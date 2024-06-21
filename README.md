@@ -24,6 +24,14 @@
 
 
 
+### 联系
+
+- ForrestWang mail: forrestwang@aliyun.com
+
+### 许可
+
+- SwiftCase是在[MIT](./LICENSE.txt)许可下发布的。详细信息请参见LICENSE。
+
 
 
 
