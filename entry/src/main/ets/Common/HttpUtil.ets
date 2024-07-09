@@ -1,5 +1,5 @@
-import http from '@ohos.net.http'
-import axios from '@ohos/axios'
+import { http } from '@kit.NetworkKit';
+import axios, { AxiosResponse } from '@ohos/axios'
 import Logger from './Logger'
 
 export class HttpConstant {
@@ -12,11 +12,6 @@ export class HttpConstant {
 	// The request success status code.
 	static readonly SERVER_CODE_SUCCESS: string = '200'
 	static requestId: number = 0
-
-	// 请求头定义
-	static heads = {
-		'Content-Type': 'application/json'
-	}
 }
 
 export class HttpURL {
@@ -54,15 +49,13 @@ export class ResponseResult {
 }
 
 // 定义请求参数结构
-export interface ParamsType {
-	[key: string]: unknown
-}
+export type ParamsType = Record<string, string | number>
 
 function _printRequest(url: string, reqId: number, params?: ParamsType): void {
 	Logger.debug(`===========<request-id:${reqId} tag:>===========`)
 	Logger.debug(`Request Url: ${url}`)
 	Logger.debug("Request Params:" + JSON.stringify(params, null, 4))
-	Logger.debug("Request Header:" + JSON.stringify(HttpConstant.heads, null, 4))
+	Logger.debug("Request Header:" + JSON.stringify({ 'Content-Type': 'application/json' }, null, 4))
 }
 
 /**
@@ -79,7 +72,9 @@ function _baseRequest(url: string, method: http.RequestMethod, reqId: number, ex
 		method: method,
 		readTimeout: HttpConstant.HTTP_READ_TIMEOUT,
 		connectTimeout: HttpConstant.HTTP_READ_TIMEOUT,
-		header: HttpConstant.heads,
+		header: {
+			'Content-Type': 'application/json'
+		},
 		extraData: extraData
 	});
 
@@ -128,9 +123,11 @@ function _baseRequest(url: string, method: http.RequestMethod, reqId: number, ex
  */
 export function HttpRequestGet(url: string, params?: ParamsType): Promise<ResponseResult> {
 	let strParams = ''
-	for (let key in params) {
-		strParams += key + "&" + JSON.stringify(params[key])
-	}
+
+	//wfd?: 报错
+	// for (let key in params) {
+	// 	strParams += key + "&" + JSON.stringify(params[key])
+	// }
 
 	let tmpUrl = url
 	if (strParams.length > 0) {
@@ -145,9 +142,11 @@ export function HttpRequestGet(url: string, params?: ParamsType): Promise<Respon
 	return new Promise((resolve, reject) => {
 		axios.get(url, {
 			params: params,
-			headers: HttpConstant.heads,
+			headers: {
+				'Content-Type': 'application/json'
+			},
 		}
-		).then(resp => {
+		).then((resp: AxiosResponse) => {
 			Logger.debug(`===========<response-idS:${reqId} tag:>===========`)
 			let serverData: ResponseResult = new ResponseResult();
 
@@ -173,7 +172,7 @@ export function HttpRequestGet(url: string, params?: ParamsType): Promise<Respon
 				reject(serverData)
 			}
 		})
-			.catch(error => {
+			.catch(() => {
 				let serverData: ResponseResult = new ResponseResult();
 				serverData.retCode = 201
 				serverData.msg = "网络请求失败，请稍后尝试！";

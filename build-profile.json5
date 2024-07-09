@@ -1,12 +1,26 @@
 {
   "app": {
-    "signingConfigs": [],
-    "compileSdkVersion": 9,
-    "compatibleSdkVersion": 9,
+    "signingConfigs": [
+      {
+        "name": "default",
+        "type": "HarmonyOS",
+        "material": {
+          "certpath": "/Users/applem1/.ohos/config/default_HarmonyOSAppCase_sXabIYfL8wTA7sa4hPeRoRxLECbmM5udCmC7PLgBPG0=.cer",
+          "storePassword": "0000001B733D7B25DA277980078E846DCF42A30F51AAA5EA7D112F58335ACD7DAF9D0EC1D7C9A91ED4B540",
+          "keyAlias": "debugKey",
+          "keyPassword": "0000001B3F69CCB7D033A5454F619AB70D60E4BF98BD107AB19AFAE09CA71C2DBA607CE22D5F3AB7DA5F4F",
+          "profile": "/Users/applem1/.ohos/config/default_HarmonyOSAppCase_sXabIYfL8wTA7sa4hPeRoRxLECbmM5udCmC7PLgBPG0=.p7b",
+          "signAlg": "SHA256withECDSA",
+          "storeFile": "/Users/applem1/.ohos/config/default_HarmonyOSAppCase_sXabIYfL8wTA7sa4hPeRoRxLECbmM5udCmC7PLgBPG0=.p12"
+        }
+      }
+    ],
     "products": [
       {
         "name": "default",
         "signingConfig": "default",
+        "compatibleSdkVersion": "5.0.0(12)",
+        "runtimeOS": "HarmonyOS"
       }
     ]
   },

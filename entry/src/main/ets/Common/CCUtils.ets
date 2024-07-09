@@ -26,7 +26,7 @@ export default class CCUtils {
     prompt.showToast({
       message: name,
       duration: duration,
-      bottom: this.screenHeight() / 2 - 20
+      bottom: CCUtils.screenHeight() / 2 - 20
     })
   }
 
@@ -64,7 +64,7 @@ export default class CCUtils {
     if (isNaN(height)) {
       return 0
     }
-    return this.float2Int(height)
+    return CCUtils.float2Int(height)
   }
 
   static adaptDimension(value: number): number {
@@ -90,7 +90,7 @@ export default class CCUtils {
     if (isNaN(width)) {
       return 0
     }
-    return this.float2Int(width)
+    return CCUtils.float2Int(width)
   }
 
   /**
@@ -110,7 +110,7 @@ export default class CCUtils {
    * @param value 检查的值
    * @returns true 为空
    */
-  public static isEmptyArray(value?: Array<unknown>): boolean {
+  public static isEmptyArray<T>(value?: Array<T>): boolean {
     if (value === undefined || value === null || value.length <= 0) {
       return true
     }

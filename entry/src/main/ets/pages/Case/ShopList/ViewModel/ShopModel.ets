@@ -8,9 +8,9 @@ class ShopModel {
 	getShopList(): Promise<ShopInfo[]> {
 		return new Promise((resolve, reject) => {
 			let url = `${CM.HttpURL.BASE_SERVER}/${CM.HttpURL.shopsURL}`
-			let params: ParamsType = {
-				pageNo: 1,
-				pageSize: 4
+			let params: Record<string, string | number > = {
+				'pageNo': 1,
+				'pageSize': 4,
 			}
 
 			CM.HttpRequestGet(url, params).then((resData: ResponseResult) => {

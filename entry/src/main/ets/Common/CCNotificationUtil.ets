@@ -59,11 +59,11 @@ export function publishNotification(templateName: string,
   };
   let notificationRequest: notification.NotificationRequest = {
     id: notificationId,
-    slotType: notification.SlotType.CONTENT_INFORMATION,
+    notificationSlotType: notification.SlotType.CONTENT_INFORMATION,
     // Construct a progress bar template. The name field must be set to downloadTemplate.
     template: template,
     content: {
-      contentType: notification.ContentType.NOTIFICATION_CONTENT_BASIC_TEXT,
+      notificationContentType: notification.ContentType.NOTIFICATION_CONTENT_BASIC_TEXT,
       normal: {
         title: `${title}`,
         text: '',
@@ -83,7 +83,7 @@ export function publishNotification(templateName: string,
 export function openNotificationPermission(): void {
   notification.requestEnableNotification().then(() => {
     Logger.info('Enable notification success');
-  }).catch((err) => {
+  }).catch((err: Error) => {
     Logger.error('Enable notification failed because ' + JSON.stringify(err));
   });
 }

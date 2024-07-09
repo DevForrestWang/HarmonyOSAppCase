@@ -15,7 +15,7 @@ export enum DOWNLOAD_STATUS {
 }
 
 @Extend(Button)
-function buttonStyle() {
+function downButtonStyle() {
   .constraintSize({ minWidth: CM.Utils.vp(72) })
   .height(CM.Utils.vp(28))
   .borderRadius(CM.Utils.vp(14))
@@ -223,7 +223,7 @@ struct DownloadPage {
   customButton(textResource: Resource | string, click: Function = ():void => {}) {
     Button(textResource)
       .backgroundColor('#0A59F7')
-      .buttonStyle()
+      .downButtonStyle()
       .onClick(() => {
         click();
       })
@@ -232,7 +232,7 @@ struct DownloadPage {
   @Builder
   cancelButton() {
     Button('Cancel')
-      .buttonStyle()
+      .downButtonStyle()
       .backgroundColor('#0D000000')
       .fontColor('#0A59F7')
       .margin({ right: CM.Utils.vp(8) })

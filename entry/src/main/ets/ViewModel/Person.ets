@@ -44,11 +44,6 @@ function baseFunc(a: number, b: number): number {
 
 	let c: Color = Color.Green
 
-	// Unknown: 在编程阶段还不清楚类型的变量指定一个类型。我们可以使用unknown类型来标记这些变量。
-	let notSure: unknown = 4
-	notSure = 'maybe a string instead'
-	notSure = false
-
 	// Void: 当函数没有返回值时，你通常会见到其返回值类型是 void。
 
 	// Null 和 Undefined: undefined和null两者各自有自己的类型分别叫做undefined和null。
@@ -84,18 +79,10 @@ function baseFunc(a: number, b: number): number {
 
 	// undefined 和 null 作为值
 	let age: number = 24
-	age = null
-	age = undefined
 
 	// 作为类型
 	let udType: undefined = undefined
 	let nullType: null = null
-
-	let udNul: undefined = null
-	let hulUd: null = undefined
-
-	let anyUd: any = undefined
-	let unKnowNul: unknown = null
 
 	// 模块导入、导入
 	// import { NewsData, XX  } from '../XX' key导出多个属性或对象
@@ -163,9 +150,9 @@ function stringMethod() {
 	let match3 = str3.match(/ain/g) // ain,ain,ain
 
 	// 	replace: 替换与正则表达式匹配的子串
-	var re4 = /(\w+)\s(\w+)/
-	var str4 = "zara ali"
-	var str41 = str4.replace(re4, "$2, $1")
+	let re4 = /(\w+)\s(\w+)/
+	let str4 = "zara ali"
+	let str41 = str4.replace(re4, "$2, $1")
 	CM.Logger.debug(str41) // ali, zara
 
 	// 	search: 检索与正则表达式相匹配的值
@@ -216,23 +203,14 @@ function arrayMethod() {
 	let alphaNumeric = alpha.concat(['d', 'e'])
 	CM.Logger.debug("alphaNumeric : " + alphaNumeric) // a,b,c,d,e
 
-	// 	every: 检测数值元素的每个元素是否都符合条件。
-	function isBigEnough(element, index, array) {
-		return (element >= 10)
-	}
-
-	let everyResult = [12, 5, 8, 130, 44].every(isBigEnough);
-	CM.Logger.debug("Test Value : " + everyResult) // false
-
-	// filter: 检测数值元素，并返回符合条件所有元素的数组。
-	let filterResult = [12, 5, 8, 130, 44].filter(isBigEnough);
-	CM.Logger.debug("Test Value : " + filterResult) // 12,130,44
-
 	// forEach: 数组每个元素都执行一次回调函数。
 	let num = [7, 8, 9]
-	num.forEach(function (value) {
-		CM.Logger.debug(`${value}`) // 7,8,9
-	});
+	num.forEach((val, idx, array) => {
+		// val: 当前值
+		// idx：当前index
+		// array: Array
+		CM.Logger.debug(`forEach, val: ${val}, idx:${idx}, array: ${array}`)
+	})
 
 	// indexOf: 搜索数组中的元素，并返回它所在的位置，如果搜索不到，返回值 -1，代表没有此项。
 	let index = [12, 5, 8, 130, 44].indexOf(8)
@@ -244,48 +222,41 @@ function arrayMethod() {
 	CM.Logger.debug("str : " + jArr.join(" + ")); // Google + Runoob + Taobao
 
 	// lastIndexOf: 返回一个指定的字符串值最后出现的位置，在一个字符串中的指定位置从后向前搜索。
-	var lastIndex = [12, 5, 8, 130, 44].lastIndexOf(130);
+	let lastIndex = [12, 5, 8, 130, 44].lastIndexOf(130);
 	CM.Logger.debug("index is : " + lastIndex); // 3
 
 	// 	map: 通过指定函数处理数组的每个元素，并返回处理后的数组。
-	var numbers = [1, 4, 9];
-	var roots = numbers.map(Math.sqrt);
+	let numbers = [1, 4, 9];
+	let roots = numbers.map(Math.sqrt);
 	CM.Logger.debug("roots is : " + roots); // 1,2,3
 
 	// pop: 删除数组的最后一个元素并返回删除的元素。
-	var element = numbers.pop();
+	let element = numbers.pop();
 	CM.Logger.debug("element is : " + element); // 9
 
 	// push: 向数组的末尾添加一个或更多元素，并返回新的长度。
-	var length = numbers.push(10);
+	numbers.push(10);
 	CM.Logger.debug("new numbers is : " + numbers); // 1,4,10
 
 	// reverse: 反转数组的元素顺序。
-	var reverArr = [0, 1, 2, 3].reverse();
+	let reverArr = [0, 1, 2, 3].reverse();
 	CM.Logger.debug("Reversed array is : " + reverArr); // 3,2,1,0
 
 	// shift: 删除并返回数组的第一个元素。
 	CM.Logger.debug("Shifted value is : " + [10, 1, 2, 3].shift()); // 10
 
 	// slice: 选取数组的的一部分，并返回一个新数组。
-	var sliceArr = ["orange", "mango", "banana", "sugar", "tea"];
+	let sliceArr = ["orange", "mango", "banana", "sugar", "tea"];
 	CM.Logger.debug("arr.slice( 1, 3) : " + sliceArr.slice(1, 3)); // mango,banana
 
-	// some: 检测数组元素中是否有元素符合指定条件。
-	var retval = [2, 5, 8, 1, 4].some(isBigEnough);
-	CM.Logger.debug("Returned value is : " + retval); // false
-
-	var retval = [12, 5, 8, 1, 4].some(isBigEnough);
-	CM.Logger.debug("Returned value is : " + retval); // true
-
 	// sort: 对数组的元素进行排序。
-	var sortArr = new Array("orange", "mango", "banana", "sugar");
+	let sortArr = new Array("orange", "mango", "banana", "sugar");
 	CM.Logger.debug("Returned string is : " + sortArr.sort()); // banana,mango,orange,sugar
 
 	{
 		// splice: 从数组中添加或删除元素。
-		var arr = ["orange", "mango", "banana", "sugar", "tea"];
-		var removed = arr.splice(2, 0, "water");
+		let arr = ["orange", "mango", "banana", "sugar", "tea"];
+		let removed = arr.splice(2, 0, "water");
 		CM.Logger.debug("After adding 1: " + arr); // orange,mango,water,banana,sugar,tea
 		CM.Logger.debug("removed is: " + removed);
 
@@ -296,14 +267,14 @@ function arrayMethod() {
 
 	{
 		// toString: 把数组转换为字符串，并返回结果。
-		var arr = new Array("orange", "mango", "banana", "sugar");
+		let arr = new Array("orange", "mango", "banana", "sugar");
 		CM.Logger.debug("Returned string is : " + arr.toString()); // orange,mango,banana,sugar
 	}
 
 	{
 		// unshift: 向数组的开头添加一个或更多元素，并返回新的长度。
-		var arr = new Array("orange", "mango", "banana", "sugar");
-		var length = arr.unshift("water");
+		let arr = new Array("orange", "mango", "banana", "sugar");
+		let length = arr.unshift("water");
 		CM.Logger.debug("Returned array is : " + arr); // water,orange,mango,banana,sugar
 		CM.Logger.debug("Length of the array is : " + length); // 5
 	}
@@ -312,7 +283,7 @@ function arrayMethod() {
 // Map 方法
 function mapMethod() {
 	CM.Logger.debug('Enter mapMethod');
-	let nameSiteMapping = new Map()
+	let nameSiteMapping = new Map<string, number>()
 
 	// 设置 Map 对象
 	nameSiteMapping.set("Google", 1)
@@ -330,8 +301,8 @@ function mapMethod() {
 	}
 
 	// 使用对象解析
-	for (let [key, value] of nameSiteMapping) {
-		CM.Logger.debug("key:" + key + ", value:" + value) //  key:Google, value:1 ...
+	for (let item of nameSiteMapping) {
+		CM.Logger.debug("item:" + item) //  key:Google, value:1 ...
 	}
 
 	// 获取键对应的值
@@ -355,8 +326,8 @@ function mapMethod() {
 function iterationMethod() {
 	// for..in 返回被迭代对象的键列表
 	let listIteAry: number[] = [4, 5, 6]
-	for (let i in listIteAry) {
-		CM.Logger.debug(i) // "0", "1", "2",
+	for (let i of listIteAry) {
+		CM.Logger.debug('${i}') // "0", "1", "2",
 	}
 
 	// for..of 返回被迭代对象的数字属性的值列表
@@ -366,7 +337,7 @@ function iterationMethod() {
 
 	// 下标循环
 	for (let i = 0; i < listIteAry.length; i++) {
-		var num = listIteAry[i]
+		let num = listIteAry[i]
 		CM.Logger.debug(`${num}`)
 	}
 
@@ -416,13 +387,6 @@ export class Person implements PersonInter {
 
 /// 继承
 export class Student extends Person {
-	public tomObj: PersonInter = {
-		name: "Tom",
-		age: 18,
-		sayHello: function () {
-			CM.Logger.debug(`Hello, my name is ${this.name}!, age: ${this.age}`)
-		}
-	}
 
 	constructor(name: string) {
 		super(name, 18)

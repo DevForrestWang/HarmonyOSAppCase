@@ -2,7 +2,7 @@ import ShopInfo from '../viewmodel/ShopInfo'
 
 @Component
 export default struct ShopItem {
-  shop: ShopInfo
+  @State shop: ShopInfo = new ShopInfo()
 
   build(){
     Column({space: 5}){
@@ -29,7 +29,7 @@ export default struct ShopItem {
       }.width('100%')
 
       List({space: 10}){
-        ForEach(this.shop.images, (image) => {
+        ForEach(this.shop.images, (image: string) => {
           ListItem(){
             Column(){
               Image(image)

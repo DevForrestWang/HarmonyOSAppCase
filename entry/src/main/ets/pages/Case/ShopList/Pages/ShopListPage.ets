@@ -24,7 +24,7 @@ struct ShopListPage {
 			BaseNaView({ title: '店铺列表', hasScroll: false }) {
 
 				List({ space: 10 }) {
-					ForEach(this.shops, shop => {
+					ForEach(this.shops, (shop: ShopInfo) => {
 						ListItem() {
 							ShopItem({ shop: shop })
 						}
