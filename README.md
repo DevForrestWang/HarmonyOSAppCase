@@ -1,11 +1,13 @@
 ## HarmonyOS应用案例
 
-- 本项目是鸿蒙HarmonyOS APP开发的示例，方便快速找到相关特性，提高开发速度。
+- 本项目是鸿蒙HarmonyOS NEXT APP开发的示例，方便快速找到相关特性，提高开发速度。
 - 首先了解下项目运行后的效果：
 
 ![screenshot](doc/HarmonyOSAppCase.gif)
 
-
+### 运行条件：
+- 首先安装：[DevEco Studio NEXT Developer Beta1](https://developer.huawei.com/consumer/cn/deveco-studio/)
+- tag:1.0.0 基于 HarmonyOS 3.1/4.0 IDE开发
 
 ### 项目说明：
 
