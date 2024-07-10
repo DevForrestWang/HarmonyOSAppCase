@@ -1,4 +1,4 @@
-import hilog from '@ohos.hilog'
+import { hilog } from '@kit.PerformanceAnalysisKit';
 
 /**
  * 日志打印模块
