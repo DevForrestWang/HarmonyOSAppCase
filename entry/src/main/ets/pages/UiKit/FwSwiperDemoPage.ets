@@ -10,9 +10,9 @@ struct FwSwiperDemoPage {
   private data: MyDataSource = new MyDataSource([])
 
   aboutToAppear(): void {
-    let list = []
-    for (var i = 1; i <= 10; i++) {
-      list.push(i.toString());
+    let list: number[] = []
+    for (let i = 1; i <= 10; i++) {
+      list.push(i);
     }
     this.data = new MyDataSource(list)
   }
@@ -31,7 +31,7 @@ struct FwSwiperDemoPage {
                 .backgroundColor(0xAFEEEE)
                 .textAlign(TextAlign.Center)
                 .fontSize(30)
-            }, item => item)
+            }, (item:number) => JSON.stringify(item))
           }
           .cachedCount(2)
           .index(1)

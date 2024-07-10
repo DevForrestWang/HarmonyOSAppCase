@@ -25,8 +25,8 @@ struct FwGridDemoPage {
                     .height(CM.Co.FULL_PARENT)
                     .textAlign(TextAlign.Center)
                 }
-              }, day => day)
-            }, day => day)
+              }, (day: string) => JSON.stringify(day))
+            }, (day: string) =>  JSON.stringify(day))
           }
           .columnsTemplate('1fr 1fr 1fr 1fr 1fr')
           .rowsTemplate('1fr 1fr 1fr 1fr 1fr')
@@ -39,6 +39,7 @@ struct FwGridDemoPage {
           Text('Scroll').fontColor(Color.Black).fontSize(14).width(CM.Co.FULL_PARENT)
           Grid(this.scroller) {
             ForEach(this.Number, (day: string) => {
+
               ForEach(this.Number, (day: string) => {
                 GridItem() {
                   Text(day)
@@ -48,8 +49,9 @@ struct FwGridDemoPage {
                     .height(80)
                     .textAlign(TextAlign.Center)
                 }
-              }, day => day)
-            }, day => day)
+              }, (day: string) => JSON.stringify(day))
+
+            }, (day: string) =>  JSON.stringify(day))
           }
           .columnsTemplate('1fr 1fr 1fr 1fr 1fr')
           .columnsGap(10)

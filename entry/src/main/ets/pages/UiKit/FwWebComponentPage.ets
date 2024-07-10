@@ -21,8 +21,8 @@ struct FwWebComponentPage {
           .padding(CM.Utils.vp(20))
           .height(CM.Co.FULL_PARENT)
           .onConsole((event) => {
-            CM.Logger.debug('getMessage:' + event.message.getMessage());
-            CM.Logger.debug('getMessageLevel:' + event.message.getMessageLevel());
+            CM.Logger.debug('getMessage:' + event?.message.getMessage());
+            CM.Logger.debug('getMessageLevel:' + event?.message.getMessageLevel());
             return false;
           })
 

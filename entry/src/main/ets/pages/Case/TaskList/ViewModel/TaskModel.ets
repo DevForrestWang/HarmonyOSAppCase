@@ -1,8 +1,9 @@
-import relationalStore from '@ohos.data.relationalStore';
+import { relationalStore } from '@kit.ArkData';
 import TaskInfo from './TaskInfo';
 
 class TaskModel {
-	private rdbStore: relationalStore.RdbStore
+	private rdbStore: relationalStore.RdbStore | undefined = undefined
+
 	private tableName: string = 'TASK'
 
 	/**
@@ -10,10 +11,11 @@ class TaskModel {
 	 */
 	initTaskDB(context: Context): void {
 		// 1.rdb配置
-		const config = {
+		const config:relationalStore.StoreConfig = {
 			name: 'MyApplication.db',
 			securityLevel: relationalStore.SecurityLevel.S1
 		}
+
 		// 2.初始化SQL语句
 		const sql = `CREATE TABLE IF NOT EXISTS TASK (
                   ID INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -41,21 +43,29 @@ class TaskModel {
 		// 1.构建查询条件
 		let predicates = new relationalStore.RdbPredicates(this.tableName)
 		// 2.查询
-		let result = await this.rdbStore.query(predicates, ['ID', 'NAME', 'FINISHED'])
+
 		// 3.解析查询结果
 		// 3.1.定义一个数组，组装最终的查询结果
 		let tasks: TaskInfo[] = []
-		// 3.2.遍历封装
-		while (!result.isAtLastRow) {
-			// 3.3.指针移动到下一行
-			result.goToNextRow()
-			// 3.4.获取数据
-			let id = result.getLong(result.getColumnIndex('ID'))
-			let name = result.getString(result.getColumnIndex('NAME'))
-			let finished = result.getLong(result.getColumnIndex('FINISHED'))
-			// 3.5.封装到数组
-			tasks.push({ id, name, finished: !!finished })
+
+		if (this.rdbStore != undefined) {
+			let result = await this.rdbStore.query(predicates, ['ID', 'NAME', 'FINISHED'])
+
+			// 3.2.遍历封装
+			while (!result.isAtLastRow) {
+				// 3.3.指针移动到下一行
+				result.goToNextRow()
+				// 3.4.获取数据
+				let id = result.getLong(result.getColumnIndex('ID'))
+				let name = result.getString(result.getColumnIndex('NAME'))
+				let finished = result.getLong(result.getColumnIndex('FINISHED'))
+				// 3.5.封装到数组
+				let task = new TaskInfo(id, name)
+				task.finished = !!finished
+				tasks.push(task)
+			}
 		}
+
 		console.log('testTag', '查询到数据：', JSON.stringify(tasks))
 		return tasks
 	}
@@ -66,7 +76,14 @@ class TaskModel {
 	 * @returns 任务id
 	 */
 	addTask(name: string): Promise<number> {
-		return this.rdbStore.insert(this.tableName, { name, finished: false })
+		return new Promise((resolve: Function, reject: Function) => {
+			if (this.rdbStore != undefined) {
+				let result = this.rdbStore.insert(this.tableName, { name, finished: false })
+				resolve(result)
+			} else  {
+				reject('插入数据失败')
+			}
+		})
 	}
 
 	/**
@@ -75,13 +92,22 @@ class TaskModel {
 	 * @param finished 任务是否完成
 	 */
 	updateTaskStatus(id: number, finished: boolean): Promise<number> {
-		// 1.要更新的数据
-		let data = { finished }
-		// 2.更新的条件
-		let predicates = new relationalStore.RdbPredicates(this.tableName)
-		predicates.equalTo('ID', id)
-		// 3.更新操作
-		return this.rdbStore.update(data, predicates)
+		return new Promise((resolve: Function, reject: Function) => {
+			if (this.rdbStore != undefined) {
+				// 1.要更新的数据
+				let data:relationalStore.ValuesBucket = {
+					'FINISHED': finished
+				}
+				// 2.更新的条件
+				let predicates = new relationalStore.RdbPredicates(this.tableName)
+				predicates.equalTo('ID', id)
+				// 3.更新操作
+				let result = this.rdbStore.update(data, predicates)
+				resolve(result)
+			} else  {
+				reject('更新数据失败')
+			}
+		})
 	}
 
 	/**
@@ -89,11 +115,18 @@ class TaskModel {
 	 * @param id 任务id
 	 */
 	deleteTaskById(id: number): Promise<number> {
-		// 1.删除的条件
-		let predicates = new relationalStore.RdbPredicates(this.tableName)
-		predicates.equalTo('ID', id)
-		// 2.删除操作
-		return this.rdbStore.delete(predicates)
+		return new Promise((resolve: Function, reject: Function) => {
+			if (this.rdbStore != undefined) {
+				// 1.删除的条件
+				let predicates = new relationalStore.RdbPredicates(this.tableName)
+				predicates.equalTo('ID', id)
+				// 2.删除操作
+				let result = this.rdbStore.delete(predicates)
+				resolve(result)
+			} else  {
+				reject('删除数据失败')
+			}
+		})
 	}
 }
 

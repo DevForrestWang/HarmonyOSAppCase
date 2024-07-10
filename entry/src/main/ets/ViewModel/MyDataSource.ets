@@ -1,7 +1,7 @@
 
 export default class MyDataSource implements IDataSource {
   private list: number[] = []
-  private listener: DataChangeListener
+  private listener?: DataChangeListener
 
   constructor(list: number[]) {
     this.list = list
@@ -11,7 +11,7 @@ export default class MyDataSource implements IDataSource {
     return this.list.length
   }
 
-  getData(index: number): any {
+  getData(index: number): number {
     return this.list[index]
   }
 

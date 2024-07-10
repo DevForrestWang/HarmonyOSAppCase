@@ -4,10 +4,9 @@ import CM from '../Common/CCommon'
 /// 页面导航栏
 @Component
 export struct HeaderView {
-	private title: ResourceStr
-	private rightBtnName: Resource
-	rightAction: () => void
-	@State params: any = router.getParams()
+	@State title: ResourceStr = ''
+	rightBtnName?: Resource
+	rightAction?: () => void
 
 	build() {
 
@@ -32,7 +31,7 @@ export struct HeaderView {
 					.height(CM.Utils.vp(22))
 					.margin({ right: CM.Utils.vp(20) })
 					.onClick(() => {
-						if (this.rightBtnName != null) {
+						if (this.rightBtnName != null && null != this.rightAction)  {
 							this.rightAction()
 						}
 					})

@@ -4,7 +4,7 @@ import TaskModel from '../ViewModel/TaskModel'
 @Component
 export default struct TaskItem {
 	@ObjectLink item: TaskInfo
-	onTaskChange: (item: TaskInfo) => void
+	onTaskChange?: (item: TaskInfo) => void
 
 	build() {
 		Row() {
@@ -22,9 +22,11 @@ export default struct TaskItem {
 						.then(() => {
 							this.item.finished = val
 							// 2.更新已完成任务数量
-							this.onTaskChange(this.item)
+							if (this.onTaskChange != null) {
+								this.onTaskChange(this.item)
+							}
 						})
-						.catch(error => console.log('testTag', '更新任务状态失败, id = ', this.item.id, JSON.stringify(error)))
+						.catch((error: Error) => console.log('testTag', '更新任务状态失败, id = ', this.item.id, JSON.stringify(error)))
 
 				})
 		}

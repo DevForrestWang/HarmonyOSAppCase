@@ -50,7 +50,7 @@ export default struct TaskList {
 				// 3.关闭对话框
 				this.dialogController.close()
 			})
-			.catch(error => console.log('testTag', '新增任务失败：', name, JSON.stringify(error)))
+			.catch((error: Error) => console.log('testTag', '新增任务失败：', name, JSON.stringify(error)))
 
 	}
 
@@ -102,7 +102,7 @@ export default struct TaskList {
 					this.handleTaskChange()
 					console.log('testTag', `尝试删除任务，index: ${index}`)
 				})
-				.catch(error => console.log('testTag', '删除任务失败，id = ', id, JSON.stringify(error)))
+				.catch((error: Error) => console.log('testTag', '删除任务失败，id = ', id, JSON.stringify(error)))
 
 		})
 	}
@@ -111,7 +111,7 @@ export default struct TaskList {
 @CustomDialog
 struct TaskInfoDialog {
 	name: string = ''
-	onTaskConfirm: (name: string) => void
+	onTaskConfirm?: (name: string) => void
 	controller: CustomDialogController
 
 	build() {
@@ -121,7 +121,9 @@ struct TaskInfoDialog {
 			Row() {
 				Button('确定')
 					.onClick(() => {
-						this.onTaskConfirm(this.name)
+						if (this.onTaskConfirm != null) {
+							this.onTaskConfirm(this.name)
+						}
 					})
 				Button('取消')
 					.backgroundColor(Color.Grey)

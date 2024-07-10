@@ -1,5 +1,6 @@
 import CM from '../../Common/CCommon'
 import BaseNaView from '../../View/BaseNavigationView'
+import { JSON } from '@kit.ArkTS'
 
 /// UI组件：List
 @Entry
@@ -22,7 +23,7 @@ struct FwListDemoPage {
         Column({ space: 10 }) {
 
           List({space:20, initialIndex:0}) {
-            ForEach(this.arr, (item, index) => {
+            ForEach(this.arr, (item: number, index) => {
               ListItem() {
                 Flex({direction: FlexDirection.Row, alignItems: ItemAlign.Center}) {
                   Text('' + item)
@@ -50,7 +51,7 @@ struct FwListDemoPage {
               .border({ width: 1, color: Color.Green })
               .borderRadius(3)
               .backgroundColor(0xAFEEEE)
-            }, item => item)
+            }, (item: number) => JSON.stringify(item))
           }.width(CM.Co.FULL_PARENT)
 
         }

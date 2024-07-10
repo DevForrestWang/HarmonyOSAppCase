@@ -22,7 +22,7 @@ struct FwBasicGrammarPage {
     CM.Logger.debug('pi:' + pi)
     runAllMethod()
     CM.Logger.debug("student: getPersonInfo" + this.student.getPersonInfo())
-    this.student.tomObj.sayHello()
+    this.student.sayHello()
     this.student.sayHelloToTeacher(new Person("Tom", 30))
   }
 
